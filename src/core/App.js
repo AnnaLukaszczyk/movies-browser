@@ -1,5 +1,7 @@
+import { Container } from "../common/Container";
+
 function App() {
-	return <div>Movies browser 1</div>;
+	return <Container>Movies Browser</Container>;
 }
 
 export default App;
