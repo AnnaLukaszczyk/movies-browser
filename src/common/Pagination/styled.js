@@ -8,6 +8,9 @@ export const Wrapper = styled.div`
     gap: 12px;
     font-size: 14px;
 
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+            gap: 8px;
+    }
 `;
 
 export const StyledButton = styled.button`
@@ -17,19 +20,28 @@ export const StyledButton = styled.button`
     padding: 8px 16px;
     border: none;
     border-radius: 5px;
-    color: ${({theme}) => theme.color.blue};
+    color: ${({ theme }) => theme.color.blue};
     background: ${({ theme }) => theme.color.lightBlue};
     cursor: pointer;
+
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+           padding: 8px 12px;
+           gap: 4px;
+    }
 
     &:disabled {
         cursor: auto;
         color: ${({ theme }) => theme.color.waterloo};
-        background: ${({theme}) => theme.color.mystic};
+        background: ${({ theme }) => theme.color.mystic};
     }
 `;
 
 export const ButtonText = styled.span`
     color: ${({ theme }) => theme.color.woodsmoke};
+
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+            display:none;
+    }
 `;
 
 export const TextContainer = styled.div`
@@ -37,12 +49,22 @@ export const TextContainer = styled.div`
     align-items: center;
     gap: 8px;
     margin: 0 12px;
+
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+            gap: 2px;
+            margin:0;
+    }
 `;
 
 export const Text = styled.span`
     color: ${({ theme }) => theme.color.waterloo};
     font-size: 16px;
     font-weight: 400;
+
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+            gap: 2px;
+            font-size: 10px;
+    }
 `;
 
 export const BoldText = styled(Text)`
