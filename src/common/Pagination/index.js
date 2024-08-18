@@ -1,15 +1,22 @@
 import { BoldText, ButtonText, LeftVector, StyledButton, Text, TextContainer, Vector, Wrapper } from "./styled"
 
 export const Pagination = () => {
+
+    const page = 1;
+
     return (
         <Wrapper>
-            <StyledButton>
+            <StyledButton
+                disabled={page < 2}
+            >
                 <LeftVector />
                 <ButtonText>
                     First
                 </ButtonText>
             </StyledButton>
-            <StyledButton>
+            <StyledButton
+                disabled={page < 2}
+            >
                 <LeftVector />
                 <ButtonText>
                     Previous
@@ -21,13 +28,15 @@ export const Pagination = () => {
                 <Text>of</Text>
                 <BoldText>150</BoldText>
             </TextContainer>
-            <StyledButton>
+            <StyledButton
+                disabled={page === 500}>
                 <ButtonText>
                     Next
                 </ButtonText>
                 <Vector />
             </StyledButton>
-            <StyledButton>
+            <StyledButton
+                disabled={page === 500}>
                 <ButtonText>
                     Last
                 </ButtonText>

@@ -17,8 +17,15 @@ export const StyledButton = styled.button`
     padding: 8px 16px;
     border: none;
     border-radius: 5px;
+    color: ${({theme}) => theme.color.blue};
     background: ${({ theme }) => theme.color.lightBlue};
     cursor: pointer;
+
+    &:disabled {
+        cursor: auto;
+        color: ${({ theme }) => theme.color.waterloo};
+        background: ${({theme}) => theme.color.mystic};
+    }
 `;
 
 export const ButtonText = styled.span`
@@ -44,7 +51,6 @@ export const BoldText = styled(Text)`
 `;
 
 export const Vector = styled(VectorSVG)`
-    color: ${({theme}) => theme.color.blue};
 `;
 
 export const LeftVector = styled(Vector)`
