@@ -1,5 +1,5 @@
 import { Main } from "../common/Main";
-import { Navigation } from "../common/Navigation/NavBar";
+import { Navigation } from "../common/Navigation";
 import { Pagination } from "../common/Pagination";
 import { MovieList } from "../features/movies/MovieList";
 
