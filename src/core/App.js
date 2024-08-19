@@ -1,7 +1,7 @@
 import { Container } from "../common/Container";
 import { Navigation } from "../common/Navigation/NavBar";
 import { Pagination } from "../common/Pagination";
-import { MoviesList } from "../features/MoviesList";
+import { MovieList } from "../features/movies/MovieList";
 
 function App() {
 	return (
@@ -9,7 +9,7 @@ function App() {
 			<Navigation />
 			<Container>
 				Movies Browser
-				<MoviesList />
+				<MovieList />
 			</Container>
 			<Pagination />
 		</>
