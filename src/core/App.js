@@ -1,4 +1,4 @@
-import { Container } from "../common/Container";
+import { Main } from "../common/Main";
 import { Navigation } from "../common/Navigation/NavBar";
 import { Pagination } from "../common/Pagination";
 import { MovieList } from "../features/movies/MovieList";
@@ -7,10 +7,10 @@ function App() {
 	return (
 		<>
 			<Navigation />
-			<Container>
+			<Main>
 				Movies Browser
 				<MovieList />
-			</Container>
+			</Main>
 			<Pagination />
 		</>
 	);
