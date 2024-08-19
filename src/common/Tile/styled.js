@@ -1,13 +1,26 @@
 import styled from "styled-components";
 
-export const Tile = styled.div`
+export const StyledTileLarge = styled.div`
 	display: grid;
 	justify-content: center;
 	grid-template-rows: auto 1fr;
 	grid-gap: 16px;
 	padding: 16px;
 	max-width: 324px;
-	max-height: 650px;
+	aspect-ratio: 324 / 650;
+	background: ${({ theme }) => theme.color.white};
+	border-radius: 5px;
+	box-shadow: 0 0 12px #bac7d580;
+`;
+
+export const StyledTileSmall = styled.div`
+	display: grid;
+	justify-content: center;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 16px;
+	padding: 16px;
+	max-width: 650px;
+	aspect-ratio: 650 / 324;
 	background: ${({ theme }) => theme.color.white};
 	border-radius: 5px;
 	box-shadow: 0 0 12px #bac7d580;
