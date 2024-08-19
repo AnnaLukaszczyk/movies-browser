@@ -1,19 +1,36 @@
 import { Tile, Image, Content, Title, Year, Tags, Tag } from "./styled";
 import poster from "../images/poster.png";
+import { Rating } from "../Rating";
 
-export const TileLarge = ({ title, year, tag }) => (
-	<Tile>
-		<Image src={poster} alt="" />
-		<Content>
-			<Title>{title}</Title>
-			<Year>{year}</Year>
-			<Tags>
-				<Tag>{tag}</Tag>
-				<Tag>{tag}</Tag>
-				<Tag>{tag}</Tag>
-			</Tags>
-		</Content>
-	</Tile>
-);
+export const TileLarge = ({ ratingValue, voteAmount, title, year, tag }) => {
+    return (
+        <Tile>
+            <Image src={poster} alt="" />
+            <Content>
+                <Title>{title}</Title>
+                <Year>{year}</Year>
+                <Tags>
+                    <Tag>{tag}</Tag>
+                    <Tag>{tag}</Tag>
+                    <Tag>{tag}</Tag>
+                </Tags>
+            </Content>
+            <Rating  // to jest Rating dla kafelków na MovieList
+                ratingValue={ratingValue}
+                voteAmount={voteAmount}
+            />
+            <Rating // ten Rating ma być w kafelku na tle zdjęcia filmu w MovieDetails
+                isOnMoviePhoto
+                ratingValue={ratingValue}
+                voteAmount={voteAmount}
+            />
+            <Rating // ten Rating ma być w kafelku z danymi filmu w MovieDetails
+                isMovieDetails
+                ratingValue={ratingValue}
+                voteAmount={voteAmount}
+            />
+        </Tile>
+    )
+};
 
-export const TileSmall = () => {};
+export const TileSmall = () => { };
