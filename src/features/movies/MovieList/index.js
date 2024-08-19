@@ -7,7 +7,8 @@ export const MovieList = () => {
 			<List>
 				<ListItem>
 					<Tile
-						ratingValue="10"
+						ratingValue="8.1"
+						voteAmount="2000"
 					/>
 				</ListItem>
 			</List>

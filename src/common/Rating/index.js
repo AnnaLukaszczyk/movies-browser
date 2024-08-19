@@ -1,16 +1,27 @@
-import { RatingValue, StarIcon } from "./styled"
+import { RatingMaxValue, RatingValue, RatingVotesAmount, RatingWrapper, StarIcon } from "./styled"
 
-export const Rating = ({ isOnMoviePhoto, isMovieDetails, ratingValue }) => {
+export const Rating = ({ isOnMoviePhoto, isMovieDetails, ratingValue, voteAmount }) => {
     return (
-        <div>
+        <RatingWrapper $onMoviePhoto={isOnMoviePhoto} $movieDetails={isMovieDetails}>
             <StarIcon $onMoviePhoto={isOnMoviePhoto} />
             <RatingValue
                 $onMoviePhoto={isOnMoviePhoto}
                 $movieDetails={isMovieDetails}
             >
                 {ratingValue}
-
             </RatingValue>
-        </div>
+            <RatingMaxValue
+                $onMoviePhoto={isOnMoviePhoto}
+                $movieDetails={isMovieDetails}
+            >
+                /10
+            </RatingMaxValue>
+            <RatingVotesAmount
+                $onMoviePhoto={isOnMoviePhoto}
+                $movieDetails={isMovieDetails}
+            >
+                {voteAmount} votes
+            </RatingVotesAmount>
+        </RatingWrapper>
     )
 };
