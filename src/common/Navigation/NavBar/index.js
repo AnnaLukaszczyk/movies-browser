@@ -1,6 +1,6 @@
 import { StyledNavigation, Logo, LogoText, NavSection, StyledLink, } from "./styled";
 
-export const Navigation = () => (
+export const NavBar = () => (
     <StyledNavigation>
         <Logo>
             <LogoText>Movies Browser</LogoText>
