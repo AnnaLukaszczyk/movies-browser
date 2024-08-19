@@ -7,15 +7,15 @@ export const Tile = styled.div`
 	grid-gap: 16px;
 	padding: 16px;
 	max-width: 324px;
-	min-height: 650px;
-	background: #fff;
+	max-height: 650px;
+	background: ${({ theme }) => theme.color.white};
 	border-radius: 5px;
 	box-shadow: 0 0 12px #bac7d580;
 `;
 
 export const Image = styled.img`
-	width: 292px;
-	height: 434px;
+	width: 100%;
+	height: auto;
 `;
 
 export const Content = styled.div`
@@ -34,14 +34,14 @@ export const Year = styled.p`
 export const Tags = styled.ul`
 	display: flex;
 	flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 	list-style: none;
 `;
 
 export const Tag = styled.li`
 	padding: 8px 16px;
-    font-size: 14px;
+	font-size: 14px;
 	background: #e4e6f0;
 	border-radius: 5px;
 
