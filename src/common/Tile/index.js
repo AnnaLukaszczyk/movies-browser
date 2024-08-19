@@ -1,25 +1,34 @@
-import { Tile, Image, Content, Title, Year, Tags, Tag } from "./styled";
+import {
+	StyledTileLarge,
+	StyledTileSmall,
+	Image,
+	Content,
+	Title,
+	Year,
+	Tags,
+	Tag,
+} from "./styled";
 import poster from "../images/poster.png";
 import { Rating } from "../Rating";
 
 export const TileLarge = ({ ratingValue, voteAmount, title, year, tag }) => {
-    return (
-        <Tile>
-            <Image src={poster} alt="" />
-            <Content>
-                <Title>{title}</Title>
-                <Year>{year}</Year>
-                <Tags>
-                    <Tag>{tag}</Tag>
-                    <Tag>{tag}</Tag>
-                    <Tag>{tag}</Tag>
-                </Tags>
-            </Content>
-            <Rating  // to jest Rating dla kafelków na MovieList
-                ratingValue={ratingValue}
-                voteAmount={voteAmount}
-            />
-            <Rating // ten Rating ma być w kafelku na tle zdjęcia filmu w MovieDetails
+	return (
+		<StyledTileLarge>
+			<Image src={poster} alt="" />
+			<Content>
+				<Title>{title}</Title>
+				<Year>{year}</Year>
+				<Tags>
+					<Tag>{tag}</Tag>
+					<Tag>{tag}</Tag>
+					<Tag>{tag}</Tag>
+				</Tags>
+			</Content>
+			<Rating // to jest Rating dla kafelków na MovieList
+				ratingValue={ratingValue}
+				voteAmount={voteAmount}
+			/>
+			{/* <Rating // ten Rating ma być w kafelku na tle zdjęcia filmu w MovieDetails
                 isOnMoviePhoto
                 ratingValue={ratingValue}
                 voteAmount={voteAmount}
@@ -28,9 +37,27 @@ export const TileLarge = ({ ratingValue, voteAmount, title, year, tag }) => {
                 isMovieDetails
                 ratingValue={ratingValue}
                 voteAmount={voteAmount}
-            />
-        </Tile>
-    )
+            /> */}
+		</StyledTileLarge>
+	);
 };
 
-export const TileSmall = () => { };
+export const TileSmall = ({ ratingValue, voteAmount, title, year, tag }) => (
+	<StyledTileSmall>
+		<Image src={poster} alt="" />
+		<Content>
+			<Title>{title}</Title>
+			<Year>{year}</Year>
+			<Tags>
+				<Tag>{tag}</Tag>
+				<Tag>{tag}</Tag>
+				<Tag>{tag}</Tag>
+			</Tags>
+
+			<Rating // to jest Rating dla kafelków na MovieList
+				ratingValue={ratingValue}
+				voteAmount={voteAmount}
+			/>
+		</Content>
+	</StyledTileSmall>
+);
