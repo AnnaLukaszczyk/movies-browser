@@ -6,8 +6,23 @@ export const NavBar = () => (
             <LogoText>Movies Browser</LogoText>
         </Logo>
         <NavSection>
-            <li><StyledLink>MOVIES</StyledLink></li>
-            <li><StyledLink>PEOPLE</StyledLink></li>
+            <li>
+                <StyledLink
+                    activeClassName="active"
+                    to="/movies"
+                >
+                    MOVIES
+                </StyledLink>
+            </li>
+            <li>
+                <StyledLink
+                    activeClassName="active"
+                    to="/people"
+                >
+                    PEOPLE
+
+                </StyledLink>
+            </li>
         </NavSection>
     </StyledNavigation>
 );
