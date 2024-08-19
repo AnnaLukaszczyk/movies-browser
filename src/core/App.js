@@ -8,7 +8,6 @@ function App() {
 		<>
 			<Navigation />
 			<Main>
-				Movies Browser
 				<MovieList />
 			</Main>
 			<Pagination />
