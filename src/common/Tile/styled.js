@@ -19,7 +19,6 @@ export const Image = styled.img`
 `;
 
 export const Content = styled.div`
-	margin-bottom: 16px;
 `;
 
 export const Title = styled.header`
