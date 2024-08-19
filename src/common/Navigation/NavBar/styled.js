@@ -6,7 +6,7 @@ export const StyledNavigation = styled.nav`
     justify-content: space-between;
 	gap: 80px;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.smallDesktop}px) {
         width: 100%;
 	    gap: 15px;
     };
@@ -22,7 +22,7 @@ export const Logo = styled.button`
     border: none;
     background: ${({ theme }) => theme.color.black};
 
-    @media(max-width: ${({ theme }) => theme.breakpoints.tablet}) { 
+    @media(max-width: ${({ theme }) => theme.breakpoints.smallDesktop}px) { 
         grid-gap: 10px;
         width: 170px;
     }
@@ -39,7 +39,7 @@ export const LogoText = styled.h1`
     margin: 0;
     color: ${({ theme }) => theme.color.white};
 
-    @media(max-width: ${({ theme }) => theme.breakpoints.tablet}) { 
+    @media(max-width: ${({ theme }) => theme.breakpoints.smallDesktop}px) { 
         font-size: 18px;
     }
 
@@ -55,7 +55,7 @@ export const NavSection = styled.ul`
     margin: 0;
     padding: 0;
 
-    @media(max-width: ${({ theme }) => theme.breakpoints.tablet}) { 
+    @media(max-width: ${({ theme }) => theme.breakpoints.smallDesktop}px) { 
         gap: 20px;
     }
 
@@ -75,7 +75,7 @@ export const StyledLink = styled.button`
     color: ${({ theme }) => theme.color.white};
     background: ${({ theme }) => theme.color.black};
 
-    @media(max-width: ${({ theme }) => theme.breakpoints.tablet}) { 
+    @media(max-width: ${({ theme }) => theme.breakpoints.smallDesktop}px) { 
         font-size: 13px;
         line-height: 19.5px;
         padding: 10px 18px;

@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
     margin: 0 auto;
     margin-bottom: 50px;
 
-    @media(max-width: ${({ theme }) => theme.breakpoints.tablet}) { 
+    @media(max-width: ${({ theme }) => theme.breakpoints.smallDesktop}px) { 
         flex-direction: column;
         padding: 16px;
         margin-bottom: 24px;
@@ -28,7 +28,7 @@ export const SearchInput = styled.input`
     line-height: 24px;
     border: none;
 
-    @media(max-width: ${({ theme }) => theme.breakpoints.tablet}) { 
+    @media(max-width: ${({ theme }) => theme.breakpoints.smallDesktop}px) { 
         font-size: 14.5px;
         line-height: 20px;
     }
