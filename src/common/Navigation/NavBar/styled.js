@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+import { ReactComponent as VideoIconSVG } from "../../images/Video.svg";
 
-export const StyledNavigation = styled.nav`
+export const StyledHeader = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -13,26 +14,10 @@ export const StyledNavigation = styled.nav`
     };
 `;
 
-export const Logo = styled.button`
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-gap: 12px;
-    align-items: center;
-    width: 220px;
-    text-decoration: none; 
-    border: none;
-    background: ${({ theme }) => theme.color.black};
-
-    @media(max-width: ${({ theme }) => theme.breakpoints.smallDesktop}px) { 
-        grid-gap: 10px;
-        width: 170px;
-    }
-
-    @media(max-width: ${({ theme }) => theme.breakpoints.mobile}px) { 
-        grid-gap: 10px;
-        width: 120px;
-    }
-`;
+export const VideoIcon = styled(VideoIconSVG)`
+     width: 40px;
+     height: 40px;
+  `;
 
 export const LogoText = styled.h1`
     font-weight: 500;
@@ -48,6 +33,12 @@ export const LogoText = styled.h1`
         font-size: 13px;
     }
 `;
+
+export const IconContainer = styled.div`
+    display: flex;
+    align-items: center;
+    gap:12px;
+    `;
 
 export const NavSection = styled.ul`
     display: flex;
@@ -65,7 +56,7 @@ export const NavSection = styled.ul`
     }
 `;
 
-export const StyledLink = styled(NavLink)`
+export const StyledNavLink = styled(NavLink)`
     font-weight: 600;
     font-size: 14px;
     line-height: 20px;
@@ -88,4 +79,11 @@ export const StyledLink = styled(NavLink)`
         line-height: 18px;
         padding: 8px 14px;
     }
+`;
+
+export const StyledLink = styled(Link)`
+    cursor: pointer;
+    text-decoration: none;
+	color: inherit;
+    
 `;

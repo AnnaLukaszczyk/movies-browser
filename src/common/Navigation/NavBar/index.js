@@ -1,28 +1,33 @@
-import { StyledNavigation, Logo, LogoText, NavSection, StyledLink, } from "./styled";
+import { LogoText, NavSection, StyledLink, StyledNavLink, VideoIcon, IconContainer, StyledHeader } from "./styled";
 
 export const NavBar = () => (
-    <StyledNavigation>
-        <Logo>
-            <LogoText>Movies Browser</LogoText>
-        </Logo>
-        <NavSection>
-            <li>
-                <StyledLink
-                    activeClassName="active"
-                    to="/movies"
-                >
-                    MOVIES
-                </StyledLink>
-            </li>
-            <li>
-                <StyledLink
-                    activeClassName="active"
-                    to="/people"
-                >
-                    PEOPLE
+    <StyledHeader>
+        <StyledLink to="/">
+            <IconContainer>
+                <VideoIcon />
+                <LogoText>Movies Browser</LogoText>
+            </IconContainer>
+        </StyledLink>
+        <nav>
+            <NavSection>
+                <li>
+                    <StyledNavLink
+                        activeClassName="active"
+                        to="/movies"
+                    >
+                        MOVIES
+                    </StyledNavLink>
+                </li>
+                <li>
+                    <StyledNavLink
+                        activeClassName="active"
+                        to="/people"
+                    >
+                        PEOPLE
 
-                </StyledLink>
-            </li>
-        </NavSection>
-    </StyledNavigation>
+                    </StyledNavLink>
+                </li>
+            </NavSection>
+        </nav>
+    </StyledHeader>
 );
