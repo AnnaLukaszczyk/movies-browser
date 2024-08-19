@@ -7,7 +7,7 @@ export const StyledNavigation = styled.nav`
 	gap: 80px;
 `;
 
-export const Logo = styled.p`
+export const Logo = styled.div`
     display: grid;
     grid-template-columns: auto 1fr;
     grid-gap: 12px;
