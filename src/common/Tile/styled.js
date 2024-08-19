@@ -1,25 +1,24 @@
 import styled from "styled-components";
 
-export const StyledTile = styled.div`
+export const Tile = styled.div`
 	display: grid;
 	justify-content: center;
 	grid-template-rows: auto 1fr;
 	grid-gap: 16px;
-	width: 324px;
-	height: 650px;
+	padding: 16px;
+	max-width: 324px;
+	min-height: 650px;
 	background: #fff;
 	border-radius: 5px;
 	box-shadow: 0 0 12px #bac7d580;
 `;
 
 export const Image = styled.img`
-	margin-top: 16px;
 	width: 292px;
 	height: 434px;
 `;
 
 export const Content = styled.div`
-	margin-bottom: 16px;
 `;
 
 export const Title = styled.header`

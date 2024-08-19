@@ -1,18 +1,19 @@
-import { StyledTile, Image, Content, Title, Year, Tags, Tag } from "./styled";
+import { Tile, Image, Content, Title, Year, Tags, Tag } from "./styled";
 import poster from "../images/poster.png";
 import { Rating } from "../Rating";
 
-export const Tile = ({ ratingValue, voteAmount }) => {
+export const TileLarge = ({ ratingValue, voteAmount, title, year, tag }) => {
     return (
-        <StyledTile>
+        <Tile>
+            <Image src={poster} alt="" />
             <Image src={poster} alt="" />
             <Content>
-                <Title>Mulan</Title>
-                <Year>2020</Year>
+                <Title>{title}</Title>
+                <Year>{year}</Year>
                 <Tags>
-                    <Tag>Action</Tag>
-                    <Tag>Adventure</Tag>
-                    <Tag>Drama</Tag>
+                    <Tag>{tag}</Tag>
+                    <Tag>{tag}</Tag>
+                    <Tag>{tag}</Tag>
                 </Tags>
             </Content>
             <Rating  // to jest Rating dla kafelków na MovieList
@@ -29,6 +30,8 @@ export const Tile = ({ ratingValue, voteAmount }) => {
                 ratingValue={ratingValue}
                 voteAmount={voteAmount}
             />
-        </StyledTile>
+        </Tile>
     )
 };
+
+export const TileSmall = () => { };
