@@ -1,5 +1,6 @@
 import { Container } from "../common/Container";
 import { Navigation } from "../common/Navigation/NavBar";
+import { Pagination } from "../common/Pagination";
 import { MoviesList } from "../features/MoviesList";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
 				Movies Browser
 				<MoviesList />
 			</Container>
+			<Pagination />
 		</>
 	);
 }
