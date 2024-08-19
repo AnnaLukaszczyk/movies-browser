@@ -6,7 +6,6 @@ export const TileLarge = ({ ratingValue, voteAmount, title, year, tag }) => {
     return (
         <Tile>
             <Image src={poster} alt="" />
-            <Image src={poster} alt="" />
             <Content>
                 <Title>{title}</Title>
                 <Year>{year}</Year>
