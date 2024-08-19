@@ -1,15 +1,26 @@
-import { Main } from "../common/Main";
+import { HashRouter, Redirect, Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import { Navigation } from "../common/Navigation";
 import { Pagination } from "../common/Pagination";
 import { MovieList } from "../features/movies/MovieList";
+import { PeopleList } from "../features/people/PeopleList";
 
 function App() {
 	return (
 		<>
-			<Navigation />
-			<Main>
-				<MovieList />
-			</Main>
+			<HashRouter>
+				<Navigation />
+				<Switch>
+					<Route path="/movies">
+						<MovieList />
+					</Route>
+					<Route path="/people">
+						<PeopleList />
+					</Route>
+					<Route path="/">
+						<Redirect to="/movies" />
+					</Route>
+				</Switch>
+			</HashRouter>
 			<Pagination />
 		</>
 	);
