@@ -4,8 +4,8 @@ import "./core/index.css";
 import App from "./core/App";
 import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "styled-components";
-import { theme } from "./theme";
-import { GlobalStyle } from "./GlobalStyle";
+import { theme } from "./core/theme";
+import { GlobalStyle } from "./core/GlobalStyle";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
