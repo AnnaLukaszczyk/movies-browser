@@ -1,17 +1,19 @@
-import { StyledTile, Image, Content, Title, Year, Tags, Tag } from "./styled";
+import { Tile, Image, Content, Title, Year, Tags, Tag } from "./styled";
 import poster from "../images/poster.png";
 
-export const Tile = () => (
-	<StyledTile>
+export const TileLarge = ({ title, year, tag }) => (
+	<Tile>
 		<Image src={poster} alt="" />
 		<Content>
-			<Title>Mulan</Title>
-            <Year>2020</Year>
-            <Tags>
-                <Tag>Action</Tag>
-                <Tag>Adventure</Tag>
-                <Tag>Drama</Tag>
-            </Tags>
+			<Title>{title}</Title>
+			<Year>{year}</Year>
+			<Tags>
+				<Tag>{tag}</Tag>
+				<Tag>{tag}</Tag>
+				<Tag>{tag}</Tag>
+			</Tags>
 		</Content>
-	</StyledTile>
+	</Tile>
 );
+
+export const TileSmall = () => {};
