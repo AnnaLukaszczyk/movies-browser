@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 export const StyledNavigation = styled.nav`
     display: flex;
@@ -64,7 +65,7 @@ export const NavSection = styled.ul`
     }
 `;
 
-export const StyledLink = styled.button`
+export const StyledLink = styled(NavLink)`
     font-weight: 600;
     font-size: 14px;
     line-height: 20px;
@@ -74,6 +75,7 @@ export const StyledLink = styled.button`
     border: solid 1px white;
     color: ${({ theme }) => theme.color.white};
     background: ${({ theme }) => theme.color.black};
+    
 
     @media(max-width: ${({ theme }) => theme.breakpoints.smallDesktop}px) { 
         font-size: 13px;
