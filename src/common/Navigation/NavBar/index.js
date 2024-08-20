@@ -10,23 +10,18 @@ export const NavBar = () => (
         </StyledLink>
         <nav>
             <NavSection>
-                <li>
                     <StyledNavLink
                         activeClassName="active"
                         to="/movies"
                     >
                         MOVIES
                     </StyledNavLink>
-                </li>
-                <li>
                     <StyledNavLink
                         activeClassName="active"
                         to="/people"
                     >
                         PEOPLE
-
                     </StyledNavLink>
-                </li>
             </NavSection>
         </nav>
     </StyledHeader>
