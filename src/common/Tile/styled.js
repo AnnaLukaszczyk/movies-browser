@@ -16,11 +16,10 @@ export const StyledTileLarge = styled.div`
 export const StyledTileSmall = styled.div`
 	display: grid;
 	justify-content: center;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: auto 1fr;
 	grid-gap: 16px;
 	padding: 16px;
-	max-width: 650px;
-	aspect-ratio: 650 / 324;
+	width: 702px;
 	background: ${({ theme }) => theme.color.white};
 	border-radius: 5px;
 	box-shadow: 0 0 12px #bac7d580;
@@ -37,19 +36,33 @@ export const Content = styled.div`
 export const Title = styled.header`
 	font-size: 22px;
 	font-weight: 500;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
+		font-size: 16px;
+
+	}
 `;
 
 export const Year = styled.p`
 	margin: 8px 0;
-	color: darkgray;
+	color: ${({ theme }) => theme.color.darkerGrey};
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
+		font-size: 13px;
+	}
 `;
 
 export const Tags = styled.ul`
 	display: flex;
 	flex-wrap: wrap;
+	gap: 8px;
 	margin: 0;
 	padding: 0;
 	list-style: none;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		margin-bottom: 8px;
+	}
 `;
 
 export const Tag = styled.li`
@@ -58,7 +71,8 @@ export const Tag = styled.li`
 	background: #e4e6f0;
 	border-radius: 5px;
 
-	&:not(:last-child) {
-		margin-right: 8px;
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
+		padding: 4px 8px;
+		font-size: 10px;
 	}
 `;
