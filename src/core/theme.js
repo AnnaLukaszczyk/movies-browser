@@ -10,13 +10,15 @@ export const theme = {
         black: "#000000",
         lightBlue: "#D6E4FF",
         blue: "#0044CC",
+        darkerGrey: "#627489",
 
     },
 
     breakpoints: {
         desktopLarge: 1500,
         desktopSmall: 1200,
-        tablet: 992,
+        tabletLarge: 1086,
+        tabletSmall: 992,
         mobileLarge: 767,
         mobileSmall: 480,
     },
