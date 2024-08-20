@@ -1,5 +1,12 @@
+import { Main } from "../../../common/Main";
+import { BackgroundImage, Header, Vignette } from "./styled";
+
 export const MovieDetails = () => {
     return (
-        <p>MoviesDetails</p>
+            <Header>
+                <BackgroundImage>
+                    <Vignette />
+                </BackgroundImage>
+            </Header>
     )
 };
