@@ -3,6 +3,7 @@ import { Section, SectionTitle } from "../../../common/Section"
 import { TileLarge, TileSmall } from "../../../common/Tile";
 import { List, ListItem, StyledLink } from "./styled";
 import { Main } from '../../../common/Main';
+import { toMovieDetails } from '../../../core/routes';
 
 export const MovieList = () => {
 
@@ -13,7 +14,7 @@ export const MovieList = () => {
 			<Section>
 				<SectionTitle>Popular movies</SectionTitle>
 				<List>
-					<StyledLink to="/movieDetails">
+					<StyledLink to={toMovieDetails()}>
 						<ListItem>
 							{isLargeScreen ? (
 								<TileLarge

@@ -1,3 +1,4 @@
+import { toMovies, toPeople } from "../../../core/routes";
 import { LogoText, NavSection, StyledLink, StyledNavLink, VideoIcon, IconContainer, StyledHeader } from "./styled";
 
 export const NavBar = () => (
@@ -12,13 +13,13 @@ export const NavBar = () => (
             <NavSection>
                     <StyledNavLink
                         activeClassName="active"
-                        to="/movies"
+                        to={toMovies()}
                     >
                         MOVIES
                     </StyledNavLink>
                     <StyledNavLink
                         activeClassName="active"
-                        to="/people"
+                        to={toPeople()}
                     >
                         PEOPLE
                     </StyledNavLink>

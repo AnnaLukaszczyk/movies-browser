@@ -4,6 +4,7 @@ import { Pagination } from "../common/Pagination";
 import { MovieList } from "../features/movies/MovieList";
 import { PeopleList } from "../features/people/PeopleList";
 import { MovieDetails } from "../features/movies/MovieDetails";
+import { toMovieDetails, toMovies, toPeople } from "./routes";
 
 function App() {
 	return (
@@ -11,17 +12,17 @@ function App() {
 			<HashRouter>
 				<Navigation />
 				<Switch>
-					<Route path="/movieDetails">
+					<Route path={toMovieDetails()}>
 						<MovieDetails />
 					</Route>
-					<Route path="/movies">
+					<Route path={toMovies()}>
 						<MovieList />
 					</Route>
-					<Route path="/people">
+					<Route path={toPeople()}>
 						<PeopleList />
 					</Route>
-					<Route path="/">
-						<Redirect to="/movies" />
+					<Route exact path="/">
+						<Redirect to={toMovies()}/>
 					</Route>
 				</Switch>
 			</HashRouter>
