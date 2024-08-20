@@ -16,7 +16,6 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         margin: 0 auto;
-	    max-width: 1500px;
 	    height: 100vh;
         background: ${({ theme }) => theme.color.whisper};
         color: ${({ theme }) => theme.color.woodsmoke};
