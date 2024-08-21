@@ -5,7 +5,7 @@ export const List = styled.ul`
 	display: grid;
 	grid-template-columns: repeat(4, minmax(200px, 1fr));
 	grid-gap: 24px;
-	margin: auto;
+	margin: 24px auto 0;
 	padding: 0;
 	list-style: none;
 
@@ -19,6 +19,10 @@ export const List = styled.ul`
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
 		grid-template-columns: minmax(200px, 1fr);
+	}
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
+		margin: 12px auto 0;
 	}
 `;
 
