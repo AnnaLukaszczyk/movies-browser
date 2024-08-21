@@ -7,9 +7,13 @@ import {
 	Year,
 	Tags,
 	Tag,
+	StyledPeopleTile,
+	Subtitle,
+	ActorProfile,
 } from "./styled";
 import posterLarge from "../images/posterLarge.png";
 import posterSmall from "../images/posterSmall.png";
+import picture from "../images/picture.png";
 import { Rating } from "../Rating";
 
 export const TileLarge = ({ ratingValue, voteAmount, title, year, tag }) => {
@@ -61,4 +65,14 @@ export const TileSmall = ({ ratingValue, voteAmount, title, year, tag }) => (
 			/>
 		</Content>
 	</StyledTileSmall>
+);
+
+export const PeopleTile = ({ name, character }) => (
+	<StyledPeopleTile>
+		<Image src={picture} alt="" />
+		<ActorProfile>
+			<Title>{name}</Title>
+			<Subtitle>{character}</Subtitle>
+		</ActorProfile>
+	</StyledPeopleTile>
 );
