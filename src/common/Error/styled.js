@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as DangerIconSVG } from "../images/Danger.svg";
+import { ReactComponent as DangerIconSVG } from "../../icons/Danger.svg";
 import { NavLink } from "react-router-dom/cjs/react-router-dom";
 
 export const StyledError = styled.section`
@@ -11,7 +11,7 @@ export const StyledError = styled.section`
 export const StyledDanger = styled(DangerIconSVG)`
     width: 120px;
     height: 120px;
-    margin-top: 124px;
+    margin-top: 180px;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
         width: 80px;

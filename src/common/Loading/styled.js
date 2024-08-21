@@ -20,4 +20,3 @@ export const Spinner = styled(SpinnerSVG)`
         height: 35px;
     }
 `;
-
