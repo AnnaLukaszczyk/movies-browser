@@ -1,14 +1,14 @@
 import { useQueryParameter } from "../Navigation/SearchBar/useQueryParameters";
-import { Main } from "../Main";
-import { NoResultsText, StyledIcon } from "./styled";
+import { Section, SectionTitle } from "../Section";
+import { StyledIcon } from "./styled";
 
 export const NoResults = () => {
     const query = useQueryParameter("query");
 
     return (
-        <Main>
-            <NoResultsText>Sorry, there are no results for "{query}"</NoResultsText>
+        <Section>
+            <SectionTitle>Sorry, there are no results for "{query}"</SectionTitle>
             <StyledIcon />
-        </Main>
+        </Section>
     );
 };
