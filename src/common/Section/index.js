@@ -9,12 +9,11 @@ export const Section = styled.section`
 `;
 
 export const SectionTitle = styled.h2`
-	margin: 0 0 24px 0;
+	margin: 0;
 	font-size: 36px;
 	font-weight: 600;
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
-		margin-bottom: 12px;
 		font-size: 18px;
 	}
 `;
