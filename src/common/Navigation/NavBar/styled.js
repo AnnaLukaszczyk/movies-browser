@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { NavLink, Link } from "react-router-dom/cjs/react-router-dom";
-import { ReactComponent as VideoIconSVG } from "../../images/Video.svg";
+import { ReactComponent as VideoIconSVG } from "../../../icons/Video.svg";
 
 export const StyledHeader = styled.header`
     display: flex;

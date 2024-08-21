@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as VectorSVG } from "../../common/images/icon-vector.svg";
+import { ReactComponent as VectorSVG } from "../../icons/icon-vector.svg";
 
 export const Wrapper = styled.div`
 	margin-top: 40px;
