@@ -8,7 +8,16 @@ export const StyledError = styled.section`
     align-items: center;
     gap: 24px;
 `;
-export const StyledDanger = styled(DangerIconSVG)``;
+export const StyledDanger = styled(DangerIconSVG)`
+    width: 120px;
+    height: 120px;
+    margin-top: 124px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+        width: 80px;
+        height: 80px;
+    }
+`;
 
 export const Warning = styled.h1`
     text-align: center;
