@@ -12,7 +12,6 @@ export const Wrapper = styled.div`
     align-items: center;
     padding: 23px;
     margin: 0 auto;
-    margin-bottom: 50px;
 
     @media(max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) { 
         flex-direction: column;
