@@ -1,14 +1,27 @@
-import styled from "styled-components";
+import { Switch, Route, Redirect } from "react-router-dom";
+import { MovieList } from "../../features/movies/MovieList";
+import { PeopleList } from "../../features/people/PeopleList";
+import { MovieDetails } from "../../features/movies/MovieDetails";
+import { toMovieDetails, toMovies, toPeople } from "../../core/routes";
+import { StyledMain } from "./styled";
 
-export const Main = styled.main`
-	max-width: 1368px;
-	margin: 56px auto;
+export const Main = () => (
+	<StyledMain>
+		<Switch>
+			<Route path={toMovieDetails()}>
+				<MovieDetails />
+			</Route>
+			<Route path={toMovies()}>
+				<MovieList />
+			</Route>
+			<Route path={toPeople()}>
+				<PeopleList />
+			</Route>
+			<Route exact path="/">
+				<Redirect to={toMovies()} />
+			</Route>
+		</Switch>
+	</StyledMain>
+);
 
-	@media(max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) { 
-        margin: 40px auto;
-    }
-
-    @media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) { 
-        margin: 24px auto;
-    }
-`;
+export default Main;
