@@ -11,7 +11,7 @@ export const StyledError = styled.section`
 export const StyledDanger = styled(DangerIconSVG)`
     width: 120px;
     height: 120px;
-    margin-top: 124px;
+    margin-top: 180px;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
         width: 80px;
