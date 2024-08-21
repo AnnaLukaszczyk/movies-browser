@@ -1,28 +1,30 @@
 import styled from "styled-components";
 
-export const StyledTileLarge = styled.div`
+const Tile = styled.div`
 	display: grid;
 	justify-content: center;
-	grid-template-rows: auto 1fr;
-	grid-gap: 16px;
 	padding: 16px;
-	max-width: 324px;
-	aspect-ratio: 324 / 650;
 	background: ${({ theme }) => theme.color.white};
 	border-radius: 5px;
 	box-shadow: 0 0 12px #bac7d580;
 `;
 
-export const StyledTileSmall = styled.div`
-	display: grid;
-	justify-content: center;
+export const StyledTileLarge = styled(Tile)`
+	grid-template-rows: auto 1fr;
+	max-width: 324px;
+	aspect-ratio: 324 / 650;
+`;
+
+export const StyledTileSmall = styled(Tile)`
 	grid-template-columns: auto 1fr;
 	grid-gap: 16px;
-	padding: 16px;
 	width: 702px;
-	background: ${({ theme }) => theme.color.white};
-	border-radius: 5px;
-	box-shadow: 0 0 12px #bac7d580;
+`;
+
+export const StyledPeopleTile = styled(Tile)`
+	grid-template-rows: auto 1fr;
+	max-width: 208px;
+	aspect-ratio: 208 / 339;
 `;
 
 export const Image = styled.img`
@@ -31,6 +33,20 @@ export const Image = styled.img`
 `;
 
 export const Content = styled.div`
+	margin-top: 16px;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		margin-top: 0;
+	}
+`;
+
+export const ActorProfile = styled.div`
+	margin-top: 12px;
+	text-align: center;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		margin-top: 8px;
+	}
 `;
 
 export const Title = styled.header`
@@ -39,8 +55,11 @@ export const Title = styled.header`
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
 		font-size: 16px;
-
 	}
+`;
+
+export const Subtitle = styled.p`
+	font-size: 18px;
 `;
 
 export const Year = styled.p`
