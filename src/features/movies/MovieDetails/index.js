@@ -1,5 +1,7 @@
+import { NoResults } from "../../../common/NoResults";
+
 export const MovieDetails = () => {
     return (
-        <p>MoviesDetails</p>
+        <NoResults />
     )
 };
