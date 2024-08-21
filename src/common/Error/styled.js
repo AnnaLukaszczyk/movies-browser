@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as DangerIconSVG } from "../images/Danger.svg";
+import { ReactComponent as DangerIconSVG } from "../../icons/Danger.svg";
 import { NavLink } from "react-router-dom/cjs/react-router-dom";
 
 export const StyledError = styled.section`
