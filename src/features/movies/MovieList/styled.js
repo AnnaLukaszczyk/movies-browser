@@ -23,6 +23,7 @@ export const List = styled.ul`
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
 		margin: 12px auto 0;
+		grid-gap: 16px;
 	}
 `;
 
@@ -33,6 +34,6 @@ export const ListItem = styled.li`
 `;
 
 export const StyledLink = styled(Link)`
-    text-decoration: none;
+	text-decoration: none;
 	color: inherit;
 `;
