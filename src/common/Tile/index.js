@@ -3,17 +3,28 @@ import {
 	StyledTileSmall,
 	Image,
 	Content,
+	ContentInDetailsStyle,
 	Title,
+	TitleInDetailsTile,
 	Year,
+	YearInDetailsTile,
 	Tags,
+	TagsInDetailsTile,
 	Tag,
 	StyledPeopleTile,
 	Subtitle,
 	ActorProfile,
+	StyledMovieDetailsTile,
+	DetailName,
+	DetailValue,
+	BoxOnDetails,
+	Description,
+	Details,
 } from "./styled";
 import posterLarge from "../images/posterLarge.png";
 import posterSmall from "../images/posterSmall.png";
 import picture from "../images/picture.png";
+import posterMovieDetails from "../images/posterMovieDetails.png";
 import { Rating } from "../Rating";
 
 export const TileLarge = ({ ratingValue, voteAmount, title, year, tag }) => {
@@ -35,11 +46,6 @@ export const TileLarge = ({ ratingValue, voteAmount, title, year, tag }) => {
 			/>
 			{/* <Rating // ten Rating ma być w kafelku na tle zdjęcia filmu w MovieDetails
                 isOnMoviePhoto
-                ratingValue={ratingValue}
-                voteAmount={voteAmount}
-            />
-            <Rating // ten Rating ma być w kafelku z danymi filmu w MovieDetails
-                isMovieDetails
                 ratingValue={ratingValue}
                 voteAmount={voteAmount}
             /> */}
@@ -75,4 +81,45 @@ export const PeopleTile = ({ name, character }) => (
 			<Subtitle>{character}</Subtitle>
 		</ActorProfile>
 	</StyledPeopleTile>
+);
+
+export const MovieDetailsTile = ({
+	ratingValue,
+	voteAmount,
+	title,
+	year,
+	production,
+	date,
+	tag,
+	description,
+}) => (
+	<StyledMovieDetailsTile>
+		<Image src={posterMovieDetails} alt="" />
+		<ContentInDetailsStyle>
+			<TitleInDetailsTile>{title}</TitleInDetailsTile>
+			<YearInDetailsTile>{year}</YearInDetailsTile>
+			<BoxOnDetails>
+				<Details>
+					<DetailName>Production:</DetailName>
+					<DetailValue>{production}</DetailValue>
+				</Details>
+				<Details>
+					<DetailName>Release date:</DetailName>
+					<DetailValue>{date}</DetailValue>
+				</Details>
+			</BoxOnDetails>
+			<TagsInDetailsTile>
+				<Tag>{tag}</Tag>
+				<Tag>{tag}</Tag>
+				<Tag>{tag}</Tag>
+			</TagsInDetailsTile>
+
+			<Rating // ten Rating ma być w kafelku z danymi filmu w MovieDetails
+				isMovieDetails
+				ratingValue={ratingValue}
+				voteAmount={voteAmount}
+			/>
+			<Description>{description}</Description>
+		</ContentInDetailsStyle>
+	</StyledMovieDetailsTile>
 );
