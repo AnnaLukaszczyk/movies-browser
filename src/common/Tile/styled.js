@@ -11,6 +11,7 @@ const Tile = styled.div`
 
 export const StyledTileLarge = styled(Tile)`
 	grid-template-rows: auto 1fr;
+	grid-gap: 16px;
 	max-width: 324px;
 	aspect-ratio: 324 / 650;
 `;
@@ -27,17 +28,26 @@ export const StyledPeopleTile = styled(Tile)`
 	aspect-ratio: 208 / 339;
 `;
 
+export const StyledMovieDetailsTile = styled(Tile)`
+	grid-template-columns: auto 1fr;
+	grid-gap: 40px;
+	max-width: 1368px;
+	aspect-ratio: 1368 / 544;
+	padding: 40px;
+	border-radius: 0;
+`;
+
 export const Image = styled.img`
 	width: 100%;
 	height: auto;
 `;
 
 export const Content = styled.div`
-	margin-top: 16px;
+	margin: 0;
+`;
 
-	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
-		margin-top: 0;
-	}
+export const ContentInDetailsStyle = styled(Content)`
+	margin: 8px 0;
 `;
 
 export const ActorProfile = styled.div`
@@ -58,6 +68,11 @@ export const Title = styled.header`
 	}
 `;
 
+export const TitleInDetailsTile = styled.header`
+	font-size: 36px;
+	font-weight: 600;
+`;
+
 export const Subtitle = styled.p`
 	font-size: 18px;
 `;
@@ -69,6 +84,32 @@ export const Year = styled.p`
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
 		font-size: 13px;
 	}
+`;
+
+export const YearInDetailsTile = styled.p`
+	font-size: 22px;
+	margin: 24px 0;
+`;
+
+export const BoxOnDetails = styled.div`
+	margin: 24px 0;
+`;
+
+export const Details = styled.p`
+	display: flex;
+	margin: 8px 0;
+	gap: 10px;
+`;
+
+export const DetailName = styled.span`
+	margin: 0;
+	font-size: 18px;
+	color: ${({ theme }) => theme.color.stormGrey};
+`;
+
+export const DetailValue = styled.span`
+	margin: 0;
+	font-size: 18px;
 `;
 
 export const Tags = styled.ul`
@@ -84,6 +125,10 @@ export const Tags = styled.ul`
 	}
 `;
 
+export const TagsInDetailsTile = styled(Tags)`
+	margin-bottom: 24px;
+`;
+
 export const Tag = styled.li`
 	padding: 8px 16px;
 	font-size: 14px;
@@ -94,4 +139,10 @@ export const Tag = styled.li`
 		padding: 4px 8px;
 		font-size: 10px;
 	}
+`;
+
+export const Description = styled.p`
+	margin: 24px 0 0;
+	font-size: 20px;
+	line-height: 32px;
 `;
