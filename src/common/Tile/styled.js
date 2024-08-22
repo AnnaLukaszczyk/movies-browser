@@ -26,6 +26,11 @@ export const StyledPeopleTile = styled(Tile)`
 	grid-template-rows: auto 1fr;
 	max-width: 208px;
 	aspect-ratio: 208 / 339;
+	border-radius: 0;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
+		padding: 8px;
+	}
 `;
 
 export const StyledMovieDetailsTile = styled(Tile)`
@@ -52,6 +57,7 @@ export const ContentInDetailsStyle = styled(Content)`
 
 export const ActorProfile = styled.div`
 	margin-top: 12px;
+	min-height: 64px;
 	text-align: center;
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
