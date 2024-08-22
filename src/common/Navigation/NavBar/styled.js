@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { NavLink, Link } from "react-router-dom";
-import { ReactComponent as VideoIconSVG } from "../../images/Video.svg";
+import { NavLink, Link } from "react-router-dom/cjs/react-router-dom";
+import { ReactComponent as VideoIconSVG } from "../../../icons/Video.svg";
 
 export const StyledHeader = styled.header`
     display: flex;
@@ -8,16 +8,16 @@ export const StyledHeader = styled.header`
     justify-content: space-between;
 	gap: 80px;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.smallDesktop}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) {
         width: 100%;
 	    gap: 15px;
     };
 `;
 
 export const VideoIcon = styled(VideoIconSVG)`
-     width: 40px;
-     height: 40px;
-  `;
+    width: 40px;
+    height: 40px;
+`;
 
 export const LogoText = styled.h1`
     font-weight: 500;
@@ -25,11 +25,11 @@ export const LogoText = styled.h1`
     margin: 0;
     color: ${({ theme }) => theme.color.white};
 
-    @media(max-width: ${({ theme }) => theme.breakpoints.smallDesktop}px) { 
+    @media(max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) { 
         font-size: 18px;
     }
 
-    @media(max-width: ${({ theme }) => theme.breakpoints.mobile}px) { 
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) { 
         font-size: 13px;
     }
 `;
@@ -38,7 +38,7 @@ export const IconContainer = styled.div`
     display: flex;
     align-items: center;
     gap:12px;
-    `;
+`;
 
 export const NavSection = styled.ul`
     display: flex;
@@ -46,12 +46,13 @@ export const NavSection = styled.ul`
     justify-content: center;
     margin: 0;
     padding: 0;
+    text-decoration: none;
 
-    @media(max-width: ${({ theme }) => theme.breakpoints.smallDesktop}px) { 
+    @media(max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) { 
         gap: 20px;
     }
 
-    @media(max-width: ${({ theme }) => theme.breakpoints.mobile}px) { 
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) { 
         gap: 20px;
     }
 `;
@@ -68,13 +69,13 @@ export const StyledNavLink = styled(NavLink)`
     background: ${({ theme }) => theme.color.black};
     
 
-    @media(max-width: ${({ theme }) => theme.breakpoints.smallDesktop}px) { 
+    @media(max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) { 
         font-size: 13px;
         line-height: 19.5px;
         padding: 10px 18px;
     }
 
-    @media(max-width: ${({ theme }) => theme.breakpoints.mobile}px) { 
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) { 
         font-size: 12px;
         line-height: 18px;
         padding: 8px 14px;
@@ -85,5 +86,4 @@ export const StyledLink = styled(Link)`
     cursor: pointer;
     text-decoration: none;
 	color: inherit;
-    
 `;

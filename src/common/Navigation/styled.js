@@ -13,10 +13,9 @@ export const Wrapper = styled.div`
     padding: 23px;
     margin: 0 auto;
 
-    @media(max-width: ${({ theme }) => theme.breakpoints.smallDesktop}px) { 
+    @media(max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) { 
         flex-direction: column;
         padding: 16px;
-        margin-bottom: 24px;
     }
 `;
 
@@ -27,7 +26,7 @@ export const SearchInput = styled.input`
     line-height: 24px;
     border: none;
 
-    @media(max-width: ${({ theme }) => theme.breakpoints.smallDesktop}px) { 
+    @media(max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) { 
         font-size: 14.5px;
         line-height: 20px;
     }
