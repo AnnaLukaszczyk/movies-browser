@@ -25,6 +25,7 @@ import posterLarge from "../images/posterLarge.png";
 import posterSmall from "../images/posterSmall.png";
 import picture from "../images/picture.png";
 import posterMovieDetails from "../images/posterMovieDetails.png";
+import picturePeopleDetails from "../images/picturePeopleDetails.png";
 import { Rating } from "../Rating";
 
 export const TileLarge = ({ ratingValue, voteAmount, title, year, tag }) => {
@@ -121,6 +122,31 @@ export const MovieDetailsTile = ({
 				ratingValue={ratingValue}
 				voteAmount={voteAmount}
 			/>
+			<Description>{description}</Description>
+		</ContentInDetailsStyle>
+	</StyledMovieDetailsTile>
+);
+
+export const PeopleDetailsTile = ({
+	name,
+	date,
+	pleace,
+	description,
+}) => (
+	<StyledMovieDetailsTile>
+		<Image src={picturePeopleDetails} alt="" />
+		<ContentInDetailsStyle>
+			<TitleInDetailsTile>{name}</TitleInDetailsTile>
+			<BoxOnDetails>
+				<Details>
+					<DetailName>Date od birth:</DetailName>
+					<DetailValue>{date}</DetailValue>
+				</Details>
+				<Details>
+					<DetailName>Pleace of birth:</DetailName>
+					<DetailValue>{pleace}</DetailValue>
+				</Details>
+			</BoxOnDetails>
 			<Description>{description}</Description>
 		</ContentInDetailsStyle>
 	</StyledMovieDetailsTile>
