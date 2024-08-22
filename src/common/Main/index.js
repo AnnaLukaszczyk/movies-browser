@@ -2,14 +2,18 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { MovieList } from "../../features/movies/MovieList";
 import { PeopleList } from "../../features/people/PeopleList";
 import { MovieDetails } from "../../features/movies/MovieDetails";
-import { toMovieDetails, toMovies, toPeople } from "../../core/routes";
+import { toMovieDetails, toPeopleDetails, toMovies, toPeople } from "../../core/routes";
 import { StyledMain } from "./styled";
+import { PeopleDetails } from "../../features/people/PeopleDetails";
 
 export const Main = () => (
 	<StyledMain>
 		<Switch>
 			<Route path={toMovieDetails()}>
 				<MovieDetails />
+			</Route>
+			<Route path={toPeopleDetails()}>
+				<PeopleDetails />
 			</Route>
 			<Route path={toMovies()}>
 				<MovieList />
