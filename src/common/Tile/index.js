@@ -44,8 +44,10 @@ export const TileLarge = ({ ratingValue, voteAmount, title, year, tag }) => {
 				ratingValue={ratingValue}
 				voteAmount={voteAmount}
 			/>
+
 			{/* <Rating // ten Rating ma być w kafelku na tle zdjęcia filmu w MovieDetails
                 isOnMoviePhoto
+
                 ratingValue={ratingValue}
                 voteAmount={voteAmount}
             /> */}

@@ -1,9 +1,25 @@
+import { Main } from "../../../common/Main";
+import { Rating } from "../../../common/Rating";
+import { BackgroundImage, Header, Title, TitleContainer, Vignette } from "./styled";
 import { Section } from "../../../common/Section";
 import { MovieDetailsTile } from "../../../common/Tile";
 
 export const MovieDetails = () => {
-	return (
-		<Section>
+    return (
+        <Header>
+            <BackgroundImage>
+                <Vignette />
+                <TitleContainer>
+                    <Title>Mulan</Title>
+                    <Rating // ten Rating ma być w kafelku na tle zdjęcia filmu w MovieDetails
+                        isOnMoviePhoto
+                        ratingValue="5"
+                        voteAmount="2000"
+                    />
+                </TitleContainer>
+            </BackgroundImage>
+        </Header>
+      	<Section>
 			<MovieDetailsTile
 				ratingValue="8.1"
 				voteAmount="2000"
@@ -16,5 +32,5 @@ export const MovieDetails = () => {
 Disguises herself as a male warrior in order to save her father.  A young Chinese maiden disguises herself as a male warrior in order to save her father."
 			/>
 		</Section>
-	);
+    )
 };

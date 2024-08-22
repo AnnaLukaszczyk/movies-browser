@@ -12,7 +12,6 @@ export const RatingWrapper = styled.div`
         width: 150px;
 	    height: 75px;
         gap: 8px;
-        background-color: ${({ theme }) => theme.color.woodsmoke};;
 	`}
 `;
 
