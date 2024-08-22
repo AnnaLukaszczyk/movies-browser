@@ -1,11 +1,11 @@
-import { Main } from "../../../common/Main";
 import { Rating } from "../../../common/Rating";
 import { BackgroundImage, Header, Title, TitleContainer, Vignette } from "./styled";
 import { Section } from "../../../common/Section";
 import { MovieDetailsTile } from "../../../common/Tile";
 
 export const MovieDetails = () => {
-    return (
+    return( 
+        <>
         <Header>
             <BackgroundImage>
                 <Vignette />
@@ -31,6 +31,6 @@ export const MovieDetails = () => {
 				description="A young Chinese maiden disguises herself as a male warrior in order to save her father. 
 Disguises herself as a male warrior in order to save her father.  A young Chinese maiden disguises herself as a male warrior in order to save her father."
 			/>
-		</Section>
+		</Section></>
     )
 };
