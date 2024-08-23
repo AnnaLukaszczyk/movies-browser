@@ -28,7 +28,7 @@ export const StyledPeopleTile = styled(Tile)`
 	aspect-ratio: 208 / 339;
 	border-radius: 0;
 
-	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
 		padding: 8px;
 	}
 `;
@@ -68,6 +68,10 @@ export const ActorProfile = styled.div`
 export const Title = styled.header`
 	font-size: 22px;
 	font-weight: 500;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+		font-size: 18px;
+	}
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
 		font-size: 16px;

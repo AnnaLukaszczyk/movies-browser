@@ -8,6 +8,10 @@ export const StyledMain = styled.main`
         margin: 56px 4%;
     }
 
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+        margin: 56px 5%
+	}
+
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) { 
         margin: 24px 16px;
     }

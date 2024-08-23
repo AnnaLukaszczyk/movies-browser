@@ -18,12 +18,13 @@ export const List = styled.ul`
 	}
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
-		grid-template-columns: repeat(3, minmax(150px, 1fr));
+		grid-template-columns: repeat(3, minmax(120px, 1fr));
+		grid-gap: 16px;
 	}
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
 		margin: 12px auto 0;
-		grid-template-columns: repeat(2, minmax(136px, 1fr));
+		grid-template-columns: repeat(2, minmax(120px, 1fr));
 	}
 `;
 
