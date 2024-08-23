@@ -3,11 +3,9 @@ import { MovieList } from "../../features/movies/MovieList";
 import { PeopleList } from "../../features/people/PeopleList";
 import { MovieDetails } from "../../features/movies/MovieDetails";
 import { toMovieDetails, toPeopleDetails, toMovies, toPeople } from "../../core/routes";
-import { StyledMain } from "./styled";
 import { PeopleDetails } from "../../features/people/PeopleDetails";
 
 export const Main = () => (
-	<StyledMain>
 		<Switch>
 			<Route path={toMovieDetails()}>
 				<MovieDetails />
@@ -25,7 +23,6 @@ export const Main = () => (
 				<Redirect to={toMovies()} />
 			</Route>
 		</Switch>
-	</StyledMain>
 );
 
 export default Main;

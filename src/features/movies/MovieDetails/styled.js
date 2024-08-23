@@ -10,9 +10,9 @@ export const BackgroundImage = styled.div`
     
     background-image: url(${poster}) ;
     position: relative;
-	margin: auto;
-	max-width: 1920px;
-	aspect-ratio: 5/2;
+	margin: 0 auto;
+	max-width: 1368px;
+	aspect-ratio: 1.7789;
   	background-repeat: no-repeat;
 	background-position: center;
     background-size: contain;
@@ -29,7 +29,7 @@ export const TitleContainer = styled.div`
 	position: absolute;
 	z-index: 2;
     bottom: 0;
-    margin: 0 0 3% 15%;
+    margin: 0 0 3% 2%;
     `;
 
 export const Title = styled.h1`
