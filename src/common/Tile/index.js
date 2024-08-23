@@ -1,6 +1,6 @@
 import {
-	StyledTileLarge,
-	StyledTileSmall,
+	StyledMovieTileLarge,
+	StyledMovieTileSmall,
 	Image,
 	Content,
 	ContentInDetailsStyle,
@@ -28,9 +28,9 @@ import posterMovieDetails from "../images/posterMovieDetails.png";
 import picturePeopleDetails from "../images/picturePeopleDetails.png";
 import { Rating } from "../Rating";
 
-export const TileLarge = ({ ratingValue, voteAmount, title, year, tag }) => {
+export const MovieTileLarge = ({ ratingValue, voteAmount, title, year, tag }) => {
 	return (
-		<StyledTileLarge>
+		<StyledMovieTileLarge>
 			<Image src={posterLarge} alt="" />
 			<Content>
 				<Title>{title}</Title>
@@ -52,12 +52,12 @@ export const TileLarge = ({ ratingValue, voteAmount, title, year, tag }) => {
                 ratingValue={ratingValue}
                 voteAmount={voteAmount}
             /> */}
-		</StyledTileLarge>
+		</StyledMovieTileLarge>
 	);
 };
 
-export const TileSmall = ({ ratingValue, voteAmount, title, year, tag }) => (
-	<StyledTileSmall>
+export const MovieTileSmall = ({ ratingValue, voteAmount, title, year, tag }) => (
+	<StyledMovieTileSmall>
 		<Image src={posterSmall} alt="" />
 		<Content>
 			<Title>{title}</Title>
@@ -73,7 +73,7 @@ export const TileSmall = ({ ratingValue, voteAmount, title, year, tag }) => (
 				voteAmount={voteAmount}
 			/>
 		</Content>
-	</StyledTileSmall>
+	</StyledMovieTileSmall>
 );
 
 export const PeopleTile = ({ name, character }) => (
