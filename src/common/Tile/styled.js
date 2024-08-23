@@ -9,14 +9,14 @@ const Tile = styled.div`
 	box-shadow: 0 0 12px #bac7d580;
 `;
 
-export const StyledTileLarge = styled(Tile)`
+export const StyledMovieTileLarge = styled(Tile)`
 	grid-template-rows: auto 1fr;
 	grid-gap: 16px;
 	max-width: 324px;
 	aspect-ratio: 324 / 650;
 `;
 
-export const StyledTileSmall = styled(Tile)`
+export const StyledMovieTileSmall = styled(Tile)`
 	grid-template-columns: auto 1fr;
 	grid-gap: 16px;
 	width: 702px;
@@ -24,11 +24,12 @@ export const StyledTileSmall = styled(Tile)`
 
 export const StyledPeopleTile = styled(Tile)`
 	grid-template-rows: auto 1fr;
-	max-width: 208px;
+	width: 208px;
 	aspect-ratio: 208 / 339;
 	border-radius: 0;
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+		width: 214px;
 		padding: 8px;
 	}
 `;
@@ -40,6 +41,11 @@ export const StyledMovieDetailsTile = styled(Tile)`
 	aspect-ratio: 1368 / 544;
 	padding: 40px;
 	border-radius: 0;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		grid-gap: 30px;
+		padding: 24px;
+	}
 `;
 
 export const Image = styled.img`
@@ -81,9 +87,14 @@ export const Title = styled.header`
 export const TitleInDetailsTile = styled.header`
 	font-size: 36px;
 	font-weight: 600;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		font-size: 24px;
+	}
 `;
 
 export const Subtitle = styled.p`
+	margin: 8px 0;
 	font-size: 18px;
 `;
 
@@ -99,10 +110,19 @@ export const Year = styled.p`
 export const YearInDetailsTile = styled.p`
 	font-size: 22px;
 	margin: 24px 0;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		font-size: 16px;
+		margin: 12px 0;
+	}
 `;
 
 export const BoxOnDetails = styled.div`
 	margin: 24px 0;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		margin: 12px 0;
+	}
 `;
 
 export const Details = styled.p`
@@ -115,11 +135,19 @@ export const DetailName = styled.span`
 	margin: 0;
 	font-size: 18px;
 	color: ${({ theme }) => theme.color.stormGrey};
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		font-size: 14px;
+	}
 `;
 
 export const DetailValue = styled.span`
 	margin: 0;
 	font-size: 18px;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		font-size: 14px;
+	}
 `;
 
 export const Tags = styled.ul`
@@ -155,4 +183,8 @@ export const Description = styled.p`
 	margin: 24px 0 0;
 	font-size: 20px;
 	line-height: 32px;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		font-size: 14px;
+	}
 `;
