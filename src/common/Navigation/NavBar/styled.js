@@ -8,7 +8,7 @@ export const StyledHeader = styled.header`
     justify-content: space-between;
 	gap: 80px;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.tabletLarge}px) {
         width: 100%;
 	    gap: 15px;
     };
@@ -25,7 +25,7 @@ export const LogoText = styled.h1`
     margin: 0;
     color: ${({ theme }) => theme.color.white};
 
-    @media(max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) { 
+    @media(max-width: ${({ theme }) => theme.breakpoints.tabletLarge}px) { 
         font-size: 18px;
     }
 
@@ -48,7 +48,7 @@ export const NavSection = styled.ul`
     padding: 0;
     text-decoration: none;
 
-    @media(max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) { 
+    @media(max-width: ${({ theme }) => theme.breakpoints.tabletLarge}px) { 
         gap: 20px;
     }
 
@@ -69,7 +69,7 @@ export const StyledNavLink = styled(NavLink)`
     background: ${({ theme }) => theme.color.black};
     
 
-    @media(max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) { 
+    @media(max-width: ${({ theme }) => theme.breakpoints.tabletLarge}px) { 
         font-size: 13px;
         line-height: 19.5px;
         padding: 10px 18px;
