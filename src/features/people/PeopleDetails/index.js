@@ -1,10 +1,10 @@
-import { StyledMain } from "../../../common/Main/styled";
+import { StyledMain as Main } from "../../../common/Main/styled";
 import { Section } from "../../../common/Section";
 import { PeopleDetailsTile } from "../../../common/Tile";
 
 export const PeopleDetails = () => {
   return (
-    <StyledMain>
+    <Main>
       <Section>
         <PeopleDetailsTile
           name="Liu Yifei"
@@ -14,6 +14,6 @@ export const PeopleDetails = () => {
         dancing and the piano. Moving to the United States at 10 with her mother, Liu lived there for four years."
         />
       </Section>
-    </StyledMain>
+    </Main>
   );
 };
