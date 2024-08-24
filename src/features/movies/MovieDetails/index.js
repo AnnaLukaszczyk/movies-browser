@@ -10,7 +10,7 @@ import {
 } from "./styled";
 import { SectionTitle } from "../../../common/Section";
 import { MovieDetailsTile, PeopleTile } from "../../../common/Tile";
-import { StyledMain } from "../../../common/Main/styled";
+import { StyledMain as Main } from "../../../common/Main/styled";
 import { ListItem, StyledLink } from "../../people/PeopleList/styled";
 import { toPeopleDetails } from "../../../core/routes";
 
@@ -30,7 +30,7 @@ export const MovieDetails = () => {
 					</TitleContainer>
 				</BackgroundImage>
 			</Header>
-			<StyledMain>
+			<Main>
 				<MovieDetailsTile
 					ratingValue="8.1"
 					voteAmount="2000"
@@ -61,7 +61,7 @@ export const MovieDetails = () => {
 						</StyledLink>
 					</List>
 				</Section>
-			</StyledMain>
+			</Main>
 		</>
 	);
 };
