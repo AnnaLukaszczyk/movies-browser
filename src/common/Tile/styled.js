@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Tile = styled.div`
+const Tile = styled.article`
 	display: grid;
 	justify-content: center;
 	padding: 16px;
@@ -34,7 +34,7 @@ export const StyledPeopleTile = styled(Tile)`
 	}
 `;
 
-export const StyledMovieDetailsTile = styled(Tile)`
+export const StyledDetailsTile = styled(Tile)`
 	grid-template-columns: auto 1fr;
 	grid-gap: 40px;
 	max-width: 1368px;
@@ -71,7 +71,7 @@ export const ActorProfile = styled.div`
 	}
 `;
 
-export const Title = styled.header`
+export const Title = styled.h3`
 	font-size: 22px;
 	font-weight: 500;
 
