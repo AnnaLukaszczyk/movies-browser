@@ -1,11 +1,11 @@
-import { StyledMain } from "../../../common/Main/styled";
+import { StyledMain as Main } from "../../../common/Main/styled";
 import { Section, SectionTitle } from "../../../common/Section";
 import { PeopleTile } from "../../../common/Tile";
 import { toPeopleDetails } from "../../../core/routes";
 import { List, ListItem, StyledLink } from "./styled"
 
 export const PeopleList = () => (
-	<StyledMain>
+	<Main>
 		<Section>
 			<SectionTitle>Popular people</SectionTitle>
 			<List>
@@ -16,5 +16,5 @@ export const PeopleList = () => (
 				</StyledLink>
 			</List>
 		</Section>
-	</StyledMain>
+	</Main>
 );
