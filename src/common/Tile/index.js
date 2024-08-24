@@ -76,12 +76,12 @@ export const MovieTileSmall = ({ ratingValue, voteAmount, title, year, tag }) =>
 	</StyledMovieTileSmall>
 );
 
-export const PeopleTile = ({ name, character }) => (
+export const PeopleTile = ({ name, character, role }) => (
 	<StyledPeopleTile>
 		<Image src={picture} alt="" />
 		<ActorProfile>
 			<Title>{name}</Title>
-			<Subtitle>{character}</Subtitle>
+			<Subtitle>{character}{role}</Subtitle>
 		</ActorProfile>
 	</StyledPeopleTile>
 );
