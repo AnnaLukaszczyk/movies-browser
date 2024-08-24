@@ -32,7 +32,7 @@ export const TitleContainer = styled.div`
     margin: 0 0 3% 2%;
     `;
 
-export const Title = styled.h1`
+export const Title = styled.h2`
 	color: ${({ theme }) => theme.color.white};
 	font-size: 64px;
 	font-weight: 600;
