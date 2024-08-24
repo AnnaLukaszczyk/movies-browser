@@ -1,11 +1,5 @@
 import { Wrapper, SearchInput } from "./styled";
 import { useLocation } from "react-router-dom";
-import {
-	toMovies,
-	toPeople,
-	toMovieDetails,
-	toPeopleDetails,
-} from "../../../core/routes";
 
 export const SearchBar = () => {
 	const location = useLocation();
