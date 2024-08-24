@@ -3,13 +3,13 @@ import { Section, SectionTitle } from "../../../common/Section";
 import { MovieTileLarge, MovieTileSmall } from "../../../common/Tile";
 import { List, ListItem, StyledLink } from "./styled";
 import { toMovieDetails } from "../../../core/routes";
-import { StyledMain } from "../../../common/Main/styled";
+import { StyledMain as Main } from "../../../common/Main/styled";
 
 export const MovieList = () => {
 	const isLargeScreen = useMediaQuery({ query: "(min-width: 993px)" });
 
 	return (
-		<StyledMain>
+		<Main>
 			<Section>
 				<SectionTitle>Popular movies</SectionTitle>
 				<List>
@@ -36,6 +36,6 @@ export const MovieList = () => {
 					</StyledLink>
 				</List>
 			</Section>
-		</StyledMain>
+		</Main>
 	);
 };
