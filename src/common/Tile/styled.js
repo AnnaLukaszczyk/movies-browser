@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const Image = styled.img`
+	width: 100%;
+	height: auto;
+	transition: filter 0.3s ease;
+`;
+
 const Tile = styled.article`
 	display: grid;
 	justify-content: center;
@@ -7,6 +13,16 @@ const Tile = styled.article`
 	background: ${({ theme }) => theme.color.white};
 	border-radius: 5px;
 	box-shadow: 0 0 12px #bac7d580;
+	transition: transform 0.3s, box-shadow 0.3s;
+
+	&:hover {
+		transform: translateY(10px);
+		box-shadow: 0 0 16px #959faa;
+	}
+
+	&:hover ${Image} {
+		filter: brightness(90%);
+	}
 `;
 
 export const StyledMovieTileLarge = styled(Tile)`
@@ -42,15 +58,19 @@ export const StyledDetailsTile = styled(Tile)`
 	padding: 40px;
 	border-radius: 0;
 
+	&:hover {
+		transform: none;
+		box-shadow: 0 0 12px #bac7d580;
+	}
+
+	&:hover ${Image} {
+		filter: none;
+	}
+
 	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
 		grid-gap: 30px;
 		padding: 24px;
 	}
-`;
-
-export const Image = styled.img`
-	width: 100%;
-	height: auto;
 `;
 
 export const Content = styled.div`
@@ -72,6 +92,7 @@ export const ActorProfile = styled.div`
 `;
 
 export const Title = styled.h3`
+	margin: 0;
 	font-size: 22px;
 	font-weight: 500;
 
