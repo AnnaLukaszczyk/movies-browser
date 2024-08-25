@@ -19,7 +19,7 @@ export const StyledDanger = styled(DangerIconSVG)`
     }
 `;
 
-export const Warning = styled.h1`
+export const Warning = styled.p`
     text-align: center;
     margin: auto;
     font-weight: 600;
@@ -30,7 +30,7 @@ export const Warning = styled.h1`
         font-size: 26px;
     }
 `;
-export const Info = styled.h2`
+export const Info = styled.p`
     text-align: center;
     margin: auto;
     font-weight: 500;
