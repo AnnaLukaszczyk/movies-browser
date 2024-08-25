@@ -5,11 +5,13 @@ import {
 	Title,
 	TitleContainer,
 	Vignette,
+	Section,
+	List,
 } from "./styled";
-import { Section, SectionTitle } from "../../../common/Section";
+import { SectionTitle } from "../../../common/Section";
 import { MovieDetailsTile, PeopleTile } from "../../../common/Tile";
-import { StyledMain } from "../../../common/Main/styled";
-import { List, ListItem, StyledLink } from "../../people/PeopleList/styled";
+import { StyledMain as Main } from "../../../common/Main/styled";
+import { ListItem, StyledLink } from "../../people/PeopleList/styled";
 import { toPeopleDetails } from "../../../core/routes";
 
 export const MovieDetails = () => {
@@ -28,19 +30,17 @@ export const MovieDetails = () => {
 					</TitleContainer>
 				</BackgroundImage>
 			</Header>
-			<StyledMain>
-				<Section>
-					<MovieDetailsTile
-						ratingValue="8.1"
-						voteAmount="2000"
-						title="Mulan"
-						year="2020"
-						production="China, United States of America"
-						date="24.10.2020"
-						tag="Action"
-						description="A young Chinese maiden disguises herself as a male warrior in order to save her father. Disguises herself as a male warrior in order to save her father.  A young Chinese maiden disguises herself as a male warrior in order to save her father."
-					/>
-				</Section>
+			<Main>
+				<MovieDetailsTile
+					ratingValue="8.1"
+					voteAmount="2000"
+					title="Mulan"
+					year="2020"
+					production="China, United States of America"
+					date="24.10.2020"
+					tag="Action"
+					description="A young Chinese maiden disguises herself as a male warrior in order to save her father. Disguises herself as a male warrior in order to save her father.  A young Chinese maiden disguises herself as a male warrior in order to save her father."
+				/>
 				<Section>
 					<SectionTitle>Cast</SectionTitle>
 					<List>
@@ -51,7 +51,17 @@ export const MovieDetails = () => {
 						</StyledLink>
 					</List>
 				</Section>
-			</StyledMain>
+				<Section>
+					<SectionTitle>Crew</SectionTitle>
+					<List>
+						<StyledLink to={toPeopleDetails()}>
+							<ListItem>
+								<PeopleTile name="nazwisko" role="scenarzysta" />
+							</ListItem>
+						</StyledLink>
+					</List>
+				</Section>
+			</Main>
 		</>
 	);
 };
