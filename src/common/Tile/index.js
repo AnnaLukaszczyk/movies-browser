@@ -14,7 +14,7 @@ import {
 	StyledPeopleTile,
 	Subtitle,
 	ActorProfile,
-	StyledMovieDetailsTile,
+	StyledDetailsTile,
 	DetailName,
 	DetailValue,
 	BoxOnDetails,
@@ -76,12 +76,12 @@ export const MovieTileSmall = ({ ratingValue, voteAmount, title, year, tag }) =>
 	</StyledMovieTileSmall>
 );
 
-export const PeopleTile = ({ name, character }) => (
+export const PeopleTile = ({ name, character, role }) => (
 	<StyledPeopleTile>
 		<Image src={picture} alt="" />
 		<ActorProfile>
 			<Title>{name}</Title>
-			<Subtitle>{character}</Subtitle>
+			<Subtitle>{character}{role}</Subtitle>
 		</ActorProfile>
 	</StyledPeopleTile>
 );
@@ -96,7 +96,7 @@ export const MovieDetailsTile = ({
 	tag,
 	description,
 }) => (
-	<StyledMovieDetailsTile>
+	<StyledDetailsTile>
 		<Image src={posterMovieDetails} alt="" />
 		<ContentInDetailsStyle>
 			<TitleInDetailsTile>{title}</TitleInDetailsTile>
@@ -124,7 +124,7 @@ export const MovieDetailsTile = ({
 			/>
 			<Description>{description}</Description>
 		</ContentInDetailsStyle>
-	</StyledMovieDetailsTile>
+	</StyledDetailsTile>
 );
 
 export const PeopleDetailsTile = ({
@@ -133,7 +133,7 @@ export const PeopleDetailsTile = ({
 	pleace,
 	description,
 }) => (
-	<StyledMovieDetailsTile>
+	<StyledDetailsTile>
 		<Image src={picturePeopleDetails} alt="" />
 		<ContentInDetailsStyle>
 			<TitleInDetailsTile>{name}</TitleInDetailsTile>
@@ -149,5 +149,5 @@ export const PeopleDetailsTile = ({
 			</BoxOnDetails>
 			<Description>{description}</Description>
 		</ContentInDetailsStyle>
-	</StyledMovieDetailsTile>
+	</StyledDetailsTile>
 );
