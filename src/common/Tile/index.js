@@ -49,7 +49,7 @@ export const MovieTileLarge = ({ ratingValue, voteAmount, title, year, tags, pos
 	);
 };
 
-export const MovieTileSmall = ({ ratingValue, voteAmount, title, tags, poster }) => (
+export const MovieTileSmall = ({ ratingValue, voteAmount, title, year, tags, poster }) => (
 	<StyledMovieTileSmall>
 		<Image src={`${posterURL}${poster}`} alt="" />
 		<Content>
