@@ -21,54 +21,46 @@ import {
 	Description,
 	Details,
 } from "./styled";
-import posterLarge from "../images/posterLarge.png";
-import posterSmall from "../images/posterSmall.png";
+
 import picture from "../images/picture.png";
 import posterMovieDetails from "../images/posterMovieDetails.png";
 import picturePeopleDetails from "../images/picturePeopleDetails.png";
 import { Rating } from "../Rating";
+import { posterURL } from "../../API/APIdata";
 
-export const MovieTileLarge = ({ ratingValue, voteAmount, title, year, tag }) => {
+export const MovieTileLarge = ({ ratingValue, voteAmount, title, year, tags, poster }) => {
 	return (
 		<StyledMovieTileLarge>
-			<Image src={posterLarge} alt="" />
+			<Image src={`${posterURL}${poster}`} alt="" />
 			<Content>
 				<Title>{title}</Title>
 				<Year>{year}</Year>
 				<Tags>
-					<Tag>{tag}</Tag>
-					<Tag>{tag}</Tag>
-					<Tag>{tag}</Tag>
+					{tags.map(tag => (
+						<Tag>{tag}</Tag>
+					))}
 				</Tags>
 			</Content>
-			<Rating // to jest Rating dla kafelków na MovieList
+			<Rating
 				ratingValue={ratingValue}
 				voteAmount={voteAmount}
 			/>
-
-			{/* <Rating // ten Rating ma być w kafelku na tle zdjęcia filmu w MovieDetails
-                isOnMoviePhoto
-
-                ratingValue={ratingValue}
-                voteAmount={voteAmount}
-            /> */}
 		</StyledMovieTileLarge>
 	);
 };
 
-export const MovieTileSmall = ({ ratingValue, voteAmount, title, year, tag }) => (
+export const MovieTileSmall = ({ ratingValue, voteAmount, title, tags, poster }) => (
 	<StyledMovieTileSmall>
-		<Image src={posterSmall} alt="" />
+		<Image src={`${posterURL}${poster}`} alt="" />
 		<Content>
 			<Title>{title}</Title>
 			<Year>{year}</Year>
 			<Tags>
-				<Tag>{tag}</Tag>
-				<Tag>{tag}</Tag>
-				<Tag>{tag}</Tag>
+				{tags.map(tag => (
+					<Tag>{tag}</Tag>
+				))}
 			</Tags>
-
-			<Rating // to jest Rating dla kafelków na MovieList
+			<Rating
 				ratingValue={ratingValue}
 				voteAmount={voteAmount}
 			/>
