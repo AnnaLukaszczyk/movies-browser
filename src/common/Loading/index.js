@@ -3,7 +3,7 @@ import { BoxForSpinner, Spinner } from "./styled";
 
 export const Loading = () => (
 	<Section>
-		<SectionTitle>Search results for "Mulan" </SectionTitle>
+		<SectionTitle>Search results {searchParam ? ` for ${searchParam}` : "..."} </SectionTitle>
 		<BoxForSpinner>
 			<Spinner />
 		</BoxForSpinner>
