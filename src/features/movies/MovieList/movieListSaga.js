@@ -1,5 +1,6 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import { getPopularMovies } from "../../../API/getPopularMovies";
+import { setMovieList, setStatus } from "./movieListSlice";
 
 function* fetchMovieHandler() {
     try {

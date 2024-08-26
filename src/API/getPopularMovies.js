@@ -1,3 +1,6 @@
+import { APIbaseURL } from "./APIdata";
+import { AuthorizationAndLanguage } from "./APIdata";
+
 export const getPopularMovies = async () => {
     try {
         const response = await fetch(
