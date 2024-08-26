@@ -8,27 +8,27 @@ import { List, ListItem, StyledLink } from "./styled";
 import { selectPeopleList, setStatus } from "./peopleListSlice";
 
 export const PeopleList = () => {
-    const dispatch = useDispatch();
-    const people = useSelector(selectPeopleList);
+	const dispatch = useDispatch();
+	const people = useSelector(selectPeopleList);
 
-    useEffect(() => {
-        dispatch(setStatus());
-    }, [dispatch]);
+	useEffect(() => {
+		dispatch(setStatus());
+	}, [dispatch]);
 
-    return (
-        <Main>
-            <Section>
-                <SectionTitle>Popular people</SectionTitle>
-                <List>
-                    {people.map(({ id, name }) => (
-                        <ListItem key={id}>
-                            <StyledLink to={toPeopleDetails()}>
-                                <PeopleTile name={name} />
-                            </StyledLink>
-                        </ListItem>
-                    ))}
-                </List>
-            </Section>
-        </Main>
-    );
+	return (
+		<Main>
+			<Section>
+				<SectionTitle>Popular people</SectionTitle>
+				<List>
+					{people.map(({ id, profile_path, name }) => (
+						<ListItem key={id}>
+							<StyledLink to={toPeopleDetails()}>
+								<PeopleTile photo={profile_path} name={name} />
+							</StyledLink>
+						</ListItem>
+					))}
+				</List>
+			</Section>
+		</Main>
+	);
 };
