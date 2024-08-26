@@ -9,8 +9,9 @@ function* fetchMovieHandler() {
             call(getPopularMovies),
             call(getGenres)
         ]);
+        const processedMovieList = yield call(processMovieListData, movieListData, genreList);
         yield all([
-            put(setMovieList(movieListData)),
+            put(setMovieList(processedMovieList)),
             put(setGenres(genreList))
         ]);
     } catch (error) {
