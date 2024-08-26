@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Image = styled.img`
 	width: 100%;
 	height: auto;
+	border-radius: 5px;
 	transition: filter 0.3s ease;
 `;
 
@@ -35,17 +36,17 @@ export const StyledMovieTileLarge = styled(Tile)`
 export const StyledMovieTileSmall = styled(Tile)`
 	grid-template-columns: auto 1fr;
 	grid-gap: 16px;
-	width: 702px;
+	max-width: 702px;
 `;
 
 export const StyledPeopleTile = styled(Tile)`
 	grid-template-rows: auto 1fr;
-	width: 208px;
+	max-width: 208px;
 	aspect-ratio: 208 / 339;
 	border-radius: 0;
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
-		width: 214px;
+		max-width: 214px;
 		padding: 8px;
 	}
 `;
