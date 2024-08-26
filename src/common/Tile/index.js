@@ -22,11 +22,10 @@ import {
 	Details,
 } from "./styled";
 
-import picture from "../images/picture.png";
 import posterMovieDetails from "../images/posterMovieDetails.png";
 import picturePeopleDetails from "../images/picturePeopleDetails.png";
 import { Rating } from "../Rating";
-import { posterURL } from "../../API/APIdata";
+import { posterURL, profileURL } from "../../API/APIdata";
 
 export const MovieTileLarge = ({ ratingValue, voteAmount, title, year, tags, poster }) => {
 	return (
@@ -68,9 +67,9 @@ export const MovieTileSmall = ({ ratingValue, voteAmount, title, year, tags, pos
 	</StyledMovieTileSmall>
 );
 
-export const PeopleTile = ({ name, character, role }) => (
+export const PeopleTile = ({ name, character, role, photo }) => (
 	<StyledPeopleTile>
-		<Image src={picture} alt="" />
+		<Image src={`${profileURL}${photo}`} alt="" />
 		<ActorProfile>
 			<Title>{name}</Title>
 			<Subtitle>{character}{role}</Subtitle>
