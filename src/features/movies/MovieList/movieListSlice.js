@@ -19,6 +19,9 @@ const movieListSlice = createSlice({
             state.status = "success";
             state.genres = genres;
         },
+        setError: (state) => {
+            state.status = "error";
+        },
     },
 });
 
@@ -26,10 +29,12 @@ export const {
     setMovieList,
     setStatus,
     setGenres,
+    setError,
 } = movieListSlice.actions;
 
 const selectMovieListState = (state) => state.movieList;
 
+export const selectMovieListStatus = (state) => selectMovieListState(state).status;
 export const selectMovieList = (state) => selectMovieListState(state).movies;
 
 export const selectGenres = (state) => selectMovieListState(state).genres;
