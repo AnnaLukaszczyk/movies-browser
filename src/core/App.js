@@ -1,6 +1,5 @@
 import { HashRouter } from "react-router-dom";
 import { Navigation } from "../common/Navigation";
-import { Pagination } from "../common/Pagination";
 import { Main } from "../common/Main";
 
 function App() {
@@ -8,7 +7,6 @@ function App() {
 		<HashRouter>
 			<Navigation />
 			<Main />
-			<Pagination />
 		</HashRouter>
 	);
 }
