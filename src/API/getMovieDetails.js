@@ -1,7 +1,7 @@
 import { APIbaseURL } from "./APIdata";
 import { AuthorizationAndLanguage } from "./APIdata";
 
-export const getPopularMovies = async () => {
+export const getMovieDetails = async () => {
     try {
         const response = await fetch(
             `${APIbaseURL}movie/details${AuthorizationAndLanguage}&page=1`
