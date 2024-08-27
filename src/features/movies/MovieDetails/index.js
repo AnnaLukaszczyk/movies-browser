@@ -13,11 +13,22 @@ import { MovieDetailsTile, PeopleTile } from "../../../common/Tile";
 import { StyledMain as Main } from "../../../common/Main/styled";
 import { ListItem, StyledLink } from "../../people/PeopleList/styled";
 import { toPeopleDetails } from "../../../core/routes";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { selectMovieCredits, setStatus } from "./movieCreditsSlice";
 
 export const MovieDetails = () => {
+	const dispatch = useDispatch();
+	const credits = useSelector(selectMovieCredits);
+
+	useEffect(() => {
+		dispatch(setStatus())
+	},
+		[]);
+
 	return (
 		<>
-			<Header>
+					<Header>
 				<BackgroundImage>
 					<Vignette />
 					<TitleContainer>
@@ -30,7 +41,7 @@ export const MovieDetails = () => {
 					</TitleContainer>
 				</BackgroundImage>
 			</Header>
-			<Main>
+				<Main>
 				<MovieDetailsTile
 					ratingValue="8.1"
 					voteAmount="2000"
@@ -41,16 +52,24 @@ export const MovieDetails = () => {
 					tag="Action"
 					description="A young Chinese maiden disguises herself as a male warrior in order to save her father. Disguises herself as a male warrior in order to save her father.  A young Chinese maiden disguises herself as a male warrior in order to save her father."
 				/>
-				<Section>
-					<SectionTitle>Cast</SectionTitle>
-					<List>
-						<StyledLink to={toPeopleDetails()}>
-							<ListItem>
-								<PeopleTile name="nazwisko" character="rola" />
-							</ListItem>
-						</StyledLink>
-					</List>
-				</Section>
+				 <Section>
+            <SectionTitle>Cast</SectionTitle>
+            <List>
+			{credits.map((id, credit_id, profile_path, name, character) => (
+                <StyledLink to={toPeopleDetails()}>
+                    <ListItem key={id}>
+                        <PeopleTile 
+                            key={credit_id}
+                            id={id}
+                            image={profile_path}
+                            title={name}
+                            subtitle={character}
+                        />
+                    </ListItem>
+                </StyledLink>
+				))}
+            </List>
+            </Section>
 				<Section>
 					<SectionTitle>Crew</SectionTitle>
 					<List>
@@ -61,7 +80,7 @@ export const MovieDetails = () => {
 						</StyledLink>
 					</List>
 				</Section>
-			</Main>
-		</>
+				</Main>
+			 </>
 	);
 };
