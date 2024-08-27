@@ -1,11 +1,19 @@
-import { call, put, takeEvery } from "redux-saga/effects";
+import { all, call, put, takeEvery } from "redux-saga/effects";
 import { getPopularMovies } from "../../../API/getPopularMovies";
-import { setMovieList, setStatus } from "./movieListSlice";
+import { setGenres, setMovieList, setStatus } from "./movieListSlice";
+import { getGenres } from "../../../API/getGenres";
 
 function* fetchMovieHandler() {
     try {
-        const movieListData = yield call(getPopularMovies);
-        yield put(setMovieList(movieListData));
+        const [movieListData, genreList] = yield all([
+            call(getPopularMovies),
+            call(getGenres)
+        ]);
+        const processedMovieList = yield call(processMovieListData, movieListData, genreList);
+        yield all([
+            put(setMovieList(processedMovieList)),
+            put(setGenres(genreList))
+        ]);
     } catch (error) {
         yield call(alert, "Coś poszło nie tak");
     }

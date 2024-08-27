@@ -24,26 +24,26 @@ export const MovieList = () => {
 			<Section>
 				<SectionTitle>Popular movies</SectionTitle>
 				<List>
-					{movies.map(({ title, id, vote_average, vote_count, release_date, genre_ids, poster_path }) => (
+					{movies.map(({ title, id, rating, vote_count, release_date, namedGenres, poster }) => (
 						<ListItem key={id}>
 							<StyledLink to={toMovieDetails()}>
 								{isLargeScreen ? (
 									<MovieTileLarge
-										poster={poster_path}
-										ratingValue={vote_average}
+										poster={poster}
+										ratingValue={rating}
 										voteAmount={vote_count}
 										title={title}
 										year={release_date}
-										tags={genre_ids}
+										tags={namedGenres}
 									/>
 								) : (
 									<MovieTileSmall
-										poster={poster_path}
-										ratingValue={vote_average}
+										poster={poster}
+										ratingValue={rating}
 										voteAmount={vote_count}
 										title={title}
 										year={release_date}
-										tags={genre_ids}
+										tags={namedGenres}
 									/>
 								)}
 							</StyledLink>
