@@ -16,7 +16,7 @@ export const processMovieListData = (movieListData, genreList) => {
         {
             id: movie.id,
             title: movie.title,
-            year: movie.release_date,
+            date: movie.release_date,
             rating: movie.vote_average,
             vote_count: movie.vote_count,
             namedGenres: nameGenres(movie.genre_ids, genres),
