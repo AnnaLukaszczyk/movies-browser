@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { StyledMain as Main } from "../../../common/Main/styled";
 import { Section, SectionTitle } from "../../../common/Section";
+import { Pagination } from "../../../common/Pagination"
 import { PeopleTile } from "../../../common/Tile";
 import { toPeopleDetails } from "../../../core/routes";
 import { List, ListItem, StyledLink } from "./styled";
@@ -29,6 +30,7 @@ export const PeopleList = () => {
 					))}
 				</List>
 			</Section>
+			<Pagination />
 		</Main>
 	);
 };
