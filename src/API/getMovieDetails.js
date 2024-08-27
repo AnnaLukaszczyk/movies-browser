@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 export const useMovieDetails = () => {
     const movie = useParams();
 
-    const url = `${APIbaseURL}movie${AuthorizationAndLanguage}&page=1`;
+    const url = `${APIbaseURL}/movie/${movie.id}${AuthorizationAndLanguage}&page=1`;
 
     const [loading, setLoading] = useState(true);
 
