@@ -36,7 +36,7 @@ export const MovieTileLarge = ({ ratingValue, voteAmount, title, year, tags, pos
 				<Year>{year}</Year>
 				<Tags>
 					{tags.map(tag => (
-						<Tag>{tag}</Tag>
+						<Tag key={tag}>{tag}</Tag>
 					))}
 				</Tags>
 			</Content>
@@ -56,7 +56,7 @@ export const MovieTileSmall = ({ ratingValue, voteAmount, title, year, tags, pos
 			<Year>{year}</Year>
 			<Tags>
 				{tags.map(tag => (
-					<Tag>{tag}</Tag>
+					<Tag key={tag}>{tag}</Tag>
 				))}
 			</Tags>
 			<Rating
