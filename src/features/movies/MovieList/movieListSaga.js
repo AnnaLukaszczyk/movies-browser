@@ -2,6 +2,7 @@ import { all, call, put, takeEvery } from "redux-saga/effects";
 import { getPopularMovies } from "../../../API/getPopularMovies";
 import { setGenres, setMovieList, setStatus } from "./movieListSlice";
 import { getGenres } from "../../../API/getGenres";
+import { processMovieListData } from "../../../API/processAPIData";
 
 function* fetchMovieHandler() {
     try {
