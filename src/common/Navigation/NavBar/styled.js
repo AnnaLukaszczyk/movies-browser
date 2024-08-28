@@ -47,6 +47,7 @@ export const NavSection = styled.ul`
     margin: 0;
     padding: 0;
     text-decoration: none;
+    list-style: none;
 
     @media(max-width: ${({ theme }) => theme.breakpoints.tabletLarge}px) { 
         gap: 20px;
@@ -64,11 +65,11 @@ export const StyledNavLink = styled(NavLink)`
     text-decoration: none;
     padding: 13px 24px;
     border-radius: 30px;
-    border: solid 1px white;
+    border: 1px solid transparent;
     color: ${({ theme }) => theme.color.white};
     background: ${({ theme }) => theme.color.black};
+    transition: border-color 0.3s ease;
     
-
     @media(max-width: ${({ theme }) => theme.breakpoints.tabletLarge}px) { 
         font-size: 13px;
         line-height: 19.5px;
@@ -79,6 +80,10 @@ export const StyledNavLink = styled(NavLink)`
         font-size: 12px;
         line-height: 18px;
         padding: 8px 14px;
+    }
+
+    &.active {
+        border: 1px solid ${({ theme }) => theme.color.white};
     }
 `;
 
