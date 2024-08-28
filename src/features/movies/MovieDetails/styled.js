@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import poster from "../../../common/images/Poster_background.png";
 import { ReactComponent as VignetteSVG } from "../../../common/images/Vignette.svg";
 import { Section as OriginalSection } from "../../../common/Section";
 import { List as OriginalList } from "../../people/PeopleList/styled";
@@ -10,7 +9,7 @@ export const Header = styled.div`
 `;
 
 export const BackgroundImage = styled.div`
-	background-image: url(${poster});
+	background-image: ${({poster}) => `url(${poster})`};
 	position: relative;
 	margin: 0 auto;
 	max-width: 1368px;
