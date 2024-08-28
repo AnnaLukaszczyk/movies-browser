@@ -1,4 +1,4 @@
-import { posterURL } from "./APIdata";
+import { backdropURL, posterURL } from "./APIdata";
 
 const nameGenres = (genreIds, genres) => {
     return (
@@ -19,7 +19,14 @@ const changeVoteFormat = (voteAverage) => {
     const roundedVote = voteAverage.toFixed(1);
 
     return roundedVote;
-}
+};
+
+const getCountryName = (countries) =>
+    countries.map(country => country.name).join(", ");
+
+const getGenreName = (genres) =>
+    genres.map(({ name }) => name);
+
 
 export const processMovieListData = (movieListData, genreList) => {
     const genres = genreList.genres;
@@ -35,4 +42,22 @@ export const processMovieListData = (movieListData, genreList) => {
             poster: `${posterURL}${movie.poster_path}`
         }
     ));
+};
+
+export const processMovieDetailsData = (movieDetails) => {
+    return (
+        {
+            id: movieDetails.id,
+            title: movieDetails.title,
+            releaseDate: movieDetails.release_date,
+            releaseYear: changeDateFormat(movieDetails.release_date),
+            rating: changeDateFormat(movieDetails.vote_average),
+            voteCount: movieDetails.vote_count,
+            description: movieDetails.overview,
+            production: getCountryName(movieDetails.production_countries),
+            genres: getGenreName(movieDetails.genres),
+            backdrop: `${backdropURL}${movieDetails.backdrop_path}`,
+            poster: `${posterURL}${movieDetails.poster_path}`,
+        }
+    )
 };
