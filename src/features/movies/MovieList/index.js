@@ -48,7 +48,7 @@ export const MovieList = () => {
 									poster,
 								}) => (
 									<ListItem key={id}>
-										<StyledLink to={toMovieDetails()}>
+										<StyledLink to={toMovieDetails({id:id})}>
 											{isLargeScreen ? (
 												<MovieTileLarge
 													poster={poster}
