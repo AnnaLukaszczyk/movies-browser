@@ -13,53 +13,87 @@ import { MovieDetailsTile, PeopleTile } from "../../../common/Tile";
 import { StyledMain as Main } from "../../../common/Main/styled";
 import { ListItem, StyledLink } from "../../people/PeopleList/styled";
 import { toPeopleDetails } from "../../../core/routes";
+import { useLocation, useParams } from "react-router-dom/cjs/react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { selectMovie, selectMovieCast, selectMovieCrew, selectMoviId, setMovieId } from "./movieSlice";
+import { backdropURL, posterURL } from "../../../API/APIdata";
 
 export const MovieDetails = () => {
+
+	const params = useParams();
+	const dispatch = useDispatch();
+	const location = useLocation();
+
+	useEffect(() => {
+		dispatch(setMovieId(params.id))
+	}, [location.pathname]);
+
+	const movie = useSelector(selectMovie);
+	const cast = useSelector(selectMovieCast);
+	const crew = useSelector(selectMovieCrew);
+
 	return (
 		<>
 			<Header>
-				<BackgroundImage>
+				<BackgroundImage
+					poster={movie.backdrop}>
 					<Vignette />
 					<TitleContainer>
-						<Title>Mulan</Title>
-						<Rating // ten Rating ma być w kafelku na tle zdjęcia filmu w MovieDetails
+						<Title>{movie.title}</Title>
+						<Rating
 							isOnMoviePhoto
-							ratingValue="5"
-							voteAmount="2000"
+							ratingValue={movie.rating}
+							voteAmount={movie.voteCount}
 						/>
 					</TitleContainer>
 				</BackgroundImage>
 			</Header>
 			<Main>
 				<MovieDetailsTile
-					ratingValue="8.1"
-					voteAmount="2000"
-					title="Mulan"
-					year="2020"
-					production="China, United States of America"
-					date="24.10.2020"
-					tag="Action"
-					description="A young Chinese maiden disguises herself as a male warrior in order to save her father. Disguises herself as a male warrior in order to save her father.  A young Chinese maiden disguises herself as a male warrior in order to save her father."
+					poster={movie.poster}
+					ratingValue={movie.rating}
+					voteAmount={movie.voteCount}
+					title={movie.title}
+					year={movie.releaseYear}
+					production={movie.production}
+					date={movie.releaseDate}
+					tags={movie.genres}
+					description={movie.description}
 				/>
 				<Section>
 					<SectionTitle>Cast</SectionTitle>
-					<List>
-						<StyledLink to={toPeopleDetails()}>
-							<ListItem>
-								<PeopleTile name="nazwisko" character="rola" />
-							</ListItem>
-						</StyledLink>
-					</List>
+					{cast && (
+						<List>
+							{cast.map(({ id, name, character, profile_path }) => (
+								<StyledLink to={toPeopleDetails()}>
+									<ListItem key={id}>
+										<PeopleTile
+											profilePath={profile_path}
+											name={name}
+											character={character} />
+									</ListItem>
+								</StyledLink>
+							))}
+						</List>
+					)}
 				</Section>
 				<Section>
 					<SectionTitle>Crew</SectionTitle>
-					<List>
-						<StyledLink to={toPeopleDetails()}>
-							<ListItem>
-								<PeopleTile name="nazwisko" role="scenarzysta" />
-							</ListItem>
-						</StyledLink>
-					</List>
+					{crew && (
+						<List>
+							{crew.map(({ id, name, profile_path, job }) => (
+								<StyledLink to={toPeopleDetails()}>
+									<ListItem key={id}>
+										<PeopleTile
+											profilePath={profile_path}
+											name={name}
+											role={job} />
+									</ListItem>
+								</StyledLink>
+							))}
+						</List>
+					)}
 				</Section>
 			</Main>
 		</>
