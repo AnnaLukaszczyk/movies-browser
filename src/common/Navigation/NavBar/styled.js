@@ -68,7 +68,7 @@ export const StyledNavLink = styled(NavLink)`
     border: 1px solid transparent;
     color: ${({ theme }) => theme.color.white};
     background: ${({ theme }) => theme.color.black};
-    transition: border-color 0.3s ease;
+    transition: background-color 0.5s, color 0.5s;
     
     @media(max-width: ${({ theme }) => theme.breakpoints.tabletLarge}px) { 
         font-size: 13px;
@@ -84,6 +84,11 @@ export const StyledNavLink = styled(NavLink)`
 
     &.active {
         border: 1px solid ${({ theme }) => theme.color.white};
+    }
+
+    &:hover {
+        background-color: ${({ theme }) => theme.color.white};
+        color: ${({ theme }) => theme.color.black};
     }
 `;
 
