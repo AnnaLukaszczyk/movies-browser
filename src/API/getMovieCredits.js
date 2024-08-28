@@ -4,7 +4,7 @@ import { AuthorizationAndLanguage } from "./APIdata";
 export const getMovieCredits = async () => {
     try {
         const response = await fetch(
-            `${APIbaseURL}movie/credits${AuthorizationAndLanguage}&page=1`
+            `${APIbaseURL}movie/{movie_id}/credits${AuthorizationAndLanguage}&page=1`
         );
 
         if (!response.ok) {
