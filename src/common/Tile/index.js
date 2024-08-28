@@ -20,9 +20,10 @@ import {
 	BoxOnDetails,
 	Description,
 	Details,
+	NoProfilePhoto,
+	TileImageContainer,
 } from "./styled";
 
-import posterMovieDetails from "../images/posterMovieDetails.png";
 import picturePeopleDetails from "../images/picturePeopleDetails.png";
 import { Rating } from "../Rating";
 import { posterURL, profileURL } from "../../API/APIdata";
@@ -67,9 +68,18 @@ export const MovieTileSmall = ({ ratingValue, voteAmount, title, year, tags, pos
 	</StyledMovieTileSmall>
 );
 
-export const PeopleTile = ({ name, character, role, photo }) => (
+export const PeopleTile = ({ name, character, role, profilePath }) => (
 	<StyledPeopleTile>
-		<Image src={`${profileURL}${photo}`} alt="" />
+		<TileImageContainer>
+			{profilePath
+				?
+				<Image
+					src={`${profileURL}${profilePath}`}
+					alt="" />
+				:
+				<NoProfilePhoto />
+			}
+		</TileImageContainer>
 		<ActorProfile>
 			<Title>{name}</Title>
 			<Subtitle>{character}{role}</Subtitle>
@@ -78,17 +88,18 @@ export const PeopleTile = ({ name, character, role, photo }) => (
 );
 
 export const MovieDetailsTile = ({
+	poster,
 	ratingValue,
 	voteAmount,
 	title,
 	year,
 	production,
 	date,
-	tag,
+	tags,
 	description,
 }) => (
 	<StyledDetailsTile>
-		<Image src={posterMovieDetails} alt="" />
+		<Image src={poster} alt="" />
 		<ContentInDetailsStyle>
 			<TitleInDetailsTile>{title}</TitleInDetailsTile>
 			<YearInDetailsTile>{year}</YearInDetailsTile>
@@ -103,12 +114,11 @@ export const MovieDetailsTile = ({
 				</Details>
 			</BoxOnDetails>
 			<TagsInDetailsTile>
-				<Tag>{tag}</Tag>
-				<Tag>{tag}</Tag>
-				<Tag>{tag}</Tag>
+				{tags && tags.map(tag => (
+					<Tag key={tag}>{tag}</Tag>
+				))}
 			</TagsInDetailsTile>
-
-			<Rating // ten Rating ma być w kafelku z danymi filmu w MovieDetails
+			<Rating 
 				isMovieDetails
 				ratingValue={ratingValue}
 				voteAmount={voteAmount}

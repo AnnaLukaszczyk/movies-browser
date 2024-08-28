@@ -7,3 +7,4 @@ export const ImagesURL = "https://image.tmdb.org/t/p/";
 
 export const posterURL = `${ImagesURL}w300`
 export const profileURL = `${ImagesURL}w185`
+export const backdropURL = `${ImagesURL}original`
