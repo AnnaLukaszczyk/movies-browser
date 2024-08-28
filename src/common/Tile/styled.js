@@ -1,10 +1,19 @@
 import styled from "styled-components";
+import { ReactComponent as NoPersonPhotoSVG } from "../../common/images/NoProfilePhoto.svg";
 
 export const Image = styled.img`
-	width: 100%;
-	height: auto;
+	width: inherit;
+`;
+
+export const TileImageContainer = styled.div`
+    width: 100%;
+    aspect-ratio: calc(292 / 434);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	border-radius: 5px;
-	transition: filter 0.3s ease;
+	background: gray;
+	color: white;
 `;
 
 const Tile = styled.article`
@@ -210,3 +219,13 @@ export const Description = styled.p`
 		font-size: 14px;
 	}
 `;
+
+export const NoProfilePhoto = styled(NoPersonPhotoSVG)`
+	width: 72px;
+	height: 72px;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
+		width: 48px;
+		height: 48px;
+	}
+`
