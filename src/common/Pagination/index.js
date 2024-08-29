@@ -54,9 +54,9 @@ export const Pagination = () => {
             </StyledButton>
             <TextContainer>
                 <Text>Page</Text>
-                <BoldText>1</BoldText>
+                <BoldText>{pageParam}</BoldText>
                 <Text>of</Text>
-                <BoldText>150</BoldText>
+                <BoldText>{maxPage}</BoldText>
             </TextContainer>
             <StyledButton
                 onClick={onIncrement}
