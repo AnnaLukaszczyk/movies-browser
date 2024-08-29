@@ -26,13 +26,18 @@ export const MovieList = () => {
 
 	const pageParam = searchParams.get("page");
 
-
 	const movies = useSelector(selectMovieList);
 	const status = useSelector(selectMovieListStatus);
 
 	useEffect(() => {
 		dispatch(setStatus());
-	}, []);
+
+		if (pageParam === null) {
+			searchParams.set("page", 1);
+			history.push(`${location.pathname}?${searchParams.toString()}`);
+		}
+
+	}, [location]);
 
 	switch (status) {
 		case "loading":
