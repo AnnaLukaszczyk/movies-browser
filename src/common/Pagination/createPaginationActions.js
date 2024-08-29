@@ -1,7 +1,7 @@
 export const paginationActions = () => {
 	const paginationReducers = {
-        pageNumberFromURL: (state, { payload: query }) => {
-            state.page = +query;
+        pageNumberFromURL: (state, { payload: pageParam }) => {
+            state.page = +pageParam;
             state.status = "loading";
         },
 	};
