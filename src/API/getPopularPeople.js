@@ -1,10 +1,10 @@
 import { APIbaseURL } from "./APIdata";
 import { AuthorizationAndLanguage } from "./APIdata";
 
-export const getPopularPeople = async () => {
+export const getPopularPeople = async (page) => {
     try {
         const response = await fetch(
-            `${APIbaseURL}person/popular${AuthorizationAndLanguage}&page=1`
+            `${APIbaseURL}person/popular${AuthorizationAndLanguage}&page=${page}`
         );
 
         if (!response.ok) {
