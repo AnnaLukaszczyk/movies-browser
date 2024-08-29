@@ -17,29 +17,34 @@ import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
 import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom";
 import pageParamName from "../../../API/pageParamName";
+import { useUpdatePageFromURL } from "../../../common/Pagination/useURLParams";
 
 export const MovieList = () => {
 	const isLargeScreen = useMediaQuery({ query: "(min-width: 993px)" });
 
-	const dispatch = useDispatch();
 	const location = useLocation();
 	const history = useHistory();
 	const searchParams = new URLSearchParams(location.search);
 
-	const pageParam = searchParams.get(pageParamName);
-
 	const movies = useSelector(selectMovieList);
 	const status = useSelector(selectMovieListStatus);
 
+	const updatePageFromURL = useUpdatePageFromURL()
+
+	const pageParam = searchParams.get(pageParamName);
+	const URLparams = {
+		key: "movies",
+		value: pageParam,
+	};
+
 	useEffect(() => {
-		dispatch(setStatus());
 
 		if (pageParam === null) {
 			searchParams.set(pageParamName, 1);
 			history.push(`${location.pathname}?${searchParams.toString()}`);
 		}
 
-		dispatch(pageNumberFromURL(pageParam));
+		updatePageFromURL(URLparams);
 
 	}, [location]);
 
