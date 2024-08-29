@@ -1,14 +1,15 @@
-import { all, call, delay, put, takeEvery } from "redux-saga/effects";
+import { all, call, delay, put, select, takeEvery } from "redux-saga/effects";
 import { getPopularMovies } from "../../../API/getPopularMovies";
-import { setError, setGenres, setMovieList, setStatus } from "./movieListSlice";
+import { pageNumberFromURL, selectMovieListPage, setError, setGenres, setMovieList, setStatus } from "./movieListSlice";
 import { getGenres } from "../../../API/getGenres";
 import { processMovieListData } from "../../../API/processAPIData";
 
 function* fetchMovieHandler() {
     try {
         yield delay(1000);
+        const page = yield select(selectMovieListPage)
         const [movieListData, genreList] = yield all([
-            call(getPopularMovies),
+            call(getPopularMovies, page),
             call(getGenres)
         ]);
         const processedMovieList = yield call(processMovieListData, movieListData, genreList);
@@ -22,5 +23,5 @@ function* fetchMovieHandler() {
 }
 
 export function* movieListSaga() {
-    yield takeEvery(setStatus.type, fetchMovieHandler);
+    yield takeEvery(pageNumberFromURL, fetchMovieHandler);
 }

@@ -13,15 +13,37 @@ import {
 } from "./peopleListSlice";
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
+import pageParamName from "../../../API/pageParamName";
+import { useUpdatePageFromURL } from "../../../common/Pagination/useURLParams";
+import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom";
 
 export const PeopleList = () => {
 	const dispatch = useDispatch();
+	const location = useLocation();
+	const history = useHistory();
+	const searchParams = new URLSearchParams(location.search);
+
 	const people = useSelector(selectPeopleList);
 	const status = useSelector(selectPeopleListStatus);
 
+	const updatePageFromURL = useUpdatePageFromURL()
+
+	const pageParam = searchParams.get(pageParamName);
+	const URLparams = {
+		key: "people",
+		value: pageParam,
+	};
+
 	useEffect(() => {
-		dispatch(setStatus());
-	}, [dispatch]);
+
+		if (pageParam === null) {
+			searchParams.set(pageParamName, 1);
+			history.push(`${location.pathname}?${searchParams.toString()}`);
+		}
+
+		updatePageFromURL(URLparams);
+
+	}, [location]);
 
 	switch (status) {
 		case "loading":
