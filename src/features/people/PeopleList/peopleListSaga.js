@@ -1,11 +1,12 @@
-import { call, delay, put, takeEvery } from "redux-saga/effects";
+import { call, delay, put, select, takeEvery } from "redux-saga/effects";
 import { getPopularPeople } from "../../../API/getPopularPeople";
-import { setError, setPeopleList, setStatus } from "./peopleListSlice";
+import { pageNumberFromURL, selectPeopleListPage, setError, setPeopleList, setStatus } from "./peopleListSlice";
 
 function* fetchPeopleHandler() {
     try {
         yield delay(1000);
-        const peopleListData = yield call(getPopularPeople);
+        const page = yield select(selectPeopleListPage);
+        const peopleListData = yield call(getPopularPeople, page);
         yield put(setPeopleList(peopleListData));
     } catch (error) {
         yield put(setError());
@@ -13,5 +14,5 @@ function* fetchPeopleHandler() {
 }
 
 export function* peopleListSaga() {
-    yield takeEvery(setStatus.type, fetchPeopleHandler);
+    yield takeEvery(pageNumberFromURL, fetchPeopleHandler);
 }
