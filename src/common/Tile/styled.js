@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { ReactComponent as NoPersonPhotoSVG } from "../../common/images/NoProfilePhoto.svg";
 
 export const Image = styled.img`
-	width: inherit;
+	width: 100%;
+	border-radius: 5px;
 `;
 
 export const TileImageContainer = styled.div`
