@@ -14,11 +14,19 @@ import {
 import { useEffect } from "react";
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
+import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom";
 
 export const MovieList = () => {
 	const isLargeScreen = useMediaQuery({ query: "(min-width: 993px)" });
 
 	const dispatch = useDispatch();
+	const location = useLocation();
+	const history = useHistory();
+	const searchParams = new URLSearchParams(location.search);
+
+	const pageParam = searchParams.get("page");
+
+
 	const movies = useSelector(selectMovieList);
 	const status = useSelector(selectMovieListStatus);
 
@@ -48,7 +56,7 @@ export const MovieList = () => {
 									poster,
 								}) => (
 									<ListItem key={id}>
-										<StyledLink to={toMovieDetails({id:id})}>
+										<StyledLink to={toMovieDetails({ id: id })}>
 											{isLargeScreen ? (
 												<MovieTileLarge
 													poster={poster}
