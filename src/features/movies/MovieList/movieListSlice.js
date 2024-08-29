@@ -1,13 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { paginationActions } from '../../../common/Pagination/createPaginationActions';
+
+const { paginationReducers } = paginationActions("movieListSLice");
 
 const movieListSlice = createSlice({
     name: "movieList",
     initialState: {
+        page: undefined,
         movies: [],
         genres: [],
         status: "initial",
     },
     reducers: {
+        ...paginationReducers,
         setStatus: (state) => {
             state.status = "loading";
         },
@@ -26,6 +31,7 @@ const movieListSlice = createSlice({
 });
 
 export const {
+    pageNumberFromURL,
     setMovieList,
     setStatus,
     setGenres,
@@ -35,6 +41,7 @@ export const {
 const selectMovieListState = (state) => state.movieList;
 
 export const selectMovieListStatus = (state) => selectMovieListState(state).status;
+export const selectMovieListPage = (state) => selectMovieListState(state).page;
 export const selectMovieList = (state) => selectMovieListState(state).movies;
 
 export const selectGenres = (state) => selectMovieListState(state).genres;
