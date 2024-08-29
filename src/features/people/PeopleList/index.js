@@ -36,8 +36,10 @@ export const PeopleList = () => {
 						<List>
 							{people.map(({ id, profile_path, name }) => (
 								<ListItem key={id}>
-									<StyledLink to={toPeopleDetails({id: id})}>
-										<PeopleTile photo={profile_path} name={name} />
+									<StyledLink to={toPeopleDetails({ id: id })}>
+										<PeopleTile
+											profilePath={profile_path}
+											name={name} />
 									</StyledLink>
 								</ListItem>
 							))}
