@@ -1,13 +1,41 @@
+import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom";
 import { BoldText, ButtonText, LeftVector, StyledButton, Text, TextContainer, Vector, Wrapper } from "./styled"
 
 export const Pagination = () => {
 
-    const page = 1;
+    const location = useLocation();
+    const history = useHistory();
+
+    const searchParams = new URLSearchParams(location.search);
+    const pageParam = searchParams.get("page");
+
+    const maxPage = 500;
+
+    const onIncrement = () => {
+        searchParams.set("page", +pageParam + 1);
+        history.push(`${location.pathname}?${searchParams.toString()}`);
+    };
+
+    const onDecrement = () => {
+        searchParams.set("page", +pageParam - 1);
+        history.push(`${location.pathname}?${searchParams.toString()}`);
+    };
+
+    const onToFirstPage = () => {
+        searchParams.set("page", 1);
+        history.push(`${location.pathname}?${searchParams.toString()}`);
+    };
+
+    const onToLastPage = () => {
+        searchParams.set("page", maxPage);
+        history.push(`${location.pathname}?${searchParams.toString()}`);
+    };
 
     return (
         <Wrapper>
             <StyledButton
-                disabled={page < 2}
+                onClick={onToFirstPage}
+                disabled={+pageParam < 2}
             >
                 <LeftVector />
                 <ButtonText>
@@ -15,7 +43,8 @@ export const Pagination = () => {
                 </ButtonText>
             </StyledButton>
             <StyledButton
-                disabled={page < 2}
+                onClick={onDecrement}
+                disabled={+pageParam < 2}
             >
                 <LeftVector />
                 <ButtonText>
@@ -29,14 +58,16 @@ export const Pagination = () => {
                 <BoldText>150</BoldText>
             </TextContainer>
             <StyledButton
-                disabled={page === 500}>
+                onClick={onIncrement}
+                disabled={+pageParam === maxPage}>
                 <ButtonText>
                     Next
                 </ButtonText>
                 <Vector />
             </StyledButton>
             <StyledButton
-                disabled={page === 500}>
+                onClick={onToLastPage}
+                disabled={+pageParam === maxPage}>
                 <ButtonText>
                     Last
                 </ButtonText>
