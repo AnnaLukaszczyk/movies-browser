@@ -77,3 +77,17 @@ export const Vector = styled(VectorSVG)``;
 export const LeftVector = styled(Vector)`
 	transform: rotate(180deg);
 `;
+
+export const MobileVector = styled(Vector)`
+	@media (min-width: ${({theme}) => theme.breakpoints.mobileLarge}px) {
+		display: none;
+	}
+`;
+
+export const MobileLeftVector = styled(LeftVector)`
+	@media (min-width: ${({theme}) => theme.breakpoints.mobileLarge}px) {
+		display: none;
+	}
+`;
+
+

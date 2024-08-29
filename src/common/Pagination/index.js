@@ -1,5 +1,5 @@
 import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom";
-import { BoldText, ButtonText, LeftVector, StyledButton, Text, TextContainer, Vector, Wrapper } from "./styled"
+import { BoldText, ButtonText, LeftVector, MobileLeftVector, MobileVector, StyledButton, Text, TextContainer, Vector, Wrapper } from "./styled"
 import pageParamName from "../../API/pageParamName";
 
 export const Pagination = () => {
@@ -39,6 +39,7 @@ export const Pagination = () => {
                 disabled={+pageParam < 2}
             >
                 <LeftVector />
+                <MobileLeftVector />
                 <ButtonText>
                     First
                 </ButtonText>
@@ -73,6 +74,7 @@ export const Pagination = () => {
                     Last
                 </ButtonText>
                 <Vector />
+                <MobileVector />
             </StyledButton>
         </Wrapper>
     )
