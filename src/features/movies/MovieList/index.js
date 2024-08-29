@@ -7,6 +7,7 @@ import { toMovieDetails } from "../../../core/routes";
 import { StyledMain as Main } from "../../../common/Main/styled";
 import { useDispatch, useSelector } from "react-redux";
 import {
+	pageNumberFromURL,
 	selectMovieList,
 	selectMovieListStatus,
 	setStatus,
@@ -36,6 +37,8 @@ export const MovieList = () => {
 			searchParams.set("page", 1);
 			history.push(`${location.pathname}?${searchParams.toString()}`);
 		}
+
+		dispatch(pageNumberFromURL(pageParam));
 
 	}, [location]);
 
