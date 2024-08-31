@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { StyledMain as Main } from "../../../common/Main/styled";
 import { Section, SectionTitle } from "../../../common/Section";
 import { Pagination } from "../../../common/Pagination";
@@ -9,7 +9,6 @@ import { List, ListItem, StyledLink } from "./styled";
 import {
 	selectPeopleList,
 	selectPeopleListStatus,
-	setStatus,
 } from "./peopleListSlice";
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
@@ -18,7 +17,6 @@ import { useUpdatePageFromURL } from "../../../common/Pagination/useURLParams";
 import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom";
 
 export const PeopleList = () => {
-	const dispatch = useDispatch();
 	const location = useLocation();
 	const history = useHistory();
 	const searchParams = new URLSearchParams(location.search);
@@ -38,7 +36,7 @@ export const PeopleList = () => {
 
 		if (pageParam === null) {
 			searchParams.set(pageParamName, 1);
-			history.push(`${location.pathname}?${searchParams.toString()}`);
+			history.replace(`${location.pathname}?${searchParams.toString()}`);
 		}
 
 		updatePageFromURL(URLparams);
