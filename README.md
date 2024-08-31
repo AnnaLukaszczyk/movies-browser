@@ -1,3 +1,15 @@
+# **MOVIES BROWSER**
+
+Welcome to our Movies Browser project! We're glad you stopped by 😉
+
+## Demo
+Our app is still in development, but you can follow our progress at this link: https://annalukaszczyk.github.io/movies-browser/
+
+## Authors
+- [Anna Łukaszczyk](https://github.com/AnnaLukaszczyk)
+- [Krzysztof Biolik](https://github.com/KrzysztofBiolik)
+- [Leszek Mikrut](https://github.com/LeszekM12)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
