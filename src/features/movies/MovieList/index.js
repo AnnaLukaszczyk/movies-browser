@@ -5,12 +5,10 @@ import { MovieTileLarge, MovieTileSmall } from "../../../common/Tile";
 import { List, ListItem, StyledLink } from "./styled";
 import { toMovieDetails } from "../../../core/routes";
 import { StyledMain as Main } from "../../../common/Main/styled";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import {
-	pageNumberFromURL,
 	selectMovieList,
 	selectMovieListStatus,
-	setStatus,
 } from "./movieListSlice";
 import { useEffect } from "react";
 import { Loading } from "../../../common/Loading";
@@ -41,7 +39,7 @@ export const MovieList = () => {
 
 		if (pageParam === null) {
 			searchParams.set(pageParamName, 1);
-			history.push(`${location.pathname}?${searchParams.toString()}`);
+			history.replace(`${location.pathname}?${searchParams.toString()}`);
 		}
 
 		updatePageFromURL(URLparams);
