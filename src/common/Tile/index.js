@@ -2,7 +2,6 @@ import {
 	StyledMovieTileLarge,
 	StyledMovieTileSmall,
 	Image,
-	Content,
 	ContentInDetailsStyle,
 	Title,
 	TitleInDetailsTile,
@@ -22,6 +21,8 @@ import {
 	Details,
 	NoProfilePhoto,
 	TileImageContainer,
+	RatingContainer,
+	MovieListContent,
 } from "./styled";
 
 import picturePeopleDetails from "../images/picturePeopleDetails.png";
@@ -31,8 +32,10 @@ import { posterURL, profileURL } from "../../API/APIdata";
 export const MovieTileLarge = ({ ratingValue, voteAmount, title, year, tags, poster }) => {
 	return (
 		<StyledMovieTileLarge>
-			<Image src={`${posterURL}${poster}`} alt="" />
-			<Content>
+			<TileImageContainer>
+				<Image src={`${posterURL}${poster}`} alt="" />
+			</TileImageContainer>
+			<MovieListContent>
 				<Title>{title}</Title>
 				<Year>{year}</Year>
 				<Tags>
@@ -40,11 +43,14 @@ export const MovieTileLarge = ({ ratingValue, voteAmount, title, year, tags, pos
 						<Tag key={tag}>{tag}</Tag>
 					))}
 				</Tags>
-			</Content>
-			<Rating
-				ratingValue={ratingValue}
-				voteAmount={voteAmount}
-			/>
+
+				<RatingContainer>
+					<Rating
+						ratingValue={ratingValue}
+						voteAmount={voteAmount}
+					/>
+				</RatingContainer>
+			</MovieListContent>
 		</StyledMovieTileLarge>
 	);
 };
@@ -52,7 +58,7 @@ export const MovieTileLarge = ({ ratingValue, voteAmount, title, year, tags, pos
 export const MovieTileSmall = ({ ratingValue, voteAmount, title, year, tags, poster }) => (
 	<StyledMovieTileSmall>
 		<Image src={`${posterURL}${poster}`} alt="" />
-		<Content>
+		<MovieListContent>
 			<Title>{title}</Title>
 			<Year>{year}</Year>
 			<Tags>
@@ -64,7 +70,7 @@ export const MovieTileSmall = ({ ratingValue, voteAmount, title, year, tags, pos
 				ratingValue={ratingValue}
 				voteAmount={voteAmount}
 			/>
-		</Content>
+		</MovieListContent>
 	</StyledMovieTileSmall>
 );
 
@@ -118,7 +124,7 @@ export const MovieDetailsTile = ({
 					<Tag key={tag}>{tag}</Tag>
 				))}
 			</TagsInDetailsTile>
-			<Rating 
+			<Rating
 				isMovieDetails
 				ratingValue={ratingValue}
 				voteAmount={voteAmount}
