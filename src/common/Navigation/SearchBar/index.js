@@ -8,8 +8,7 @@ import {
 export const SearchBar = () => {
 	const location = useLocation();
 	const isMovies =
-		location.pathname.startsWith("/movies") ||
-		location.pathname.startsWith("/movieDetails");
+		location.pathname.startsWith("/movies");
 
 	const query = useQueryParameter("query");
 	const replaceQueryParameter = useReplaceQueryParameter();

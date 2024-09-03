@@ -12,8 +12,7 @@ export const useReplaceQueryParameter = () => {
 
 	const searchParams = new URLSearchParams(location?.search || "");
 	const isMovies =
-		location.pathname.startsWith("/movies") ||
-		location.pathname.startsWith("/movieDetails");
+		location.pathname.startsWith("/movies");
 
 	return ({ key, value }) => {
 		if (value === undefined) {
