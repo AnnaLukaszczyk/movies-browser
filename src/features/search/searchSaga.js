@@ -12,9 +12,11 @@ function* fetchDataHandler() {
        
         if (query !== null) {
             const searchResults =
-            yield call(getSearch, query, path, page);
+            yield call(getSearch, inputValue, path, page);
 
-          
+            yield put(setData(searchResults));
+            yield put(setTotalResult(searchResults));
+            yield put(setTotalPages(searchResults));
 
         }
 
