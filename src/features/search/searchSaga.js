@@ -10,6 +10,14 @@ function* fetchDataHandler() {
             select(selectPage),
         ]);
        
+        if (query !== null) {
+            const searchResults =
+            yield call(getSearch, query, path, page);
+
+          
+
+        }
+
     } catch (error) {
     };
 };
