@@ -8,7 +8,6 @@ export const Image = styled.img`
 
 export const TileImageContainer = styled.div`
     width: 100%;
-    aspect-ratio: calc(292 / 434);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -19,12 +18,18 @@ export const TileImageContainer = styled.div`
 
 const Tile = styled.article`
 	display: grid;
+	grid-template-rows: auto 1fr;
 	justify-content: center;
 	padding: 16px;
 	background: ${({ theme }) => theme.color.white};
 	border-radius: 5px;
 	box-shadow: 0 0 12px #bac7d580;
 	transition: transform 0.3s, box-shadow 0.3s;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.desktopLarge}px) {
+        min-height: 100%;
+    }
+
 
 	&:hover {
 		transform: translateY(10px);
@@ -40,7 +45,6 @@ export const StyledMovieTileLarge = styled(Tile)`
 	grid-template-rows: auto 1fr;
 	grid-gap: 16px;
 	max-width: 324px;
-	aspect-ratio: 324 / 650;
 `;
 
 export const StyledMovieTileSmall = styled(Tile)`
@@ -65,7 +69,6 @@ export const StyledDetailsTile = styled(Tile)`
 	grid-template-columns: auto 1fr;
 	grid-gap: 40px;
 	max-width: 1368px;
-	aspect-ratio: 1368 / 544;
 	padding: 40px;
 	border-radius: 0;
 
@@ -84,11 +87,14 @@ export const StyledDetailsTile = styled(Tile)`
 	}
 `;
 
-export const Content = styled.div`
-	margin: 0;
+export const MovieListContent = styled.div`
+	max-width: 100%; 
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 `;
 
-export const ContentInDetailsStyle = styled(Content)`
+export const ContentInDetailsStyle = styled.div`
 	margin: 8px 0;
 `;
 
@@ -186,7 +192,6 @@ export const Tags = styled.ul`
 	display: flex;
 	flex-wrap: wrap;
 	gap: 8px;
-	margin: 0;
 	padding: 0;
 	list-style: none;
 
@@ -220,6 +225,11 @@ export const Description = styled.p`
 		font-size: 14px;
 	}
 `;
+
+export const RatingContainer = styled.div`
+    margin-top: auto;
+`;
+
 
 export const NoProfilePhoto = styled(NoPersonPhotoSVG)`
 	width: 72px;

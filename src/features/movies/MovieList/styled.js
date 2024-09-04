@@ -27,11 +27,6 @@ export const List = styled.ul`
 	}
 `;
 
-export const ListItem = styled.li`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-`;
 
 export const StyledLink = styled(Link)`
 	text-decoration: none;
