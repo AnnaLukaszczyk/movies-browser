@@ -1,6 +1,5 @@
 import {
-	StyledMovieTileLarge,
-	StyledMovieTileSmall,
+	StyledMovieTile,
 	Image,
 	ContentInDetailsStyle,
 	Title,
@@ -29,9 +28,9 @@ import picturePeopleDetails from "../images/picturePeopleDetails.png";
 import { Rating } from "../Rating";
 import { posterURL, profileURL } from "../../API/APIdata";
 
-export const MovieTileLarge = ({ ratingValue, voteAmount, title, year, tags, poster }) => {
+export const MovieTile = ({ ratingValue, voteAmount, title, year, tags, poster }) => {
 	return (
-		<StyledMovieTileLarge>
+		<StyledMovieTile>
 			<TileImageContainer>
 				<Image src={`${posterURL}${poster}`} alt="" />
 			</TileImageContainer>
@@ -51,28 +50,9 @@ export const MovieTileLarge = ({ ratingValue, voteAmount, title, year, tags, pos
 					/>
 				</RatingContainer>
 			</MovieListContent>
-		</StyledMovieTileLarge>
+		</StyledMovieTile>
 	);
 };
-
-export const MovieTileSmall = ({ ratingValue, voteAmount, title, year, tags, poster }) => (
-	<StyledMovieTileSmall>
-		<Image src={`${posterURL}${poster}`} alt="" />
-		<MovieListContent>
-			<Title>{title}</Title>
-			<Year>{year}</Year>
-			<Tags>
-				{tags.map(tag => (
-					<Tag key={tag}>{tag}</Tag>
-				))}
-			</Tags>
-			<Rating
-				ratingValue={ratingValue}
-				voteAmount={voteAmount}
-			/>
-		</MovieListContent>
-	</StyledMovieTileSmall>
-);
 
 export const PeopleTile = ({ name, character, role, profilePath }) => (
 	<StyledPeopleTile>
