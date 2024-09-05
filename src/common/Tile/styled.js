@@ -34,14 +34,6 @@ export const TileImageContainer = styled.div`
 	}
 `;
 
-export const Image = styled.img`
-	width: 100%;
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
-		height: 169px;
-	}
-`;
-
 const Tile = styled.article`
 	min-height: 100%;
 	display: grid;
