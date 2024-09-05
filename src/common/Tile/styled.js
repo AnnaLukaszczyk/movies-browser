@@ -28,7 +28,9 @@ export const TileImageContainer = styled.div`
 	color: white;
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
-		aspect-ratio: calc(120 /178);;
+		width: 114px;
+		height: 169px;
+		aspect-ratio: calc(120 / 178);
 	}
 `;
 
@@ -36,8 +38,7 @@ export const Image = styled.img`
 	width: 100%;
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
-		width: auto;
-		max-width: 100%;
+		height: 169px;
 	}
 `;
 
@@ -51,8 +52,6 @@ const Tile = styled.article`
 	border-radius: 5px;
 	box-shadow: 0 0 12px #bac7d580;
 	transition: transform 0.3s, box-shadow 0.3s;
-
-	
 
 	&:hover {
 		transform: translateY(10px);
@@ -69,13 +68,9 @@ export const StyledMovieTile = styled(Tile)`
 	max-width: 324px;
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
-		grid-template-columns: 1fr 2fr;
+		grid-template-columns: auto 1fr;
 		max-width: 702px;
 		grid-gap: 0;
-	}
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
-		grid-template-columns: 1fr 3fr;
 	}
 `;
 
