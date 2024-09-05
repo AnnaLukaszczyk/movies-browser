@@ -13,8 +13,7 @@ export const TileImageContainer = styled.div`
 	color: white;
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
-		width: auto;
-		min-width: 120px;
+		aspect-ratio: calc(120 /178);;
 	}
 `;
 
@@ -28,6 +27,7 @@ export const Image = styled.img`
 `;
 
 const Tile = styled.article`
+	min-height: 100%;
 	display: grid;
 	grid-template-rows: auto 1fr;
 	justify-content: center;
@@ -37,9 +37,7 @@ const Tile = styled.article`
 	box-shadow: 0 0 12px #bac7d580;
 	transition: transform 0.3s, box-shadow 0.3s;
 
-	@media (max-width: ${({ theme }) => theme.breakpoints.desktopLarge}px) {
-		min-height: 100%;
-	}
+	
 
 	&:hover {
 		transform: translateY(10px);
