@@ -18,12 +18,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { selectMovie, selectMovieCast, selectMovieCrew, selectMoviId, setMovieId } from "./movieSlice";
 import { backdropURL, posterURL } from "../../../API/APIdata";
+import { useMediaQuery } from "react-responsive";
 
 export const MovieDetails = () => {
 
 	const params = useParams();
 	const dispatch = useDispatch();
 	const location = useLocation();
+	const isLargeScreen = useMediaQuery({ query: "(min-width: 993px)" });
 
 	useEffect(() => {
 		dispatch(setMovieId(params.id))
