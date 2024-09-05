@@ -1,6 +1,22 @@
 import styled from "styled-components";
 import { ReactComponent as NoPersonPhotoSVG } from "../../common/images/NoProfilePhoto.svg";
 
+export const Image = styled.img`
+	width: 100%;
+	border-radius: 5px;
+
+	@media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+        width: 114px;
+        height: 169px;
+        margin: 0;
+    }
+`;
+
+export const PeopleImage = styled.img`
+	width: 100%;
+	border-radius: 5px;
+`;
+
 export const TileImageContainer = styled.div`
 	width: 100%;
 	display: flex;
@@ -85,10 +101,13 @@ export const StyledDetailsTile = styled(Tile)`
 		filter: none;
 	}
 
-	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
-		grid-gap: 30px;
-		padding: 24px;
-	}
+	@media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+		padding: 15px;
+        gap: 10px;
+		display: flex;
+        flex-wrap: wrap;
+		flex-direction: row;
+    }
 `;
 
 export const MovieListContent = styled.div`
@@ -102,7 +121,11 @@ export const MovieListContent = styled.div`
 `;
 
 export const ContentInDetailsStyle = styled.div`
-	margin: 8px 0;
+	flex-grow: 1;
+
+	@media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+		width: calc(100% - 152px);
+	}
 `;
 
 export const ActorProfile = styled.div`
@@ -136,10 +159,21 @@ export const Title = styled.h3`
 export const TitleInDetailsTile = styled.header`
 	font-size: 36px;
 	font-weight: 600;
+	margin-top: 12px;
+    margin-bottom: 24px;
 
-	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
-		font-size: 24px;
+	@media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) {
+		margin-top: 9px;
+        margin-bottom: 20px;
 	}
+
+	@media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+        font-weight: 500;
+        font-size: 16px;
+        margin-top: 2px;
+        margin-bottom: 8px;
+		line-height: 20.8px;
+    }
 `;
 
 export const Subtitle = styled.p`
@@ -168,6 +202,12 @@ export const YearInDetailsTile = styled.p`
 		font-size: 16px;
 		margin: 12px 0;
 	}
+
+	@media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+        color: ${({ theme }) => theme.color.waterloo};
+        font-size: 13px;
+        margin-bottom: 2px;
+    }
 `;
 
 export const BoxOnDetails = styled.div`
@@ -176,16 +216,21 @@ export const BoxOnDetails = styled.div`
 	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
 		margin: 12px 0;
 	}
+
+	@media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+        font-size: 12px;
+        line-height: 22px;
+    }
 `;
 
-export const Details = styled.p`
+export const Details = styled.div`
 	display: flex;
 	margin: 8px 0;
 	gap: 10px;
 `;
 
 export const DetailName = styled.span`
-	margin: 0;
+	 margin: 0;
 	font-size: 18px;
 	color: ${({ theme }) => theme.color.stormGrey};
 
@@ -218,6 +263,11 @@ export const Tags = styled.ul`
 
 export const TagsInDetailsTile = styled(Tags)`
 	margin-bottom: 24px;
+
+	@media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+        margin-top: 4px;
+        margin-bottom: 18px;
+    }
 `;
 
 export const Tag = styled.li`
@@ -242,9 +292,17 @@ export const Description = styled.p`
 	font-size: 20px;
 	line-height: 32px;
 
-	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
-		font-size: 14px;
+	@media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) {
+		font-size: 17px;
+        line-height: 27px;
+        margin-top: 8px;
 	}
+
+	@media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
 `;
 
 export const RatingContainer = styled.div`

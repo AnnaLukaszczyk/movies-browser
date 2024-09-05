@@ -1,6 +1,7 @@
 import {
 	StyledMovieTile,
 	Image,
+	PeopleImage,
 	ContentInDetailsStyle,
 	Title,
 	TitleInDetailsTile,
@@ -59,7 +60,7 @@ export const PeopleTile = ({ name, character, role, profilePath }) => (
 		<TileImageContainer>
 			{profilePath
 				?
-				<Image
+				<PeopleImage
 					src={`${profileURL}${profilePath}`}
 					alt="" />
 				:

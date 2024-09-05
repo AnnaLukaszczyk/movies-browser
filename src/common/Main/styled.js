@@ -9,7 +9,7 @@ export const StyledMain = styled.main`
     }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
-        margin: 56px 5%
+        margin: 24px 5%
 	}
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) { 
