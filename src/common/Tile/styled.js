@@ -17,19 +17,32 @@ export const PeopleImage = styled.img`
 	border-radius: 5px;
 `;
 
-
-
 export const TileImageContainer = styled.div`
-    width: 100%;
+	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	border-radius: 5px;
+	overflow: hidden;
 	background: gray;
 	color: white;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		aspect-ratio: calc(120 /178);;
+	}
+`;
+
+export const Image = styled.img`
+	width: 100%;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		width: auto;
+		max-width: 100%;
+	}
 `;
 
 const Tile = styled.article`
+	min-height: 100%;
 	display: grid;
 	grid-template-rows: auto 1fr;
 	justify-content: center;
@@ -39,10 +52,7 @@ const Tile = styled.article`
 	box-shadow: 0 0 12px #bac7d580;
 	transition: transform 0.3s, box-shadow 0.3s;
 
-	@media (max-width: ${({ theme }) => theme.breakpoints.desktopLarge}px) {
-        min-height: 100%;
-    }
-
+	
 
 	&:hover {
 		transform: translateY(10px);
@@ -54,20 +64,22 @@ const Tile = styled.article`
 	}
 `;
 
-export const StyledMovieTileLarge = styled(Tile)`
-	grid-template-rows: auto 1fr;
+export const StyledMovieTile = styled(Tile)`
 	grid-gap: 16px;
 	max-width: 324px;
-`;
 
-export const StyledMovieTileSmall = styled(Tile)`
-	grid-template-columns: auto 1fr;
-	grid-gap: 16px;
-	max-width: 702px;
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		grid-template-columns: 1fr 2fr;
+		max-width: 702px;
+		grid-gap: 0;
+	}
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+		grid-template-columns: 1fr 3fr;
+	}
 `;
 
 export const StyledPeopleTile = styled(Tile)`
-	grid-template-rows: auto 1fr;
 	max-width: 208px;
 	aspect-ratio: 208 / 339;
 	border-radius: 0;
@@ -104,10 +116,13 @@ export const StyledDetailsTile = styled(Tile)`
 `;
 
 export const MovieListContent = styled.div`
-	max-width: 100%; 
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+	max-width: 100%;
+	display: flex;
+	flex-direction: column;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		margin-left: 16px;
+	}
 `;
 
 export const ContentInDetailsStyle = styled.div`
@@ -132,6 +147,10 @@ export const Title = styled.h3`
 	margin: 0;
 	font-size: 22px;
 	font-weight: 500;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		font-size: 20px;
+	}
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
 		font-size: 18px;
@@ -170,6 +189,10 @@ export const Subtitle = styled.p`
 export const Year = styled.p`
 	margin: 8px 0;
 	color: ${({ theme }) => theme.color.darkerGrey};
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		font-size: 16px;
+	}
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
 		font-size: 13px;
@@ -234,6 +257,7 @@ export const Tags = styled.ul`
 	display: flex;
 	flex-wrap: wrap;
 	gap: 8px;
+	margin-bottom: 10px;
 	padding: 0;
 	list-style: none;
 
@@ -256,6 +280,11 @@ export const Tag = styled.li`
 	font-size: 14px;
 	background: #e4e6f0;
 	border-radius: 5px;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		padding: 6px 12px;
+		font-size: 12px;
+	}
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
 		padding: 4px 8px;
@@ -282,9 +311,12 @@ export const Description = styled.p`
 `;
 
 export const RatingContainer = styled.div`
-    margin-top: auto;
-`;
+	margin-top: auto;
 
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		margin-top: 0;
+	}
+`;
 
 export const NoProfilePhoto = styled(NoPersonPhotoSVG)`
 	width: 72px;
@@ -294,4 +326,4 @@ export const NoProfilePhoto = styled(NoPersonPhotoSVG)`
 		width: 48px;
 		height: 48px;
 	}
-`
+`;
