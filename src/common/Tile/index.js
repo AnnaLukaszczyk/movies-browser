@@ -20,7 +20,8 @@ import {
 	Description,
 	Details,
 	NoProfilePhoto,
-	TileImageContainer,
+	MovieImageContainer,
+	PeopleImageContainer,
 	RatingContainer,
 	MovieListContent,
 } from "./styled";
@@ -32,9 +33,9 @@ import { posterURL, profileURL } from "../../API/APIdata";
 export const MovieTile = ({ ratingValue, voteAmount, title, year, tags, poster }) => {
 	return (
 		<StyledMovieTile>
-			<TileImageContainer>
+			<MovieImageContainer>
 				<Image src={`${posterURL}${poster}`} alt="" />
-			</TileImageContainer>
+			</MovieImageContainer>
 			<MovieListContent>
 				<Title>{title}</Title>
 				<Year>{year}</Year>
@@ -57,7 +58,7 @@ export const MovieTile = ({ ratingValue, voteAmount, title, year, tags, poster }
 
 export const PeopleTile = ({ name, character, role, profilePath }) => (
 	<StyledPeopleTile>
-		<TileImageContainer>
+		<PeopleImageContainer>
 			{profilePath
 				?
 				<PeopleImage
@@ -66,7 +67,7 @@ export const PeopleTile = ({ name, character, role, profilePath }) => (
 				:
 				<NoProfilePhoto />
 			}
-		</TileImageContainer>
+		</PeopleImageContainer>
 		<ActorProfile>
 			<Title>{name}</Title>
 			<Subtitle>{character}{role}</Subtitle>
@@ -139,3 +140,4 @@ export const PeopleDetailsTile = ({
 		</ContentInDetailsStyle>
 	</StyledDetailsTile>
 );
+

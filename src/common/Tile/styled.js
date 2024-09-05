@@ -17,7 +17,7 @@ export const PeopleImage = styled.img`
 	border-radius: 5px;
 `;
 
-export const TileImageContainer = styled.div`
+export const ImageContainer = styled.div`
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -26,12 +26,19 @@ export const TileImageContainer = styled.div`
 	overflow: hidden;
 	background: gray;
 	color: white;
+`;
+
+export const MovieImageContainer = styled(ImageContainer)`
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
 		width: 114px;
 		height: 169px;
 		aspect-ratio: calc(120 / 178);
 	}
+`;
+
+export const PeopleImageContainer = styled(ImageContainer)`
+
 `;
 
 const Tile = styled.article`
