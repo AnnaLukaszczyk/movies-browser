@@ -1,19 +1,36 @@
+import { useDispatch, useSelector } from "react-redux";
 import { StyledMain as Main } from "../../../common/Main/styled";
 import { Section } from "../../../common/Section";
 import { PeopleDetailsTile } from "../../../common/Tile";
+import { useParams } from "react-router-dom/cjs/react-router-dom";
+import { selectPeopleDetails, setPeopleId } from "./peopleSlice";
+import { useEffect } from "react";
+import { bigProfileURL } from "../../../API/APIdata";
 
 export const PeopleDetails = () => {
-  return (
-    <Main>
-      <Section>
-        <PeopleDetailsTile
-          name="Liu Yifei"
-          date="25.08.1987"
-          pleace="Wuhan, Hubei, China"
-          description="Liu Yifei was born in Wuhan, Hubei, Province of China on August 25th, 1987. She began modeling at the age of 8 and was trained in singing, 
-        dancing and the piano. Moving to the United States at 10 with her mother, Liu lived there for four years."
-        />
-      </Section>
-    </Main>
-  );
+	const params = useParams();
+	const dispatch = useDispatch();
+	const person = useSelector(selectPeopleDetails);
+
+	const picturePersonDetails = person.profile_path
+		? `${bigProfileURL}${person.profile_path}`
+		: "";
+
+	useEffect(() => {
+		dispatch(setPeopleId(params.id));
+	}, [params.id, dispatch]);
+
+	return (
+		<Main>
+			<Section>
+				<PeopleDetailsTile
+					picturePersonDetails={picturePersonDetails}
+					name={person.name}
+					date={person.birthday}
+					place={person.place_of_birth}
+					description={person.biography}
+				/>
+			</Section>
+		</Main>
+	);
 };
