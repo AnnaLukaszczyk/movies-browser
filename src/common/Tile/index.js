@@ -119,11 +119,12 @@ export const MovieDetailsTile = ({
 export const PeopleDetailsTile = ({
 	name,
 	date,
-	pleace,
+	place,
 	description,
+	picturePersonDetails
 }) => (
 	<StyledDetailsTile>
-		<Image src={picturePeopleDetails} alt="" />
+		<Image src={picturePersonDetails} alt="" />
 		<ContentInDetailsStyle>
 			<TitleInDetailsTile>{name}</TitleInDetailsTile>
 			<BoxOnDetails>
@@ -132,12 +133,11 @@ export const PeopleDetailsTile = ({
 					<DetailValue>{date}</DetailValue>
 				</Details>
 				<Details>
-					<DetailName>Pleace of birth:</DetailName>
-					<DetailValue>{pleace}</DetailValue>
+					<DetailName>Place of birth:</DetailName>
+					<DetailValue>{place}</DetailValue>
 				</Details>
 			</BoxOnDetails>
 			<Description>{description}</Description>
 		</ContentInDetailsStyle>
 	</StyledDetailsTile>
 );
-
