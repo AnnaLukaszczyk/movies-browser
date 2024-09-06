@@ -5,40 +5,11 @@ export const Image = styled.img`
 	width: 100%;
 	border-radius: 5px;
 
-	@media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
-        width: 114px;
-        height: 169px;
-        margin: 0;
-    }
-`;
-
-export const PeopleImage = styled.img`
-	width: 100%;
-	border-radius: 5px;
-`;
-
-export const ImageContainer = styled.div`
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 5px;
-	overflow: hidden;
-	background: gray;
-	color: white;
-`;
-
-export const MovieImageContainer = styled(ImageContainer)`
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
 		width: 114px;
 		height: 169px;
-		aspect-ratio: calc(120 / 178);
+		margin: 0;
 	}
-`;
-
-export const PeopleImageContainer = styled(ImageContainer)`
-
 `;
 
 const Tile = styled.article`
@@ -62,6 +33,19 @@ const Tile = styled.article`
 	}
 `;
 
+export const ImageContainer = styled.div`
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	overflow: hidden;
+	background: gray;
+	color: white;
+`;
+
+// styles for MovieTile
+
 export const StyledMovieTile = styled(Tile)`
 	grid-gap: 16px;
 	max-width: 324px;
@@ -73,6 +57,60 @@ export const StyledMovieTile = styled(Tile)`
 	}
 `;
 
+export const MovieImageContainer = styled(ImageContainer)`
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		width: 114px;
+		height: 169px;
+		aspect-ratio: calc(120 / 178);
+	}
+`;
+
+export const MovieListContent = styled.div`
+	max-width: 100%;
+	display: flex;
+	flex-direction: column;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		margin-left: 16px;
+	}
+`;
+
+export const Year = styled.p`
+	margin: 8px 0;
+	color: ${({ theme }) => theme.color.darkerGrey};
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		font-size: 16px;
+	}
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
+		font-size: 13px;
+	}
+`;
+
+export const Tags = styled.ul`
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-bottom: 10px;
+	padding: 0;
+	list-style: none;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		margin-bottom: 8px;
+	}
+`;
+
+export const RatingContainer = styled.div`
+	margin-top: auto;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		margin-top: 0;
+	}
+`;
+
+// styles for PeopleTile
+
 export const StyledPeopleTile = styled(Tile)`
 	max-width: 208px;
 	aspect-ratio: 208 / 339;
@@ -83,6 +121,61 @@ export const StyledPeopleTile = styled(Tile)`
 		padding: 8px;
 	}
 `;
+
+export const PeopleImageContainer = styled(ImageContainer)``;
+
+export const PeopleImage = styled.img`
+	width: 100%;
+	border-radius: 5px;
+`;
+
+export const NoProfilePhoto = styled(NoPersonPhotoSVG)`
+	width: 72px;
+	height: 72px;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
+		width: 48px;
+		height: 48px;
+	}
+`;
+
+export const ActorProfile = styled.div`
+	margin-top: 12px;
+	min-height: 64px;
+	text-align: center;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		margin-top: 8px;
+	}
+`;
+
+// styles for MovieTile and PeopleTile
+
+export const Title = styled.h3`
+	margin: 0;
+	font-size: 22px;
+	font-weight: 500;
+	word-wrap: break-word;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		font-size: 20px;
+	}
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+		font-size: 18px;
+	}
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
+		font-size: 16px;
+	}
+`;
+
+export const Subtitle = styled.p`
+	margin: 8px 0;
+	font-size: 18px;
+`;
+
+// styles for MovieDetailsTile and PeopleDetailsTile
 
 export const StyledDetailsTile = styled(Tile)`
 	grid-template-columns: auto 1fr;
@@ -100,58 +193,20 @@ export const StyledDetailsTile = styled(Tile)`
 		filter: none;
 	}
 
-	@media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
 		padding: 15px;
-        gap: 10px;
+		gap: 10px;
 		display: flex;
-        flex-wrap: wrap;
+		flex-wrap: wrap;
 		flex-direction: row;
-    }
-`;
-
-export const MovieListContent = styled.div`
-	max-width: 100%;
-	display: flex;
-	flex-direction: column;
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
-		margin-left: 16px;
 	}
 `;
 
 export const ContentInDetailsStyle = styled.div`
 	flex-grow: 1;
 
-	@media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
-		width: calc(100% - 152px);
-	}
-`;
-
-export const ActorProfile = styled.div`
-	margin-top: 12px;
-	min-height: 64px;
-	text-align: center;
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
-		margin-top: 8px;
-	}
-`;
-
-export const Title = styled.h3`
-	margin: 0;
-	font-size: 22px;
-	font-weight: 500;
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
-		font-size: 20px;
-	}
-
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
-		font-size: 18px;
-	}
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
-		font-size: 16px;
+		width: calc(100% - 152px);
 	}
 `;
 
@@ -159,37 +214,19 @@ export const TitleInDetailsTile = styled.header`
 	font-size: 36px;
 	font-weight: 600;
 	margin-top: 12px;
-    margin-bottom: 24px;
+	margin-bottom: 24px;
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) {
 		margin-top: 9px;
-        margin-bottom: 20px;
+		margin-bottom: 20px;
 	}
 
-	@media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
-        font-weight: 500;
-        font-size: 16px;
-        margin-top: 2px;
-        margin-bottom: 8px;
-		line-height: 20.8px;
-    }
-`;
-
-export const Subtitle = styled.p`
-	margin: 8px 0;
-	font-size: 18px;
-`;
-
-export const Year = styled.p`
-	margin: 8px 0;
-	color: ${({ theme }) => theme.color.darkerGrey};
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+		font-weight: 500;
 		font-size: 16px;
-	}
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
-		font-size: 13px;
+		margin-top: 2px;
+		margin-bottom: 8px;
+		line-height: 20.8px;
 	}
 `;
 
@@ -202,11 +239,11 @@ export const YearInDetailsTile = styled.p`
 		margin: 12px 0;
 	}
 
-	@media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
-        color: ${({ theme }) => theme.color.waterloo};
-        font-size: 13px;
-        margin-bottom: 2px;
-    }
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+		color: ${({ theme }) => theme.color.waterloo};
+		font-size: 13px;
+		margin-bottom: 2px;
+	}
 `;
 
 export const BoxOnDetails = styled.div`
@@ -216,10 +253,10 @@ export const BoxOnDetails = styled.div`
 		margin: 12px 0;
 	}
 
-	@media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
-        font-size: 12px;
-        line-height: 22px;
-    }
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+		font-size: 12px;
+		line-height: 22px;
+	}
 `;
 
 export const Details = styled.div`
@@ -229,7 +266,7 @@ export const Details = styled.div`
 `;
 
 export const DetailName = styled.span`
-	 margin: 0;
+	margin: 0;
 	font-size: 18px;
 	color: ${({ theme }) => theme.color.stormGrey};
 
@@ -247,27 +284,33 @@ export const DetailValue = styled.span`
 	}
 `;
 
-export const Tags = styled.ul`
-	display: flex;
-	flex-wrap: wrap;
-	gap: 8px;
-	margin-bottom: 10px;
-	padding: 0;
-	list-style: none;
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
-		margin-bottom: 8px;
-	}
-`;
-
 export const TagsInDetailsTile = styled(Tags)`
 	margin-bottom: 24px;
 
-	@media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
-        margin-top: 4px;
-        margin-bottom: 18px;
-    }
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+		margin-top: 4px;
+		margin-bottom: 18px;
+	}
 `;
+
+export const Description = styled.p`
+	margin: 24px 0 0;
+	font-size: 20px;
+	line-height: 32px;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) {
+		font-size: 17px;
+		line-height: 27px;
+		margin-top: 8px;
+	}
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+		font-size: 14px;
+		line-height: 22px;
+	}
+`;
+
+// styles for MovieTile and MovieDetailsTile
 
 export const Tag = styled.li`
 	padding: 8px 16px;
@@ -283,41 +326,5 @@ export const Tag = styled.li`
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
 		padding: 4px 8px;
 		font-size: 10px;
-	}
-`;
-
-export const Description = styled.p`
-	margin: 24px 0 0;
-	font-size: 20px;
-	line-height: 32px;
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) {
-		font-size: 17px;
-        line-height: 27px;
-        margin-top: 8px;
-	}
-
-	@media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
-        font-size: 14px;
-        line-height: 22px;
-    }
-
-`;
-
-export const RatingContainer = styled.div`
-	margin-top: auto;
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
-		margin-top: 0;
-	}
-`;
-
-export const NoProfilePhoto = styled(NoPersonPhotoSVG)`
-	width: 72px;
-	height: 72px;
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
-		width: 48px;
-		height: 48px;
 	}
 `;
