@@ -5,10 +5,10 @@ export const getSearch = async (query, path, page) => {
 
     const searchPath = () => {
         switch (path) {
-            case "movies/search":
+            case "movies":
                 return "movie";
 
-            case "people/search":
+            case "people":
                 return "person";
 
             default:
