@@ -1,8 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { paginationActions } from "../../Pagination/createPaginationActions";
 
-import { paginationActions } from "../../common/Pagination/createPaginationActions";
-
-const { paginationReducer } = paginationActions('searchSlice');
+const { paginationReducers } = paginationActions('searchSlice');
 
 const searchSlice = createSlice({
     name: "search",
@@ -15,7 +14,7 @@ const searchSlice = createSlice({
         totalPages: 0,
     },
     reducers: {
-        ...paginationReducer,
+        ...paginationReducers,
         setPath: (state, { payload: path }) => {
             state.path = path;
         },
