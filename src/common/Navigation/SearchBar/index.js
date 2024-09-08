@@ -24,6 +24,11 @@ export const SearchBar = () => {
 	const replaceQueryParameter = useReplaceQueryParameter();
 	const updatePageFromURL = useUpdatePageFromURL();
 
+	const URLparams = {
+		key: "search",
+		value: pageParam,
+	};
+
 	useEffect(() => {
 		const path = location.pathname.slice(1);
 
@@ -40,10 +45,7 @@ export const SearchBar = () => {
 		updatePath();
 
 		if (query) {
-			updatePageFromURL({
-				key: "search",
-				value: pageParam,
-			})
+			updatePageFromURL(URLparams);
 			dispatch(setInputValue(query));
 		}
 
