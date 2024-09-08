@@ -29,14 +29,16 @@ export const SearchPage = () => {
                 return < SearchMovieList
                     searchQuery={searchQuery}
                     searchResults={searchResults}
-                    totalResults={searchTotalResults}
+                    searchTotalResults={searchTotalResults}
+                    totalPages={totalPages}
                 />
             };
             if (path === "people") {
                 return < SearchPeopleList
                     searchQuery={searchQuery}
                     searchResults={searchResults}
-                    totalResults={searchTotalResults}
+                    searchTotalResults={searchTotalResults}
+                    totalPages={totalPages}
                 />
             };
     };

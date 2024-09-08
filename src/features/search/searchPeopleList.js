@@ -9,29 +9,37 @@ import { List, ListItem, StyledLink } from "../people/PeopleList/styled"
 import { useSelector } from "react-redux"
 
 
-export const SearchPeopleList = ({searchResults}) => {
+export const SearchPeopleList = (
+    {
+        searchQuery,
+        searchResults,
+        searchTotalResults,
+        totalPages
+    }) => {
 
     const searchPeople = searchResults;
-   
+
     return (
         <StyledMain>
-        <Section>
-            <SectionTitle>Popular people</SectionTitle>
-            {searchPeople && (
-            <List>
-                {searchPeople.map(({ id, profile_path, name }) => (
-                    <ListItem key={id}>
-                        <StyledLink to={toPeopleDetails({ id: id })}>
-                            <PeopleTile
-                                profilePath={profile_path}
-                                name={name} />
-                        </StyledLink>
-                    </ListItem>
-                ))}
-            </List>
-            )}
-        </Section>
-        <Pagination />
-    </StyledMain>
+            <Section>
+                <SectionTitle>Search results for {`"${searchQuery}"(${searchTotalResults})`}</SectionTitle>
+                {searchPeople && (
+                    <List>
+                        {searchPeople.map(({ id, profile_path, name }) => (
+                            <ListItem key={id}>
+                                <StyledLink to={toPeopleDetails({ id: id })}>
+                                    <PeopleTile
+                                        profilePath={profile_path}
+                                        name={name} />
+                                </StyledLink>
+                            </ListItem>
+                        ))}
+                    </List>
+                )}
+            </Section>
+            <Pagination
+                totalPages={totalPages}
+            />
+        </StyledMain>
     )
 }

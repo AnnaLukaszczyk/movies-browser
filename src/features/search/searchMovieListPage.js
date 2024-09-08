@@ -11,9 +11,10 @@ import { selectSearchData } from "../../common/Navigation/SearchBar/searchSlice"
 
 export const SearchMovieList = (
     {
-       
+        searchQuery,
         searchResults,
-       
+        searchTotalResults,
+        totalPages
     }) => {
 
     const searchMovies = searchResults;
@@ -25,7 +26,7 @@ export const SearchMovieList = (
     return (
         <StyledMain>
             <Section>
-                <SectionTitle>Search</SectionTitle>
+                <SectionTitle>Search results for {`"${searchQuery}"(${searchTotalResults})`}</SectionTitle>
                 {searchMovies && (
                     <List>
                         {searchMovies.map(
@@ -66,7 +67,8 @@ export const SearchMovieList = (
                     </List>
                 )}
             </Section>
-            <Pagination />
+            <Pagination 
+            totalPages={totalPages}/>
         </StyledMain>
     )
 }
