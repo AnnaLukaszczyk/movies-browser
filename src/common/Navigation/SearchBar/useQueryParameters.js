@@ -1,4 +1,5 @@
 import { useLocation, useHistory } from "react-router-dom/cjs/react-router-dom";
+import pageParamName from "../../../paginationParam";
 
 export const useQueryParameter = (target) => {
 	const location = useLocation();
@@ -16,7 +17,7 @@ export const useReplaceQueryParameter = () => {
 		if (value === undefined) {
 			searchParams.delete(key);
 		} else {
-			searchParams.set("page", 1);
+			searchParams.set(pageParamName, 1);
 			searchParams.set(key, value);
 		}
 

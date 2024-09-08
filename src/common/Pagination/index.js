@@ -1,6 +1,6 @@
 import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom";
 import { BoldText, ButtonText, LeftVector, MobileLeftVector, MobileVector, StyledButton, Text, TextContainer, Vector, Wrapper } from "./styled"
-import pageParamName from "../../API/pageParamName";
+import pageParamName from "../../paginationParam";
 
 export const Pagination = ({ totalPages }) => {
 

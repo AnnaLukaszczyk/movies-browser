@@ -1,6 +1,8 @@
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { setPath } from "./searchSlice";
+import moviesPathName from "../../../moviesPathName";
+import peoplePathName from "../../../peoplePathName";
 
 export const usePathname = () => {
 
@@ -11,9 +13,9 @@ export const usePathname = () => {
 
     const updatePath = () => {
         switch (path) {
-            case "movies":
+            case moviesPathName:
                 return dispatch(setPath(path));
-            case "people":
+            case peoplePathName:
                 return dispatch(setPath(path));
             default:
                 return dispatch(setPath(""));

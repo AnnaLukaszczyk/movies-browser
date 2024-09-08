@@ -7,7 +7,7 @@ import { getGenres } from "../../../API/getGenres";
 
 function* fetchDataHandler() {
     try {
-        yield delay(120);
+        yield delay(1000);
         const [query, path, page] = yield all([
             select(selectInputValue),
             select(selectSearchPath),

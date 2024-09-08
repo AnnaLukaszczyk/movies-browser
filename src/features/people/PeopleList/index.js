@@ -12,17 +12,19 @@ import {
 } from "./peopleListSlice";
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
-import pageParamName from "../../../API/pageParamName";
+import pageParamName from "../../../paginationParam";
 import { useUpdatePageFromURL } from "../../../common/Pagination/useURLParams";
 import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom";
 import { SearchPeopleList } from "../../search/searchPeopleList";
 import { SearchPage } from "../../search";
+import queryParamName from "../../../queryParamName";
+import peoplePathName from "../../../peoplePathName";
 
 export const PeopleList = () => {
 	const location = useLocation();
 	const history = useHistory();
 	const searchParams = new URLSearchParams(location.search);
-	const query = searchParams.get("query");
+	const query = searchParams.get(queryParamName);
 
 	const people = useSelector(selectPeopleList);
 	const status = useSelector(selectPeopleListStatus);
@@ -31,7 +33,7 @@ export const PeopleList = () => {
 
 	const pageParam = searchParams.get(pageParamName);
 	const URLparams = {
-		key: query ? "search" : "people",
+		key: query ? "search" : peoplePathName,
 		value: pageParam,
 	};
 

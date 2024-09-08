@@ -5,6 +5,8 @@ import { Loading } from "../../common/Loading";
 import { NoResults } from "../../common/NoResults"
 import { SearchPeopleList } from "./searchPeopleList";
 import { Error } from "../../common/Error";
+import moviesPathName from "../../moviesPathName";
+import peoplePathName from "../../peoplePathName";
 
 export const SearchPage = () => {
 
@@ -15,7 +17,7 @@ export const SearchPage = () => {
     const searchTotalResults = useSelector(selectSearchTotalResults);
     const totalPages = useSelector(selectTotalPages);
 
-    if (searchQuery && !searchResults.length) {
+    if (status !== "loading" && !searchResults.length) {
         return <NoResults searchQuery={searchQuery} />
     };
 
@@ -25,7 +27,7 @@ export const SearchPage = () => {
         case "error":
             return <Error />
         default:
-            if (path === "movies") {
+            if (path === moviesPathName) {
                 return < SearchMovieList
                     searchQuery={searchQuery}
                     searchResults={searchResults}
@@ -33,7 +35,7 @@ export const SearchPage = () => {
                     totalPages={totalPages}
                 />
             };
-            if (path === "people") {
+            if (path === peoplePathName) {
                 return < SearchPeopleList
                     searchQuery={searchQuery}
                     searchResults={searchResults}

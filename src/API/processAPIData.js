@@ -1,3 +1,5 @@
+import moviesPathName from "../moviesPathName";
+import peoplePathName from "../peoplePathName";
 import { backdropURL, posterURL } from "./APIdata";
 
 const nameGenres = (genreIds, genres) => {
@@ -66,9 +68,9 @@ export const processMovieDetailsData = (movieDetails) => {
 export const processSearchResults = (rawResults, rawGenreList, path) => {
 
     switch (path) {
-        case "movies":
+        case moviesPathName:
             return processMovieListData(rawResults, rawGenreList);
-        case "people":
+        case peoplePathName:
             return rawResults.results;
         default:
             return {};
