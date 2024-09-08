@@ -6,9 +6,10 @@ import {
 } from "./useQueryParameters";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { setInputValue, setPath } from "./searchSlice";
+import { setInputValue } from "./searchSlice";
 import { useUpdatePageFromURL } from "../../Pagination/useURLParams";
 import pageParamName from "../../../API/pageParamName";
+import { usePathname } from "./usePathname";
 
 export const SearchBar = () => {
 
@@ -23,6 +24,7 @@ export const SearchBar = () => {
 	const pageParam = useQueryParameter(pageParamName);
 	const replaceQueryParameter = useReplaceQueryParameter();
 	const updatePageFromURL = useUpdatePageFromURL();
+	const updatePath = usePathname();
 
 	const URLparams = {
 		key: "search",
@@ -30,26 +32,12 @@ export const SearchBar = () => {
 	};
 
 	useEffect(() => {
-		const path = location.pathname.slice(1);
-
-		const updatePath = () => {
-			switch (path) {
-				case "movies":
-					return dispatch(setPath(path));
-				case "people":
-					return dispatch(setPath(path));
-				default:
-					return dispatch(setPath(""));
-			};
-		};
 		updatePath();
 
 		if (query) {
 			updatePageFromURL(URLparams);
 			dispatch(setInputValue(query));
 		}
-
-
 
 	}, [location]);
 
