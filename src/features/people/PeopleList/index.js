@@ -15,7 +15,6 @@ import { Error } from "../../../common/Error";
 import pageParamName from "../../../paginationParam";
 import { useUpdatePageFromURL } from "../../../common/Pagination/useURLParams";
 import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom";
-import { SearchPeopleList } from "../../search/searchPeopleList";
 import { SearchPage } from "../../search";
 import queryParamName from "../../../queryParamName";
 import peoplePathName from "../../../peoplePathName";

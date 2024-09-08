@@ -1,15 +1,11 @@
-import { useMediaQuery } from "react-responsive";
 import { Section, SectionTitle } from "../../../common/Section";
-import { Pagination } from "../../../common/Pagination"
-import { MovieTileLarge, MovieTileSmall } from "../../../common/Tile";
-import { List, ListItem, StyledLink } from "./styled";
+import { Pagination } from "../../../common/Pagination";
+import { MovieTile } from "../../../common/Tile";
+import { List, StyledLink } from "./styled";
 import { toMovieDetails } from "../../../core/routes";
 import { StyledMain as Main } from "../../../common/Main/styled";
 import { useSelector } from "react-redux";
-import {
-	selectMovieList,
-	selectMovieListStatus,
-} from "./movieListSlice";
+import { selectMovieList, selectMovieListStatus } from "./movieListSlice";
 import { useEffect } from "react";
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
@@ -21,8 +17,6 @@ import queryParamName from "../../../queryParamName";
 import moviesPathName from "../../../moviesPathName";
 
 export const MovieList = () => {
-	const isLargeScreen = useMediaQuery({ query: "(min-width: 993px)" });
-
 	const location = useLocation();
 	const history = useHistory();
 	const searchParams = new URLSearchParams(location.search);
@@ -31,7 +25,7 @@ export const MovieList = () => {
 	const movies = useSelector(selectMovieList);
 	const status = useSelector(selectMovieListStatus);
 
-	const updatePageFromURL = useUpdatePageFromURL()
+	const updatePageFromURL = useUpdatePageFromURL();
 
 	const pageParam = searchParams.get(pageParamName);
 	const URLparams = {
@@ -40,14 +34,12 @@ export const MovieList = () => {
 	};
 
 	useEffect(() => {
-
 		if (pageParam === null) {
 			searchParams.set(pageParamName, 1);
 			history.replace(`${location.pathname}?${searchParams.toString()}`);
 		}
 
 		updatePageFromURL(URLparams);
-
 	}, [location]);
 
 	if (query) {
@@ -75,29 +67,18 @@ export const MovieList = () => {
 									namedGenres,
 									poster,
 								}) => (
-									<ListItem key={id}>
+									<li key={id}>
 										<StyledLink to={toMovieDetails({ id: id })}>
-											{isLargeScreen ? (
-												<MovieTileLarge
-													poster={poster}
-													ratingValue={rating}
-													voteAmount={vote_count}
-													title={title}
-													year={date}
-													tags={namedGenres}
-												/>
-											) : (
-												<MovieTileSmall
-													poster={poster}
-													ratingValue={rating}
-													voteAmount={vote_count}
-													title={title}
-													year={date}
-													tags={namedGenres}
-												/>
-											)}
+											<MovieTile
+												poster={poster}
+												ratingValue={rating}
+												voteAmount={vote_count}
+												title={title}
+												year={date}
+												tags={namedGenres}
+											/>
 										</StyledLink>
-									</ListItem>
+									</li>
 								)
 							)}
 						</List>

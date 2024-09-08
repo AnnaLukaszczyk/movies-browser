@@ -1,8 +1,7 @@
 import {
-	StyledMovieTileLarge,
-	StyledMovieTileSmall,
+	StyledMovieTile,
 	Image,
-	Content,
+	PeopleImage,
 	ContentInDetailsStyle,
 	Title,
 	TitleInDetailsTile,
@@ -21,18 +20,23 @@ import {
 	Description,
 	Details,
 	NoProfilePhoto,
-	TileImageContainer,
+	MovieImageContainer,
+	PeopleImageContainer,
+	RatingContainer,
+	MovieListContent,
 } from "./styled";
 
 import picturePeopleDetails from "../images/picturePeopleDetails.png";
 import { Rating } from "../Rating";
 import { posterURL, profileURL } from "../../API/APIdata";
 
-export const MovieTileLarge = ({ ratingValue, voteAmount, title, year, tags, poster }) => {
+export const MovieTile = ({ ratingValue, voteAmount, title, year, tags, poster }) => {
 	return (
-		<StyledMovieTileLarge>
-			<Image src={`${posterURL}${poster}`} alt="" />
-			<Content>
+		<StyledMovieTile>
+			<MovieImageContainer>
+				<Image src={`${posterURL}${poster}`} alt="" />
+			</MovieImageContainer>
+			<MovieListContent>
 				<Title>{title}</Title>
 				<Year>{year}</Year>
 				<Tags>
@@ -40,46 +44,30 @@ export const MovieTileLarge = ({ ratingValue, voteAmount, title, year, tags, pos
 						<Tag key={tag}>{tag}</Tag>
 					))}
 				</Tags>
-			</Content>
-			<Rating
-				ratingValue={ratingValue}
-				voteAmount={voteAmount}
-			/>
-		</StyledMovieTileLarge>
+
+				<RatingContainer>
+					<Rating
+						ratingValue={ratingValue}
+						voteAmount={voteAmount}
+					/>
+				</RatingContainer>
+			</MovieListContent>
+		</StyledMovieTile>
 	);
 };
 
-export const MovieTileSmall = ({ ratingValue, voteAmount, title, year, tags, poster }) => (
-	<StyledMovieTileSmall>
-		<Image src={`${posterURL}${poster}`} alt="" />
-		<Content>
-			<Title>{title}</Title>
-			<Year>{year}</Year>
-			<Tags>
-				{tags.map(tag => (
-					<Tag key={tag}>{tag}</Tag>
-				))}
-			</Tags>
-			<Rating
-				ratingValue={ratingValue}
-				voteAmount={voteAmount}
-			/>
-		</Content>
-	</StyledMovieTileSmall>
-);
-
 export const PeopleTile = ({ name, character, role, profilePath }) => (
 	<StyledPeopleTile>
-		<TileImageContainer>
+		<PeopleImageContainer>
 			{profilePath
 				?
-				<Image
+				<PeopleImage
 					src={`${profileURL}${profilePath}`}
 					alt="" />
 				:
 				<NoProfilePhoto />
 			}
-		</TileImageContainer>
+		</PeopleImageContainer>
 		<ActorProfile>
 			<Title>{name}</Title>
 			<Subtitle>{character}{role}</Subtitle>
@@ -118,7 +106,7 @@ export const MovieDetailsTile = ({
 					<Tag key={tag}>{tag}</Tag>
 				))}
 			</TagsInDetailsTile>
-			<Rating 
+			<Rating
 				isMovieDetails
 				ratingValue={ratingValue}
 				voteAmount={voteAmount}
@@ -131,11 +119,12 @@ export const MovieDetailsTile = ({
 export const PeopleDetailsTile = ({
 	name,
 	date,
-	pleace,
+	place,
 	description,
+	picturePersonDetails
 }) => (
 	<StyledDetailsTile>
-		<Image src={picturePeopleDetails} alt="" />
+		<Image src={picturePersonDetails} alt="" />
 		<ContentInDetailsStyle>
 			<TitleInDetailsTile>{name}</TitleInDetailsTile>
 			<BoxOnDetails>
@@ -144,8 +133,8 @@ export const PeopleDetailsTile = ({
 					<DetailValue>{date}</DetailValue>
 				</Details>
 				<Details>
-					<DetailName>Pleace of birth:</DetailName>
-					<DetailValue>{pleace}</DetailValue>
+					<DetailName>Place of birth:</DetailName>
+					<DetailValue>{place}</DetailValue>
 				</Details>
 			</BoxOnDetails>
 			<Description>{description}</Description>

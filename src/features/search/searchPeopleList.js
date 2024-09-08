@@ -1,12 +1,9 @@
-import { select } from "redux-saga/effects"
 import { StyledMain } from "../../common/Main/styled"
-import { searchPageNumberFromURL, selectSearchData } from "../../common/Navigation/SearchBar/searchSlice"
 import { Pagination } from "../../common/Pagination"
 import { Section, SectionTitle } from "../../common/Section"
 import { PeopleTile } from "../../common/Tile"
 import { toPeopleDetails } from "../../core/routes"
 import { List, ListItem, StyledLink } from "../people/PeopleList/styled"
-import { useSelector } from "react-redux"
 
 
 export const SearchPeopleList = (
