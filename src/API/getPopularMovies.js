@@ -11,7 +11,7 @@ export const getPopularMovies = async (page) => {
             throw new Error(response.statusText);
         }
         const responseJson = await response.json();
-        const responseResult = await responseJson.results;
+        const responseResult = await responseJson;
         return responseResult;
 
     } catch (error) {

@@ -30,8 +30,9 @@ const getGenreName = (genres) =>
 
 export const processMovieListData = (movieListData, genreList) => {
     const genres = genreList.genres;
+    const movieList = movieListData.results;
 
-    return movieListData.map((movie) => (
+    return movieList.map((movie) => (
         {
             id: movie.id,
             title: movie.title,
@@ -60,4 +61,16 @@ export const processMovieDetailsData = (movieDetails) => {
             poster: `${posterURL}${movieDetails.poster_path}`,
         }
     )
+};
+
+export const processSearchResults = (rawResults, rawGenreList, path) => {
+
+    switch (path) {
+        case "movies":
+            return processMovieListData(rawResults, rawGenreList);
+        case "people":
+            return rawResults.results;
+        default:
+            return {};
+    };
 };
