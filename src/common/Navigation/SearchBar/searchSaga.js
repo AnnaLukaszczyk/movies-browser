@@ -1,5 +1,5 @@
 import { all, call, delay, put, select, takeLatest } from "redux-saga/effects";
-import { pageNumberFromURL, selectInputValue, selectPage, selectSearchPath, setData, setInputValue, setPath, setTotalPages, setTotalResult } from "./searchSlice";
+import { pageNumberFromURL, selectInputValue, selectPage, selectSearchPath, setData, setError, setInputValue, setTotalPages, setTotalResult } from "./searchSlice";
 import { getSearch } from "../../../API/getSearch";
 import { processSearchResults } from "../../../API/processAPIData";
 import { getGenres } from "../../../API/getGenres";
@@ -37,6 +37,7 @@ function* fetchDataHandler() {
 
         }
     } catch (error) {
+        yield put(setError());
     };
 };
 

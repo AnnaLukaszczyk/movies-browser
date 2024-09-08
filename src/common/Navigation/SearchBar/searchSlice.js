@@ -31,8 +31,10 @@ const searchSlice = createSlice({
         },
         setTotalPages: (state, { payload: rawResult }) => {
             state.totalPages = rawResult.total_pages;
+        },
+        setError: (state) => {
+            state.status = "error";
         }
-
     }
 })
 
@@ -43,6 +45,7 @@ export const {
     setData,
     setTotalResult,
     setTotalPages,
+    setError
 } = searchSlice.actions;
 
 const selectSearchState = (state) => state.search;

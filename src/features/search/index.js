@@ -4,6 +4,7 @@ import { SearchMovieList } from "./searchMovieListPage";
 import { Loading } from "../../common/Loading";
 import { NoResults } from "../../common/NoResults"
 import { SearchPeopleList } from "./searchPeopleList";
+import { Error } from "../../common/Error";
 
 export const SearchPage = () => {
 
@@ -15,13 +16,14 @@ export const SearchPage = () => {
     const totalPages = useSelector(selectTotalPages);
 
     if (searchQuery && !searchResults.length) {
-        return <NoResults searchQuery={searchQuery}/>
+        return <NoResults searchQuery={searchQuery} />
     };
 
     switch (status) {
         case "loading":
             return <Loading />
-
+        case "error":
+            return <Error />
         default:
             if (path === "movies") {
                 return < SearchMovieList
