@@ -6,6 +6,7 @@ const { paginationReducers } = paginationActions('searchSlice');
 const searchSlice = createSlice({
     name: "search",
     initialState: {
+        status: "",
         path: "",
         inputValue: "",
         page: 1,
@@ -21,13 +22,14 @@ const searchSlice = createSlice({
         setInputValue: (state, { payload: query }) => {
             state.inputValue = query;
         },
-        setData: (state, {payload: rawResult}) => {
-            state.data = rawResult.results;
+        setData: (state, { payload: rawResult }) => {
+            state.data = rawResult;
+            state.status = "success";
         },
-        setTotalResult: (state, {payload: rawResult}) => {
+        setTotalResult: (state, { payload: rawResult }) => {
             state.totalResults = rawResult.total_results;
         },
-        setTotalPages: (state, {payload: rawResult}) => {
+        setTotalPages: (state, { payload: rawResult }) => {
             state.totalPages = rawResult.total_pages;
         }
 
@@ -44,7 +46,8 @@ export const {
 } = searchSlice.actions;
 
 const selectSearchState = (state) => state.search;
-export const selectPath = (state) => selectSearchState(state).path;
+export const selectSearchStatus = (state) => selectSearchState(state).status;
+export const selectSearchPath = (state) => selectSearchState(state).path;
 export const selectInputValue = (state) => selectSearchState(state).inputValue;
 export const selectPage = (state) => selectSearchState(state).page;
 export const selectSearchData = (state) => selectSearchState(state).data;

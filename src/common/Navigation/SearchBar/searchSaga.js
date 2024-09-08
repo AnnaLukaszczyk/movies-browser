@@ -1,6 +1,8 @@
 import { all, call, delay, put, select, takeLatest } from "redux-saga/effects";
-import { pageNumberFromURL, selectInputValue, selectPage, selectPath, setData, setInputValue, setPath, setTotalPages, setTotalResult } from "./searchSlice";
+import { pageNumberFromURL, selectInputValue, selectPage, selectSearchPath, setData, setInputValue, setPath, setTotalPages, setTotalResult } from "./searchSlice";
 import { getSearch } from "../../../API/getSearch";
+import { processSearchResults } from "../../../API/processAPIData";
+import { getGenres } from "../../../API/getGenres";
 
 
 function* fetchDataHandler() {
@@ -8,16 +10,30 @@ function* fetchDataHandler() {
         yield delay(120);
         const [query, path, page] = yield all([
             select(selectInputValue),
-            select(selectPath),
+            select(selectSearchPath),
             select(selectPage),
         ]);
         if (query !== null) {
-            const searchResults =
-            yield call(getSearch, query, path, page);
+            const [rawResults, rawGenreList] = yield all
+                ([
+                    call(getSearch, query, path, page),
+                    call(getGenres),
+                ])
 
-            yield put(setData(searchResults));
-            yield put(setTotalResult(searchResults));
-            yield put(setTotalPages(searchResults));
+            const searchResults = yield call
+                (
+                    processSearchResults,
+                    rawResults,
+                    rawGenreList,
+                    path
+                );
+
+            yield all
+                ([
+                    put(setData(searchResults)),
+                    put(setTotalResult(rawResults)),
+                    put(setTotalPages(rawResults)),
+                ]);
 
         }
     } catch (error) {
