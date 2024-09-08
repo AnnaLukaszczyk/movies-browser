@@ -15,11 +15,14 @@ import { Error } from "../../../common/Error";
 import pageParamName from "../../../API/pageParamName";
 import { useUpdatePageFromURL } from "../../../common/Pagination/useURLParams";
 import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom";
+import { SearchPeopleList } from "../../search/searchPeopleList";
+import { SearchPage } from "../../search";
 
 export const PeopleList = () => {
 	const location = useLocation();
 	const history = useHistory();
 	const searchParams = new URLSearchParams(location.search);
+	const query = searchParams.get("query");
 
 	const people = useSelector(selectPeopleList);
 	const status = useSelector(selectPeopleListStatus);
@@ -28,7 +31,7 @@ export const PeopleList = () => {
 
 	const pageParam = searchParams.get(pageParamName);
 	const URLparams = {
-		key: "people",
+		key: query ? "search" : "people",
 		value: pageParam,
 	};
 
@@ -42,6 +45,10 @@ export const PeopleList = () => {
 		updatePageFromURL(URLparams);
 
 	}, [location]);
+
+	if (query) {
+		return < SearchPage/>
+	};
 
 	switch (status) {
 		case "loading":
