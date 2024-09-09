@@ -16,16 +16,20 @@ import { toPeopleDetails } from "../../../core/routes";
 import { useLocation, useParams } from "react-router-dom/cjs/react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { selectMovie, selectMovieCast, selectMovieCrew, setMovieId } from "./movieSlice";
+import {
+	selectMovie,
+	selectMovieCast,
+	selectMovieCrew,
+	setMovieId,
+} from "./movieSlice";
 
 export const MovieDetails = () => {
-
 	const params = useParams();
 	const dispatch = useDispatch();
 	const location = useLocation();
 
 	useEffect(() => {
-		dispatch(setMovieId(params.id))
+		dispatch(setMovieId(params.id));
 	}, [location.pathname]);
 
 	const movie = useSelector(selectMovie);
@@ -35,8 +39,7 @@ export const MovieDetails = () => {
 	return (
 		<>
 			<Header>
-				<BackgroundImage
-					poster={movie.backdrop}>
+				<BackgroundImage poster={movie.backdrop}>
 					<Vignette />
 					<TitleContainer>
 						<Title>{movie.title}</Title>
@@ -65,12 +68,13 @@ export const MovieDetails = () => {
 					{cast && (
 						<List>
 							{cast.map(({ id, name, character, profile_path }) => (
-								<StyledLink to={toPeopleDetails()}>
+								<StyledLink to={toPeopleDetails({ id: id })}>
 									<ListItem key={id}>
 										<PeopleTile
 											profilePath={profile_path}
 											name={name}
-											character={character} />
+											character={character}
+										/>
 									</ListItem>
 								</StyledLink>
 							))}
@@ -82,12 +86,13 @@ export const MovieDetails = () => {
 					{crew && (
 						<List>
 							{crew.map(({ id, name, profile_path, job }) => (
-								<StyledLink to={toPeopleDetails()}>
+								<StyledLink to={toPeopleDetails({ id: id })}>
 									<ListItem key={id}>
 										<PeopleTile
 											profilePath={profile_path}
 											name={name}
-											role={job} />
+											role={job}
+										/>
 									</ListItem>
 								</StyledLink>
 							))}
