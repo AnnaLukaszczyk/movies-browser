@@ -1,3 +1,5 @@
+import moviesPathName from "../moviesPathName";
+import peoplePathName from "../peoplePathName";
 import { backdropURL, posterURL } from "./APIdata";
 
 const nameGenres = (genreIds, genres) => {
@@ -30,8 +32,9 @@ const getGenreName = (genres) =>
 
 export const processMovieListData = (movieListData, genreList) => {
     const genres = genreList.genres;
+    const movieList = movieListData.results;
 
-    return movieListData.map((movie) => (
+    return movieList.map((movie) => (
         {
             id: movie.id,
             title: movie.title,
@@ -60,4 +63,16 @@ export const processMovieDetailsData = (movieDetails) => {
             poster: `${posterURL}${movieDetails.poster_path}`,
         }
     )
+};
+
+export const processSearchResults = (rawResults, rawGenreList, path) => {
+
+    switch (path) {
+        case moviesPathName:
+            return processMovieListData(rawResults, rawGenreList);
+        case peoplePathName:
+            return rawResults.results;
+        default:
+            return {};
+    };
 };

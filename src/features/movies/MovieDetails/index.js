@@ -16,8 +16,7 @@ import { toPeopleDetails } from "../../../core/routes";
 import { useLocation, useParams } from "react-router-dom/cjs/react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { selectMovie, selectMovieCast, selectMovieCrew, selectMoviId, setMovieId } from "./movieSlice";
-import { backdropURL, posterURL } from "../../../API/APIdata";
+import { selectMovie, selectMovieCast, selectMovieCrew, setMovieId } from "./movieSlice";
 import { useMediaQuery } from "react-responsive";
 
 export const MovieDetails = () => {

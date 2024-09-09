@@ -10,13 +10,17 @@ import { useEffect } from "react";
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
 import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom";
-import pageParamName from "../../../API/pageParamName";
+import pageParamName from "../../../paginationParam";
 import { useUpdatePageFromURL } from "../../../common/Pagination/useURLParams";
+import { SearchPage } from "../../search";
+import queryParamName from "../../../queryParamName";
+import moviesPathName from "../../../moviesPathName";
 
 export const MovieList = () => {
 	const location = useLocation();
 	const history = useHistory();
 	const searchParams = new URLSearchParams(location.search);
+	const query = searchParams.get(queryParamName);
 
 	const movies = useSelector(selectMovieList);
 	const status = useSelector(selectMovieListStatus);
@@ -25,7 +29,7 @@ export const MovieList = () => {
 
 	const pageParam = searchParams.get(pageParamName);
 	const URLparams = {
-		key: "movies",
+		key: query ? "search" : moviesPathName,
 		value: pageParam,
 	};
 
@@ -37,6 +41,10 @@ export const MovieList = () => {
 
 		updatePageFromURL(URLparams);
 	}, [location]);
+
+	if (query) {
+		return <SearchPage />
+	};
 
 	switch (status) {
 		case "loading":

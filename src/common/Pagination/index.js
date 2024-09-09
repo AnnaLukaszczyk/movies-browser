@@ -1,8 +1,8 @@
 import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom";
 import { BoldText, ButtonText, LeftVector, MobileLeftVector, MobileVector, StyledButton, Text, TextContainer, Vector, Wrapper } from "./styled"
-import pageParamName from "../../API/pageParamName";
+import pageParamName from "../../paginationParam";
 
-export const Pagination = () => {
+export const Pagination = ({ totalPages }) => {
 
     const location = useLocation();
     const history = useHistory();
@@ -10,7 +10,7 @@ export const Pagination = () => {
     const searchParams = new URLSearchParams(location.search);
     const pageParam = searchParams.get(pageParamName);
 
-    const maxPage = 500;
+    const maxPage = totalPages || 500;
 
     const onIncrement = () => {
         searchParams.set(pageParamName, +pageParam + 1);

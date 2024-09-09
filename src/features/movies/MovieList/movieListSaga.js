@@ -1,6 +1,6 @@
 import { all, call, delay, put, select, takeEvery } from "redux-saga/effects";
 import { getPopularMovies } from "../../../API/getPopularMovies";
-import { pageNumberFromURL, selectMovieListPage, setError, setGenres, setMovieList, setStatus } from "./movieListSlice";
+import { pageNumberFromURL, selectMovieListPage, setError, setGenres, setMovieList } from "./movieListSlice";
 import { getGenres } from "../../../API/getGenres";
 import { processMovieListData } from "../../../API/processAPIData";
 
