@@ -2,7 +2,7 @@ import {
 	StyledMovieTile,
 	Image,
 	PeopleImage,
-	ContentInDetailsStyle,
+	ContentInDetailsTile,
 	Title,
 	TitleInDetailsTile,
 	Year,
@@ -28,8 +28,6 @@ import {
 	RatingContainer,
 	MovieListContent,
 } from "./styled";
-
-import picturePeopleDetails from "../images/picturePeopleDetails.png";
 import { Rating } from "../Rating";
 import { posterURL, profileURL } from "../../API/APIdata";
 
@@ -91,7 +89,7 @@ export const MovieDetailsTile = ({
 }) => (
 	<StyledDetailsTile>
 		<Image src={poster} alt="" />
-		<ContentInDetailsStyle>
+		<ContentInDetailsTile>
 			<TitleInDetailsTile>{title}</TitleInDetailsTile>
 			<YearInDetailsTile>{year}</YearInDetailsTile>
 			<BoxOnDetails>
@@ -115,7 +113,7 @@ export const MovieDetailsTile = ({
 				voteAmount={voteAmount}
 			/>
 			<Description>{description}</Description>
-		</ContentInDetailsStyle>
+		</ContentInDetailsTile>
 	</StyledDetailsTile>
 );
 
@@ -129,7 +127,7 @@ export const PeopleDetailsTile = ({
 }) => (
 	<StyledPeopleDetailsTile>
 		<Image src={picturePersonDetails} alt="" />
-		<ContentInDetailsStyle>
+		<ContentInDetailsTile>
 			<TitleInDetailsTile>{name}</TitleInDetailsTile>
 			<BoxOnDetails>
 				<Details>
@@ -142,6 +140,6 @@ export const PeopleDetailsTile = ({
 				</Details>
 			</BoxOnDetails>
 			<DescriptionPeople>{description}</DescriptionPeople>
-		</ContentInDetailsStyle>
+		</ContentInDetailsTile>
 	</StyledPeopleDetailsTile>
 );
