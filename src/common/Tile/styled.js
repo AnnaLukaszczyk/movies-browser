@@ -233,7 +233,7 @@ export const StyledPeopleDetailsTile = styled(Tile)`
 	}
 `;
 
-export const ContentInDetailsStyle = styled.div`
+export const ContentInDetailsTile = styled.div`
 	flex-grow: 1;
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
