@@ -13,7 +13,7 @@ import { MovieDetailsTile, PeopleTile } from "../../../common/Tile";
 import { StyledMain as Main } from "../../../common/Main/styled";
 import { ListItem, StyledLink } from "../../people/PeopleList/styled";
 import { toPeopleDetails } from "../../../core/routes";
-import { useLocation, useParams } from "react-router-dom/cjs/react-router-dom";
+import { useHistory, useLocation, useParams } from "react-router-dom/cjs/react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import {
@@ -22,19 +22,39 @@ import {
 	selectMovieCrew,
 	setMovieId,
 } from "./movieSlice";
+import queryParamName from "../../../queryParamName";
+import { SearchPage } from "../../search";
+import { useQueryParameter } from "../../../common/Navigation/SearchBar/useQueryParameters";
+import pageParamName from "../../../paginationParam";
+
 
 export const MovieDetails = () => {
 	const params = useParams();
 	const dispatch = useDispatch();
 	const location = useLocation();
+	const history = useHistory();
+
+	const searchParams = new URLSearchParams(location.search);
+
+	const query = useQueryParameter(queryParamName);
+
 
 	useEffect(() => {
 		dispatch(setMovieId(params.id));
-	}, [location.pathname]);
+
+		if (!query) {
+			searchParams.delete(pageParamName);
+			history.replace(`${location.pathname}?${searchParams.toString()}`);
+		}
+	}, [location]);
 
 	const movie = useSelector(selectMovie);
 	const cast = useSelector(selectMovieCast);
 	const crew = useSelector(selectMovieCrew);
+
+	if (query) {
+		return <SearchPage />
+	}
 
 	return (
 		<>
@@ -61,7 +81,7 @@ export const MovieDetails = () => {
 					production={movie.production}
 					date={movie.releaseDate
 						? (new Date(movie.releaseDate).toLocaleDateString())
-                            : "Unknown"
+						: "Unknown"
 					}
 					tags={movie.genres}
 					description={movie.description}
