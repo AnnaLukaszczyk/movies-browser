@@ -14,6 +14,7 @@ import {
 	Subtitle,
 	ActorProfile,
 	StyledDetailsTile,
+	StyledPeopleDetailsTile,
 	DetailName,
 	DetailPeopleName,
 	DetailValue,
@@ -126,7 +127,7 @@ export const PeopleDetailsTile = ({
 	picturePersonDetails,
 	isLargeScreen
 }) => (
-	<StyledDetailsTile>
+	<StyledPeopleDetailsTile>
 		<Image src={picturePersonDetails} alt="" />
 		<ContentInDetailsStyle>
 			<TitleInDetailsTile>{name}</TitleInDetailsTile>
@@ -142,5 +143,5 @@ export const PeopleDetailsTile = ({
 			</BoxOnDetails>
 			<DescriptionPeople>{description}</DescriptionPeople>
 		</ContentInDetailsStyle>
-	</StyledDetailsTile>
+	</StyledPeopleDetailsTile>
 );

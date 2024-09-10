@@ -204,6 +204,32 @@ export const StyledDetailsTile = styled(Tile)`
 		flex-wrap: wrap;
 		flex-direction: row;
 		min-height: unset;
+		margin-top: -40px;
+	}
+`;
+
+export const StyledPeopleDetailsTile = styled(Tile)`
+	grid-template-columns: auto 1fr;
+	grid-gap: 40px;
+	max-width: 1368px;
+	padding: 40px;
+	border-radius: 0;
+
+	&:hover {
+		transform: none;
+		box-shadow: 0 0 12px #bac7d580;
+	}
+
+	&:hover ${Image} {
+		filter: none;
+	}
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		padding: 15px;
+		gap: 15px;
 	}
 `;
 
@@ -360,7 +386,7 @@ export const DescriptionPeople = styled.p`
 		font-size: 14px;
 		line-height: 22px;
 		margin: 80px 0 0 0;
-		margin-left: -100px;
+		margin-left: -130px;
 	}
 `;
 
