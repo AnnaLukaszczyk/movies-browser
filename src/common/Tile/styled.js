@@ -12,6 +12,11 @@ export const Image = styled.img`
 	}
 `;
 
+export const PeopleImage = styled.img`
+	width: 100%;
+	border-radius: 5px;
+`;
+
 const Tile = styled.article`
 	min-height: 100%;
 	display: grid;
@@ -29,6 +34,10 @@ const Tile = styled.article`
 	}
 
 	&:hover ${Image} {
+		filter: brightness(90%);
+	}
+
+	&:hover ${PeopleImage} {
 		filter: brightness(90%);
 	}
 `;
@@ -123,11 +132,6 @@ export const StyledPeopleTile = styled(Tile)`
 `;
 
 export const PeopleImageContainer = styled(ImageContainer)``;
-
-export const PeopleImage = styled.img`
-	width: 100%;
-	border-radius: 5px;
-`;
 
 export const NoProfilePhoto = styled(NoPersonPhotoSVG)`
 	width: 72px;
