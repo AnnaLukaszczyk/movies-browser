@@ -59,7 +59,10 @@ export const MovieDetails = () => {
 					title={movie.title}
 					year={movie.releaseYear}
 					production={movie.production}
-					date={movie.releaseDate}
+					date={movie.releaseDate
+						? (new Date(movie.releaseDate).toLocaleDateString())
+                            : "Unknown"
+					}
 					tags={movie.genres}
 					description={movie.description}
 				/>
