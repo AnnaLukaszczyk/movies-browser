@@ -185,7 +185,9 @@ export const StyledDetailsTile = styled(Tile)`
 	grid-template-columns: auto 1fr;
 	grid-gap: 40px;
 	max-width: 1368px;
-	padding: 40px;
+	padding-bottom: 5px;
+	padding-top: 40px;
+	padding-left: 40px;
 	border-radius: 0;
 
 	&:hover {
@@ -212,7 +214,9 @@ export const StyledPeopleDetailsTile = styled(Tile)`
 	grid-template-columns: auto 1fr;
 	grid-gap: 40px;
 	max-width: 1368px;
-	padding: 40px;
+	padding-bottom: 5px;
+	padding-top: 40px;
+	padding-left: 40px;
 	border-radius: 0;
 
 	&:hover {
@@ -297,26 +301,14 @@ export const Details = styled.div`
 `;
 
 export const DetailPeopleName = styled.span`
-	line-height: 28px;
+	line-height: 20px;
 	color: ${({ theme }) => theme.color.stormGrey};
-
-	@media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
-        line-height: 22px;
-    }
-
-	@media(max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
-        
-    }
 `;
 
 export const DetailName = styled.span`
 	margin: 0;
-	line-height: 28px;
+	line-height: 20px;
 	color: ${({ theme }) => theme.color.stormGrey};
-
-	@media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
-        line-height: 22px;
-    }
 
 	@media(max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
         display: none;
