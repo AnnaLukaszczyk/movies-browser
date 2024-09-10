@@ -44,7 +44,7 @@ export const PeopleDetails = () => {
             history.replace(`${location.pathname}?${searchParams.toString()}`);
         }
 
-    }, [location]);
+    }, [ params.id, query]);
 
     useEffect(() => {
         const fetchGenres = async () => {

@@ -46,7 +46,7 @@ export const MovieDetails = () => {
 			searchParams.delete(pageParamName);
 			history.replace(`${location.pathname}?${searchParams.toString()}`);
 		}
-	}, [location]);
+	}, [params.id, query]);
 
 	const movie = useSelector(selectMovie);
 	const cast = useSelector(selectMovieCast);
