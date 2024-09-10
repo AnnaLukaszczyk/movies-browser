@@ -54,7 +54,7 @@ export const processMovieDetailsData = (movieDetails) => {
             title: movieDetails.title,
             releaseDate: movieDetails.release_date,
             releaseYear: changeDateFormat(movieDetails.release_date),
-            rating: changeDateFormat(movieDetails.vote_average),
+            rating: changeVoteFormat(movieDetails.vote_average),
             voteCount: movieDetails.vote_count,
             description: movieDetails.overview,
             production: getCountryName(movieDetails.production_countries),
