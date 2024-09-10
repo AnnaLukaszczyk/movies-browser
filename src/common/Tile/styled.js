@@ -199,10 +199,11 @@ export const StyledDetailsTile = styled(Tile)`
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
 		padding: 15px;
-		gap: 10px;
+		gap: 15px;
 		display: flex;
 		flex-wrap: wrap;
 		flex-direction: row;
+		min-height: unset;
 	}
 `;
 
@@ -269,23 +270,52 @@ export const Details = styled.div`
 	gap: 10px;
 `;
 
-export const DetailName = styled.span`
-	margin: 0;
-	font-size: 18px;
+export const DetailPeopleName = styled.span`
+	line-height: 28px;
 	color: ${({ theme }) => theme.color.stormGrey};
 
-	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
-		font-size: 14px;
-	}
+	@media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+        line-height: 22px;
+    }
+
+	@media(max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
+        
+    }
+`;
+
+export const DetailName = styled.span`
+	margin: 0;
+	line-height: 28px;
+	color: ${({ theme }) => theme.color.stormGrey};
+
+	@media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+        line-height: 22px;
+    }
+
+	@media(max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
+        display: none;
+    }
 `;
 
 export const DetailValue = styled.span`
 	margin: 0;
 	font-size: 18px;
+	margin-right: 6px;
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
-		font-size: 14px;
+		font-size: 16px;
+		margin-right: 5px;
 	}
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+		font-size: 12px;
+		margin-right: 4px;
+	}
+
+	@media(max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
+        font-size: 12px;
+		margin-right: 4px;
+    }
 `;
 
 export const TagsInDetailsTile = styled(Tags)`
@@ -311,6 +341,26 @@ export const Description = styled.p`
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
 		font-size: 14px;
 		line-height: 22px;
+		margin-left: -130px;
+	}
+`;
+
+export const DescriptionPeople = styled.p`
+	margin: 24px 0 0;
+	font-size: 20px;
+	line-height: 32px;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) {
+		font-size: 17px;
+		line-height: 27px;
+		margin-top: 8px;
+	}
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+		font-size: 14px;
+		line-height: 22px;
+		margin: 80px 0 0 0;
+		margin-left: -100px;
 	}
 `;
 
