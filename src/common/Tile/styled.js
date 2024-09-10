@@ -121,8 +121,6 @@ export const RatingContainer = styled.div`
 // styles for PeopleTile
 
 export const StyledPeopleTile = styled(Tile)`
-	max-width: 208px;
-	aspect-ratio: 208 / 339;
 	border-radius: 0;
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
@@ -131,7 +129,9 @@ export const StyledPeopleTile = styled(Tile)`
 	}
 `;
 
-export const PeopleImageContainer = styled(ImageContainer)``;
+export const PeopleImageContainer = styled(ImageContainer)`
+	aspect-ratio: calc(177/ 260);
+`;
 
 export const NoProfilePhoto = styled(NoPersonPhotoSVG)`
 	width: 72px;
@@ -145,7 +145,6 @@ export const NoProfilePhoto = styled(NoPersonPhotoSVG)`
 
 export const ActorProfile = styled.div`
 	margin-top: 12px;
-	min-height: 64px;
 	text-align: center;
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
