@@ -15,9 +15,11 @@ import {
 	ActorProfile,
 	StyledDetailsTile,
 	DetailName,
+	DetailPeopleName,
 	DetailValue,
 	BoxOnDetails,
 	Description,
+	DescriptionPeople,
 	Details,
 	NoProfilePhoto,
 	MovieImageContainer,
@@ -121,7 +123,8 @@ export const PeopleDetailsTile = ({
 	date,
 	place,
 	description,
-	picturePersonDetails
+	picturePersonDetails,
+	isLargeScreen
 }) => (
 	<StyledDetailsTile>
 		<Image src={picturePersonDetails} alt="" />
@@ -129,15 +132,15 @@ export const PeopleDetailsTile = ({
 			<TitleInDetailsTile>{name}</TitleInDetailsTile>
 			<BoxOnDetails>
 				<Details>
-					<DetailName>Date od birth:</DetailName>
+					<DetailPeopleName> {isLargeScreen ? "Date of birth: " : "Birth: "} </DetailPeopleName>
 					<DetailValue>{date}</DetailValue>
 				</Details>
 				<Details>
-					<DetailName>Place of birth:</DetailName>
+					<DetailPeopleName>Place of birth:</DetailPeopleName>
 					<DetailValue>{place}</DetailValue>
 				</Details>
 			</BoxOnDetails>
-			<Description>{description}</Description>
+			<DescriptionPeople>{description}</DescriptionPeople>
 		</ContentInDetailsStyle>
 	</StyledDetailsTile>
 );
