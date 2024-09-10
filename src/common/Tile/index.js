@@ -39,7 +39,12 @@ export const MovieTile = ({ ratingValue, voteAmount, title, year, tags, poster }
 			</MovieImageContainer>
 			<MovieListContent>
 				<Title>{title}</Title>
-				<Year>{year}</Year>
+				<Year>
+					{year
+						? year :
+						""
+					}
+				</Year>
 				<Tags>
 					{tags.map(tag => (
 						<Tag key={tag}>{tag}</Tag>
@@ -91,7 +96,11 @@ export const MovieDetailsTile = ({
 		<Image src={poster} alt="" />
 		<ContentInDetailsTile>
 			<TitleInDetailsTile>{title}</TitleInDetailsTile>
-			<YearInDetailsTile>{year}</YearInDetailsTile>
+			<YearInDetailsTile>
+				{year
+					? year :
+					""
+				}</YearInDetailsTile>
 			<BoxOnDetails>
 				<Details>
 					<DetailName>Production:</DetailName>
