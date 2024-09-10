@@ -26,8 +26,12 @@ export const PeopleDetails = () => {
 				<PeopleDetailsTile
 					picturePersonDetails={picturePersonDetails}
 					name={person.name}
-					date={person.birthday}
-					place={person.place_of_birth}
+					date={
+						person.birthday
+							? new Date(person.birthday).toLocaleDateString()
+							: "Unknown"
+					}
+					place={person.place_of_birth ? person.place_of_birth : "Unknown"}
 					description={person.biography}
 				/>
 			</Section>
