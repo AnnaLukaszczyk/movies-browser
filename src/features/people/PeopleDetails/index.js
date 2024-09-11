@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { Section, SectionTitle } from '../../../common/Section';
+import { Section } from "./styled";
+import { SectionTitle } from '../../../common/Section';
 import { toMovieDetails } from "../../../core/routes";
 import { PeopleDetailsTile, MovieTile } from '../../../common/Tile';
 import { StyledMain as Main } from '../../../common/Main/styled';
