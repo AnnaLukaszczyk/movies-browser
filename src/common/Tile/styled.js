@@ -296,8 +296,9 @@ export const BoxOnDetails = styled.div`
 
 export const Details = styled.div`
 	display: flex;
+	flex-wrap: wrap;
+	line-height: 20px;
 	margin: 8px 0;
-	gap: 10px;
 `;
 
 export const DetailPeopleName = styled.span`
@@ -318,21 +319,21 @@ export const DetailName = styled.span`
 export const DetailValue = styled.span`
 	margin: 0;
 	font-size: 18px;
-	margin-right: 6px;
+	margin-left: 6px;
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
 		font-size: 16px;
-		margin-right: 5px;
+		margin-left: 4px;
 	}
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
 		font-size: 12px;
-		margin-right: 4px;
+		margin-left: 3px;
 	}
 
 	@media(max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
         font-size: 12px;
-		margin-right: 4px;
+		margin-left: 2px;
     }
 `;
 
