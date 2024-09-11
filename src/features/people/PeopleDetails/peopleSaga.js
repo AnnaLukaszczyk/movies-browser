@@ -5,6 +5,7 @@ import {
 	setPeopleCrewMovies,
 	selectPeopleId,
 	setPeopleId,
+	setError,
 } from "./peopleSlice";
 import { getPeopleDetails } from "../../../API/getPeopleDetails";
 import { getPeopleCastMovies } from "../../../API/getPeopleCastMovies";
@@ -21,7 +22,7 @@ function* fetchPeopleHandler() {
 		yield put(setPeopleCastMovies(castMovies));
 		yield put(setPeopleCrewMovies(crewMovies));
 	} catch (error) {
-		console.error("Error while fetching peopleDetails", error);
+		yield put(setError());
 	}
 }
 
