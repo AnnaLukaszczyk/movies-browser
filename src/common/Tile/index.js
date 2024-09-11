@@ -30,6 +30,7 @@ import {
 } from "./styled";
 import { Rating } from "../Rating";
 import { posterURL, profileURL } from "../../API/APIdata";
+import { useScreenWidth } from "./useScreenWidth";
 
 export const MovieTile = ({ ratingValue, voteAmount, title, year, tags, poster }) => {
 	return (
@@ -131,7 +132,8 @@ export const PeopleDetailsTile = ({
 			<TitleInDetailsTile>{name}</TitleInDetailsTile>
 			<BoxOnDetails>
 				<Details>
-					<DetailPeopleName> {isLargeScreen ? "Date of birth: " : "Birth: "} </DetailPeopleName>
+					<DetailPeopleName> {isLargeScreen = useScreenWidth()
+					 ? "Date of birth: " : "Birth: "} </DetailPeopleName>
 					<DetailValue>{date}</DetailValue>
 				</Details>
 				<Details>
