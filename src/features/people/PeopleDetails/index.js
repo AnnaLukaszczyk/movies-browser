@@ -9,14 +9,27 @@ import { selectPeopleDetails, setPeopleId, selectPeopleCastMovies, selectPeopleC
 import { bigProfileURL, posterURL } from '../../../API/APIdata';
 import { useEffect, useState } from 'react';
 import { getGenres } from '../../../API/getGenres';
+import queryParamName from "../../../queryParamName";
+import { SearchPage } from "../../search";
+import { useQueryParameter } from "../../../common/Navigation/SearchBar/useQueryParameters";
+import pageParamName from "../../../paginationParam";
+import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom';
+
 
 export const PeopleDetails = () => {
     const params = useParams();
     const dispatch = useDispatch();
+    const history = useHistory();
+    const location = useLocation();
     const person = useSelector(selectPeopleDetails);
     const castMovies = useSelector(selectPeopleCastMovies) || [];
     const crewMovies = useSelector(selectPeopleCrewMovies) || [];
-    
+
+    const searchParams = new URLSearchParams(location.search);
+
+    const query = useQueryParameter(queryParamName);
+
+
     const [genres, setGenres] = useState([]);
 
     const picturePersonDetails = person?.profile_path
@@ -25,7 +38,13 @@ export const PeopleDetails = () => {
 
     useEffect(() => {
         dispatch(setPeopleId(params.id));
-    }, [params.id, dispatch]);
+
+        if (!query) {
+            searchParams.delete(pageParamName)
+            history.replace(`${location.pathname}?${searchParams.toString()}`);
+        }
+
+    }, [ params.id, query]);
 
     useEffect(() => {
         const fetchGenres = async () => {
@@ -36,7 +55,7 @@ export const PeopleDetails = () => {
                 console.error('Failed to fetch genres', error);
             }
         };
-        
+
         fetchGenres();
     }, []);
 
@@ -47,6 +66,9 @@ export const PeopleDetails = () => {
         return genreIds.map(id => genres.find(genre => genre.id === id)?.name || 'Unknown');
     };
 
+    if (query) {
+        return <SearchPage />
+    }
     return (
         <Main>
             <Section>
@@ -75,7 +97,7 @@ export const PeopleDetails = () => {
                                         voteAmount={vote_count}
                                         title={title}
                                         year={new Date(release_date).getFullYear()}
-                                        tags={safeGetGenreNames(genre_ids)} 
+                                        tags={safeGetGenreNames(genre_ids)}
                                     />
                                 </StyledLink>
                             </li>
@@ -96,7 +118,7 @@ export const PeopleDetails = () => {
                                         voteAmount={vote_count}
                                         title={title}
                                         year={new Date(release_date).getFullYear()}
-                                        tags={safeGetGenreNames(genre_ids)} 
+                                        tags={safeGetGenreNames(genre_ids)}
                                     />
                                 </StyledLink>
                             </li>

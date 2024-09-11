@@ -46,7 +46,7 @@ export const MovieTile = ({ ratingValue, voteAmount, title, year, tags, poster }
 					}
 				</Year>
 				<Tags>
-					{tags.map(tag => (
+					{tags && tags.map(tag => (
 						<Tag key={tag}>{tag}</Tag>
 					))}
 				</Tags>

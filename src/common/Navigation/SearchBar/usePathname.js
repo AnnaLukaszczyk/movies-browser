@@ -9,7 +9,7 @@ export const usePathname = () => {
     const dispatch = useDispatch();
     const location = useLocation();
 
-    const path = location.pathname.slice(1);
+    const path = location.pathname.split("/")[1];
 
     const updatePath = () => {
         switch (path) {

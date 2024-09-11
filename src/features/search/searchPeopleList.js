@@ -1,6 +1,7 @@
 import { StyledMain } from "../../common/Main/styled"
 import { Pagination } from "../../common/Pagination"
-import { Section, SectionTitle } from "../../common/Section"
+import { SearchResults } from "../../common/SearchResults"
+import { Section } from "../../common/Section"
 import { PeopleTile } from "../../common/Tile"
 import { toPeopleDetails } from "../../core/routes"
 import { List, ListItem, StyledLink } from "../people/PeopleList/styled"
@@ -19,7 +20,10 @@ export const SearchPeopleList = (
     return (
         <StyledMain>
             <Section>
-                <SectionTitle>Search results for {`"${searchQuery}"(${searchTotalResults})`}</SectionTitle>
+                <SearchResults
+                    searchQuery={searchQuery}
+                    searchTotalResults={searchTotalResults}
+                />
                 {searchPeople && (
                     <List>
                         {searchPeople.map(({ id, profile_path, name }) => (

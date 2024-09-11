@@ -1,9 +1,10 @@
 import { StyledMain } from "../../common/Main/styled";
 import { Pagination } from "../../common/Pagination";
-import { Section, SectionTitle } from "../../common/Section";
+import { Section } from "../../common/Section";
 import { toMovieDetails } from "../../core/routes";
 import { List, StyledLink } from "../movies/MovieList/styled";
 import { MovieTile } from "../../common/Tile";
+import { SearchResults } from "../../common/SearchResults";
 
 export const SearchMovieList = ({
 	searchQuery,
@@ -16,9 +17,10 @@ export const SearchMovieList = ({
 	return (
 		<StyledMain>
 			<Section>
-				<SectionTitle>
-					Search results for {`"${searchQuery}"(${searchTotalResults})`}
-				</SectionTitle>
+				<SearchResults
+					searchQuery={searchQuery}
+					searchTotalResults={searchTotalResults}
+				/>
 				{searchMovies && (
 					<List>
 						{searchMovies.map(
