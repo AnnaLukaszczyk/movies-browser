@@ -1,5 +1,5 @@
 import { select, call, put, delay, takeEvery, all } from "redux-saga/effects";
-import { selectMovieId, setCredits, setMovie, setMovieId } from "./movieSlice";
+import { selectMovieId, setCredits, setMovie, setMovieId, setError } from "./movieSlice";
 import { getMovieDetails } from "../../../API/getMovieDetails";
 import { getMovieCredits } from "../../../API/getMovieCredits";
 import { processMovieDetailsData } from "../../../API/processAPIData";
@@ -21,8 +21,7 @@ function* fetchMovieHandler() {
 			put(setCredits(credits)),
 		]);
 	} catch (error) {
-		console.error(error);
-		yield call(alert, "Error while fetching movieDetails");
+        yield put(setError());
 	}
 }
 
