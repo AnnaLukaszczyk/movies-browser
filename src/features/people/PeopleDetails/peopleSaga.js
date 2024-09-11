@@ -1,4 +1,4 @@
-import { call, put, takeEvery, select } from "redux-saga/effects";
+import { call, put, takeEvery, delay, select } from "redux-saga/effects";
 import {
 	setPeopleDetails,
 	setPeopleCastMovies,
@@ -12,6 +12,7 @@ import { getPeopleCrewMovies } from "../../../API/getPeopleCrewMovies";
 
 function* fetchPeopleHandler() {
 	try {
+		yield delay(1000);
 		const personId = yield select(selectPeopleId);
 		const details = yield call(getPeopleDetails, personId);
 		const castMovies = yield call(getPeopleCastMovies, personId);
