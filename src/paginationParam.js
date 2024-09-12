@@ -1,1 +1,2 @@
-export default "page";
+const paginationParam = "page";
+export default paginationParam;
