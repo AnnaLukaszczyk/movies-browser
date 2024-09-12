@@ -227,6 +227,12 @@ export const StyledPeopleDetailsTile = styled(Tile)`
 		filter: none;
 	}
 
+	&::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
 		display: grid;
 		grid-template-columns: auto 1fr;
