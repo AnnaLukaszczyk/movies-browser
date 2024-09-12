@@ -1,1 +1,3 @@
-export default "movies";
+const moviesPathName = "movies";
+
+export default moviesPathName;
