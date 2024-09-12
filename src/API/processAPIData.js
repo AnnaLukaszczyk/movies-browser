@@ -23,6 +23,9 @@ const changeVoteFormat = (voteAverage) => {
 const getCountryName = (countries) =>
 	countries.map((country) => country.name).join(", ");
 
+const getShortCountryName = (countries) =>
+    countries.map(country => country.iso_3166_1).join(", ");
+
 const getGenreName = (genres) => genres.map(({ name }) => name);
 
 export const processMovieListData = (movieListData, genreList) => {
@@ -50,6 +53,7 @@ export const processMovieDetailsData = (movieDetails) => {
 		voteCount: movieDetails.vote_count,
 		description: movieDetails.overview,
 		production: getCountryName(movieDetails.production_countries),
+        productionShort: getShortCountryName(movieDetails.production_countries),
 		genres: getGenreName(movieDetails.genres),
 		backdrop: `${backdropURL}${movieDetails.backdrop_path}`,
 		poster: `${posterURL}${movieDetails.poster_path}`,
