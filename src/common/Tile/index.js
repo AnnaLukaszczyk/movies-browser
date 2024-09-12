@@ -86,11 +86,15 @@ export const MovieDetailsTile = ({
 	title,
 	year,
 	production,
+	productionShort,
 	date,
 	tags,
 	description,
-}) => (
-	<StyledDetailsTile>
+}) => {
+	const screenWidth = useScreenWidth();
+	const isLargeScreen = screenWidth >= 767;
+	return (
+		<StyledDetailsTile>
 		<Image src={poster} alt="" />
 		<ContentInDetailsTile>
 			<TitleInDetailsTile>{title}</TitleInDetailsTile>
@@ -98,7 +102,7 @@ export const MovieDetailsTile = ({
 			<BoxOnDetails>
 				<Details>
 					<DetailName>Production:</DetailName>
-					<DetailValue>{production}</DetailValue>
+					<DetailValue> {isLargeScreen ? production : productionShort}</DetailValue>
 				</Details>
 				<Details>
 					<DetailName>Release date:</DetailName>
@@ -116,7 +120,8 @@ export const MovieDetailsTile = ({
 			<Description>{description}</Description>
 		</ContentInDetailsTile>
 	</StyledDetailsTile>
-);
+	)
+};
 
 export const PeopleDetailsTile = ({
 	name,
@@ -124,29 +129,30 @@ export const PeopleDetailsTile = ({
 	place,
 	description,
 	picturePersonDetails,
-	isLargeScreen,
-}) => (
-	<StyledPeopleDetailsTile>
-		<PersonImage src={picturePersonDetails} alt="" />
-		<ContentInPeopleDetailsTile>
-			<TitleInDetailsTile>{name}</TitleInDetailsTile>
-			<BoxOnDetails>
-				<Details>
-					<DetailPeopleName>
-						{" "}
-						{
-							(isLargeScreen = useScreenWidth() ? "Date of birth: " : "Birth: ")
-						}
-						<DetailValue>{date}</DetailValue>
-					</DetailPeopleName>
-				</Details>
-				<Details>
-					<DetailPeopleName>
-						Place of birth: <DetailValue>{place}</DetailValue>
-					</DetailPeopleName>
-				</Details>
-			</BoxOnDetails>
-		</ContentInPeopleDetailsTile>
-		<DescriptionPeople>{description}</DescriptionPeople>
-	</StyledPeopleDetailsTile>
-);
+}) => {
+	const screenWidth = useScreenWidth();
+	const isLargeScreen = screenWidth >= 767; // Ustaw wartość odpowiednio
+
+	return (
+			<StyledPeopleDetailsTile>
+					<PersonImage src={picturePersonDetails} alt="" />
+					<ContentInPeopleDetailsTile>
+							<TitleInDetailsTile>{name}</TitleInDetailsTile>
+							<BoxOnDetails>
+									<Details>
+											<DetailPeopleName>
+													{isLargeScreen ? "Date of birth: " : "Birth: "}
+													<DetailValue>{date}</DetailValue>
+											</DetailPeopleName>
+									</Details>
+									<Details>
+											<DetailPeopleName>
+													Place of birth: <DetailValue>{place}</DetailValue>
+											</DetailPeopleName>
+									</Details>
+							</BoxOnDetails>
+							<DescriptionPeople>{description}</DescriptionPeople>
+					</ContentInPeopleDetailsTile>
+			</StyledPeopleDetailsTile>
+	);
+};
