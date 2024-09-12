@@ -29,10 +29,13 @@ import {
 	MovieListContent,
 	PersonImage,
 	ContentInPeopleDetailsTile,
+	NoPosterPhoto,
+	ImageContainer,
 } from "./styled";
 import { Rating } from "../Rating";
 import { posterURL, profileURL } from "../../API/APIdata";
 import { useScreenWidth } from "./useScreenWidth";
+import { BackgroundImage } from "../../features/movies/MovieDetails/styled";
 
 export const MovieTile = ({
 	ratingValue,
@@ -45,7 +48,11 @@ export const MovieTile = ({
 	return (
 		<StyledMovieTile>
 			<MovieImageContainer>
-				<Image src={`${posterURL}${poster}`} alt="" />
+				{poster ? (
+					<Image src={`${posterURL}${poster}`} alt="" />
+				) : (
+					<NoPosterPhoto />
+				)}
 			</MovieImageContainer>
 			<MovieListContent>
 				<Title>{title}</Title>
@@ -91,7 +98,13 @@ export const MovieDetailsTile = ({
 	description,
 }) => (
 	<StyledDetailsTile>
-		<Image src={poster} alt="" />
+		{poster ? (
+			<Image src={poster} alt="" />
+		) : (
+			<ImageContainer>
+				<NoPosterPhoto />
+			</ImageContainer>
+		)}
 		<ContentInDetailsTile>
 			<TitleInDetailsTile>{title}</TitleInDetailsTile>
 			<YearInDetailsTile>{year ? year : ""}</YearInDetailsTile>
