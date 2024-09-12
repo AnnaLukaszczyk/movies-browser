@@ -27,12 +27,21 @@ import {
 	PeopleImageContainer,
 	RatingContainer,
 	MovieListContent,
+	PersonImage,
+	ContentInPeopleDetailsTile,
 } from "./styled";
 import { Rating } from "../Rating";
 import { posterURL, profileURL } from "../../API/APIdata";
 import { useScreenWidth } from "./useScreenWidth";
 
-export const MovieTile = ({ ratingValue, voteAmount, title, year, tags, poster }) => {
+export const MovieTile = ({
+	ratingValue,
+	voteAmount,
+	title,
+	year,
+	tags,
+	poster,
+}) => {
 	return (
 		<StyledMovieTile>
 			<MovieImageContainer>
@@ -40,23 +49,11 @@ export const MovieTile = ({ ratingValue, voteAmount, title, year, tags, poster }
 			</MovieImageContainer>
 			<MovieListContent>
 				<Title>{title}</Title>
-				<Year>
-					{year
-						? year :
-						""
-					}
-				</Year>
-				<Tags>
-					{tags && tags.map(tag => (
-						<Tag key={tag}>{tag}</Tag>
-					))}
-				</Tags>
+				<Year>{year ? year : ""}</Year>
+				<Tags>{tags && tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}</Tags>
 
 				<RatingContainer>
-					<Rating
-						ratingValue={ratingValue}
-						voteAmount={voteAmount}
-					/>
+					<Rating ratingValue={ratingValue} voteAmount={voteAmount} />
 				</RatingContainer>
 			</MovieListContent>
 		</StyledMovieTile>
@@ -66,18 +63,18 @@ export const MovieTile = ({ ratingValue, voteAmount, title, year, tags, poster }
 export const PeopleTile = ({ name, character, role, profilePath }) => (
 	<StyledPeopleTile>
 		<PeopleImageContainer>
-			{profilePath
-				?
-				<PeopleImage
-					src={`${profileURL}${profilePath}`}
-					alt="" />
-				:
+			{profilePath ? (
+				<PeopleImage src={`${profileURL}${profilePath}`} alt="" />
+			) : (
 				<NoProfilePhoto />
-			}
+			)}
 		</PeopleImageContainer>
 		<ActorProfile>
 			<Title>{name}</Title>
-			<Subtitle>{character}{role}</Subtitle>
+			<Subtitle>
+				{character}
+				{role}
+			</Subtitle>
 		</ActorProfile>
 	</StyledPeopleTile>
 );
@@ -97,11 +94,7 @@ export const MovieDetailsTile = ({
 		<Image src={poster} alt="" />
 		<ContentInDetailsTile>
 			<TitleInDetailsTile>{title}</TitleInDetailsTile>
-			<YearInDetailsTile>
-				{year
-					? year :
-					""
-				}</YearInDetailsTile>
+			<YearInDetailsTile>{year ? year : ""}</YearInDetailsTile>
 			<BoxOnDetails>
 				<Details>
 					<DetailName>Production:</DetailName>
@@ -113,9 +106,7 @@ export const MovieDetailsTile = ({
 				</Details>
 			</BoxOnDetails>
 			<TagsInDetailsTile>
-				{tags && tags.map(tag => (
-					<Tag key={tag}>{tag}</Tag>
-				))}
+				{tags && tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
 			</TagsInDetailsTile>
 			<Rating
 				isMovieDetails
@@ -133,24 +124,29 @@ export const PeopleDetailsTile = ({
 	place,
 	description,
 	picturePersonDetails,
-	isLargeScreen
+	isLargeScreen,
 }) => (
 	<StyledPeopleDetailsTile>
-		<Image src={picturePersonDetails} alt="" />
-		<ContentInDetailsTile>
+		<PersonImage src={picturePersonDetails} alt="" />
+		<ContentInPeopleDetailsTile>
 			<TitleInDetailsTile>{name}</TitleInDetailsTile>
 			<BoxOnDetails>
 				<Details>
-					<DetailPeopleName> {isLargeScreen = useScreenWidth()
-					 ? "Date of birth: " : "Birth: "} </DetailPeopleName>
-					<DetailValue>{date}</DetailValue>
+					<DetailPeopleName>
+						{" "}
+						{
+							(isLargeScreen = useScreenWidth() ? "Date of birth: " : "Birth: ")
+						}
+						<DetailValue>{date}</DetailValue>
+					</DetailPeopleName>
 				</Details>
 				<Details>
-					<DetailPeopleName>Place of birth:</DetailPeopleName>
-					<DetailValue>{place}</DetailValue>
+					<DetailPeopleName>
+						Place of birth: <DetailValue>{place}</DetailValue>
+					</DetailPeopleName>
 				</Details>
 			</BoxOnDetails>
-			<DescriptionPeople>{description}</DescriptionPeople>
-		</ContentInDetailsTile>
+		</ContentInPeopleDetailsTile>
+		<DescriptionPeople>{description}</DescriptionPeople>
 	</StyledPeopleDetailsTile>
 );
