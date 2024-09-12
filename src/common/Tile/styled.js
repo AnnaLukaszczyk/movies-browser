@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as NoPersonPhotoSVG } from "../../common/images/NoProfilePhoto.svg";
+import {ReactComponent as NoPosterPhotoSVG} from "../../common/images/NoMoviePoster.svg";
 
 export const Image = styled.img`
 	width: 100%;
@@ -115,6 +116,16 @@ export const RatingContainer = styled.div`
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
 		margin-top: 0;
+	}
+`;
+
+export const NoPosterPhoto = styled(NoPosterPhotoSVG)`
+	width: 72px;
+	height: 72px;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
+		width: 48px;
+		height: 48px;
 	}
 `;
 
