@@ -39,7 +39,7 @@ export const processMovieListData = (movieListData, genreList) => {
 		rating: changeVoteFormat(movie.vote_average),
 		vote_count: movie.vote_count,
 		namedGenres: nameGenres(movie.genre_ids, genres),
-		poster: `${posterURL}${movie.poster_path}`,
+		poster: movie.poster_path ? `${posterURL}${movie.poster_path}` : null,
 	}));
 };
 
@@ -55,8 +55,8 @@ export const processMovieDetailsData = (movieDetails) => {
 		production: getCountryName(movieDetails.production_countries),
         productionShort: getShortCountryName(movieDetails.production_countries),
 		genres: getGenreName(movieDetails.genres),
-		backdrop: `${backdropURL}${movieDetails.backdrop_path}`,
-		poster: `${posterURL}${movieDetails.poster_path}`,
+		backdrop: movieDetails.backdrop_path ? `${backdropURL}${movieDetails.backdrop_path}` : null,
+		poster: movieDetails.poster_path ? `${posterURL}${movieDetails.poster_path}` : null,
 	};
 };
 
