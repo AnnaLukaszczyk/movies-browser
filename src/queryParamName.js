@@ -1,1 +1,2 @@
-export default "query";
+const queryParamName = "query";
+export default queryParamName;
