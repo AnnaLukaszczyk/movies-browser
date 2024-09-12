@@ -278,14 +278,10 @@ export const ContentInPeopleDetailsTile = styled.div`
 `;
 
 export const TitleInDetailsTile = styled.header`
-	margin-top: 12px;
-	margin-bottom: 24px;
 	font-size: 36px;
 	font-weight: 600;
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) {
-		margin-top: 9px;
-		margin-bottom: 20px;
 	}
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
@@ -295,33 +291,31 @@ export const TitleInDetailsTile = styled.header`
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
 		font-weight: 500;
 		font-size: 16px;
-		margin-top: 2px;
-		margin-bottom: 8px;
 		line-height: 20.8px;
 	}
 `;
 
 export const YearInDetailsTile = styled.p`
 	font-size: 22px;
-	margin: 24px 0;
+	margin: 24px 0 0 0;
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
 		font-size: 16px;
-		margin: 12px 0;
+		margin: 12px 0 0 0;
 	}
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+		margin: 4px 0 0 0;
 		color: ${({ theme }) => theme.color.waterloo};
 		font-size: 13px;
-		margin-bottom: 2px;
 	}
 `;
 
 export const BoxOnDetails = styled.div`
-	margin: 24px 0;
+	margin: 24px 0 0 0;
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
-		margin: 12px 0;
+		margin: 8px 0 0 0;
 	}
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
@@ -335,6 +329,10 @@ export const Details = styled.div`
 	flex-wrap: wrap;
 	line-height: 20px;
 	margin: 8px 0;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+		margin: 0;
+	}
 `;
 
 export const DetailPeopleName = styled.p`
@@ -376,11 +374,14 @@ export const DetailValue = styled.span`
 `;
 
 export const TagsInDetailsTile = styled(Tags)`
-	margin-bottom: 24px;
+	margin: 24px 0;
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
-		margin-top: 4px;
-		margin-bottom: 18px;
+		margin: 8px 0 14px;
+	}
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
+		margin: 8px 0;
 	}
 `;
 
@@ -393,13 +394,16 @@ export const Description = styled.p`
 	@media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) {
 		font-size: 17px;
 		line-height: 27px;
-		margin-top: 8px;
 	}
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
 		font-size: 14px;
 		line-height: 22px;
 		margin-left: -130px;
+	}
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
+		margin: 16px 0 0 -130px;
 	}
 `;
 
