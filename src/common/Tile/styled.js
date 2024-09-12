@@ -355,17 +355,14 @@ export const DetailName = styled.span`
 export const DetailValue = styled.span`
 	margin: 0;
 	font-size: 18px;
-	margin-left: 6px;
 	color: ${({ theme }) => theme.color.black};
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
 		font-size: 16px;
-		margin-left: 4px;
 	}
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
 		font-size: 12px;
-		margin-left: 3px;
 	}
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
