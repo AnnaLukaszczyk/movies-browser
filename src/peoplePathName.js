@@ -1,1 +1,2 @@
-export default "people";
+const peoplePathName = "people";
+export default peoplePathName;
