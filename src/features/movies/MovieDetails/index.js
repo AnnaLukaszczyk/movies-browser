@@ -33,6 +33,7 @@ import queryParamName from "../../../queryParamName";
 import { SearchPage } from "../../search";
 import { useQueryParameter } from "../../../common/Navigation/SearchBar/useQueryParameters";
 import pageParamName from "../../../paginationParam";
+import { NoPosterPhoto } from "../../../common/Tile/styled";
 
 export const MovieDetails = () => {
 	const params = useParams();
@@ -70,19 +71,23 @@ export const MovieDetails = () => {
 		default:
 			return (
 				<>
-					<Header>
-						<BackgroundImage poster={movie.backdrop}>
-							<Vignette />
-							<TitleContainer>
-								<Title>{movie.title}</Title>
-								<Rating
-									isOnMoviePhoto
-									ratingValue={movie.rating}
-									voteAmount={movie.voteCount}
-								/>
-							</TitleContainer>
-						</BackgroundImage>
-					</Header>
+					{movie.backdrop ?
+						<Header>
+							<BackgroundImage poster={movie.backdrop}>
+								<Vignette />
+								<TitleContainer>
+									<Title>{movie.title}</Title>
+									<Rating
+										isOnMoviePhoto
+										ratingValue={movie.rating}
+										voteAmount={movie.voteCount}
+									/>
+								</TitleContainer>
+							</BackgroundImage>
+						</Header>
+						:
+						("")
+					}
 					<Main>
 						<Section>
 							<MovieDetailsTile
@@ -106,15 +111,15 @@ export const MovieDetails = () => {
 							{cast && (
 								<List>
 									{cast.map(({ id, name, character, profile_path }) => (
-									<ListItem key={id}>
-										<StyledLink to={toPeopleDetails({ id: id })}>
+										<ListItem key={id}>
+											<StyledLink to={toPeopleDetails({ id: id })}>
 												<PeopleTile
 													profilePath={profile_path}
 													name={name}
 													character={character}
 												/>
-										</StyledLink>
-											</ListItem>
+											</StyledLink>
+										</ListItem>
 									))}
 								</List>
 							)}
@@ -124,15 +129,15 @@ export const MovieDetails = () => {
 							{crew && (
 								<List>
 									{crew.map(({ id, name, profile_path, job }) => (
-											<ListItem key={id}>
-										<StyledLink to={toPeopleDetails({ id: id })}>
+										<ListItem key={id}>
+											<StyledLink to={toPeopleDetails({ id: id })}>
 												<PeopleTile
 													profilePath={profile_path}
 													name={name}
 													role={job}
 												/>
-										</StyledLink>
-											</ListItem>
+											</StyledLink>
+										</ListItem>
 									))}
 								</List>
 							)}
