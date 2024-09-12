@@ -158,7 +158,7 @@ export const Title = styled.h3`
 	margin: 0;
 	font-size: 22px;
 	font-weight: 500;
-	word-wrap: break-word;
+	word-break: break-word;
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
 		font-size: 20px;
@@ -176,6 +176,7 @@ export const Title = styled.h3`
 export const Subtitle = styled.p`
 	margin: 8px 0;
 	font-size: 18px;
+	word-break: break-word;
 `;
 
 // styles for MovieDetailsTile and PeopleDetailsTile
