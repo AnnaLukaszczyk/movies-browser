@@ -1,10 +1,9 @@
-
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
 import { Section } from "./styled";
-import { SectionTitle } from '../../../common/Section';
+import { SectionTitle } from "../../../common/Section";
 import { toMovieDetails } from "../../../core/routes";
 import { PeopleDetailsTile, MovieTile } from "../../../common/Tile";
 import { StyledMain as Main } from "../../../common/Main/styled";
@@ -16,30 +15,26 @@ import {
 	selectPeopleCrewMovies,
 	selectPeopleStatus,
 } from "./peopleSlice";
-import { bigProfileURL, posterURL } from "../../../API/APIdata";
-import { useEffect, useState } from "react";
-import { getGenres } from "../../../API/getGenres";
-import queryParamName from "../../../queryParamName";
+import { bigProfileURL } from "../../../API/APIdata";
+import { useEffect } from "react";
 import { SearchPage } from "../../search";
 import { useQueryParameter } from "../../../common/Navigation/SearchBar/useQueryParameters";
 import pageParamName from "../../../paginationParam";
 import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom";
 
 export const PeopleDetails = () => {
+	const location = useLocation();
+	const history = useHistory();
+	const searchParams = new URLSearchParams(location.search);
+	const query = useQueryParameter();
+	
 	const params = useParams();
 	const dispatch = useDispatch();
-	const history = useHistory();
-	const location = useLocation();
 	const person = useSelector(selectPeopleDetails);
-	const castMovies = useSelector(selectPeopleCastMovies) || [];
-	const crewMovies = useSelector(selectPeopleCrewMovies) || [];
+	const castMovies = useSelector(selectPeopleCastMovies);
+	const crewMovies = useSelector(selectPeopleCrewMovies);
 	const status = useSelector(selectPeopleStatus);
 
-	const searchParams = new URLSearchParams(location.search);
-
-	const query = useQueryParameter(queryParamName);
-
-	const [genres, setGenres] = useState([]);
 
 	const picturePersonDetails = person?.profile_path
 		? `${bigProfileURL}${person.profile_path}`
@@ -54,31 +49,10 @@ export const PeopleDetails = () => {
 		}
 	}, [params.id, query]);
 
-	useEffect(() => {
-		const fetchGenres = async () => {
-			try {
-				const genreData = await getGenres();
-				setGenres(genreData.genres);
-			} catch (error) {
-				console.error("Failed to fetch genres", error);
-			}
-		};
-
-		fetchGenres();
-	}, []);
-
-	const safeGetGenreNames = (genreIds) => {
-		if (!Array.isArray(genreIds)) {
-			return [];
-		}
-		return genreIds.map(
-			(id) => genres.find((genre) => genre.id === id)?.name || "Unknown"
-		);
-	};
-
 	if (query) {
 		return <SearchPage />;
 	}
+
 	switch (status) {
 		case "loading":
 			return <Loading />;
@@ -110,21 +84,19 @@ export const PeopleDetails = () => {
 										title,
 										rating,
 										vote_count,
-										release_date,
-										poster_path,
-										genre_ids,
+										date,
+										namedGenres,
+										poster,
 									}) => (
 										<li key={id}>
 											<StyledLink to={toMovieDetails({ id: id })}>
 												<MovieTile
-													poster={
-														poster_path ? `${posterURL}${poster_path}` : ""
-													}
+													poster={poster}
 													ratingValue={rating}
 													voteAmount={vote_count}
 													title={title}
-													year={new Date(release_date).getFullYear()}
-													tags={safeGetGenreNames(genre_ids)}
+													year={date}
+													tags={namedGenres}
 												/>
 											</StyledLink>
 										</li>
@@ -143,21 +115,19 @@ export const PeopleDetails = () => {
 										title,
 										rating,
 										vote_count,
-										release_date,
-										poster_path,
-										genre_ids,
+										date,
+										namedGenres,
+										poster,
 									}) => (
 										<li key={id}>
 											<StyledLink to={toMovieDetails({ id: id })}>
 												<MovieTile
-													poster={
-														poster_path ? `${posterURL}${poster_path}` : ""
-													}
+													poster={poster}
 													ratingValue={rating}
 													voteAmount={vote_count}
 													title={title}
-													year={new Date(release_date).getFullYear()}
-													tags={safeGetGenreNames(genre_ids)}
+													year={date}
+													tags={namedGenres}
 												/>
 											</StyledLink>
 										</li>
