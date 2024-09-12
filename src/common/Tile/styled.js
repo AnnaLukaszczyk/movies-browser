@@ -215,7 +215,7 @@ export const StyledDetailsTile = styled(Tile)`
 export const StyledPeopleDetailsTile = styled(Tile)`
 	display: block;
 	max-width: 1368px;
-	padding: 40px;
+	padding: 40px 40px 20px 40px;
 	border-radius: 0;
 
 	&:hover {
@@ -403,7 +403,7 @@ export const Description = styled.p`
 `;
 
 export const DescriptionPeople = styled.p`
-	margin: 0;
+	margin: 0 0 20px 0;
 	font-size: 20px;
 	line-height: 32px;
 	text-align: justify;
@@ -415,6 +415,7 @@ export const DescriptionPeople = styled.p`
 	}
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+		margin: 0;
 		font-size: 14px;
 		line-height: 22px;
 	}
