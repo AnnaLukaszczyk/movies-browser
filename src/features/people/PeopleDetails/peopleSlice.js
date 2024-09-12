@@ -7,6 +7,7 @@ const peopleSlice = createSlice({
 		details: {},
 		castMovies: [],
 		crewMovies: [],
+		genres: [],
 		status: "initial",
 	},
 	reducers: {
@@ -26,6 +27,10 @@ const peopleSlice = createSlice({
 			state.crewMovies = crewMovies;
 			state.status = "success";
 		},
+		setGenres: (state, { payload: genres }) => {
+			state.genres = genres;
+			state.status = "success";
+	},
 		setError: (state) => {
 			state.status = "error";
 		},
@@ -37,6 +42,7 @@ export const {
 	setPeopleDetails,
 	setPeopleCastMovies,
 	setPeopleCrewMovies,
+	setGenres,
 	setError,
 } = peopleSlice.actions;
 
@@ -48,5 +54,6 @@ export const selectPeopleCastMovies = (state) =>
 export const selectPeopleCrewMovies = (state) =>
 	selectPeopleState(state).crewMovies;
 export const selectPeopleStatus = (state) => selectPeopleState(state).status;
+export const selectGenres = (state) => selectPeopleState(state).genres;
 
 export default peopleSlice.reducer;
