@@ -1,26 +1,51 @@
-import { call, put, takeEvery, delay, select } from "redux-saga/effects";
+import { call, put, takeEvery, delay, select, all } from "redux-saga/effects";
 import {
+	setPeopleId,
 	setPeopleDetails,
 	setPeopleCastMovies,
 	setPeopleCrewMovies,
+	setGenres,
 	selectPeopleId,
-	setPeopleId,
 	setError,
 } from "./peopleSlice";
 import { getPeopleDetails } from "../../../API/getPeopleDetails";
 import { getPeopleCastMovies } from "../../../API/getPeopleCastMovies";
 import { getPeopleCrewMovies } from "../../../API/getPeopleCrewMovies";
+import { getGenres } from "../../../API/getGenres";
+import {
+	processPeopleCastMoviesData,
+	processPeopleCrewMoviesData,
+} from "../../../API/processAPIData";
 
 function* fetchPeopleHandler() {
 	try {
 		yield delay(1000);
 		const personId = yield select(selectPeopleId);
-		const details = yield call(getPeopleDetails, personId);
-		const castMovies = yield call(getPeopleCastMovies, personId);
-		const crewMovies = yield call(getPeopleCrewMovies, personId);
-		yield put(setPeopleDetails(details));
-		yield put(setPeopleCastMovies(castMovies));
-		yield put(setPeopleCrewMovies(crewMovies));
+		const [details, castMovies, crewMovies, genreList] = yield all([
+			call(getPeopleDetails, personId),
+			call(getPeopleCastMovies, personId),
+			call(getPeopleCrewMovies, personId),
+			call(getGenres),
+		]);
+
+		// Przetwarzamy dane filmów
+		const processedCastMovies = yield call(
+			processPeopleCastMoviesData,
+			castMovies,
+			genreList
+		);
+		const processedCrewMovies = yield call(
+			processPeopleCrewMoviesData,
+			crewMovies,
+			genreList
+		);
+
+		yield all([
+			put(setPeopleDetails(details)),
+			put(setPeopleCastMovies(processedCastMovies)), // Ustawienie przetworzonych danych
+			put(setPeopleCrewMovies(processedCrewMovies)), // Ustawienie przetworzonych danych
+			put(setGenres(genreList)),
+		]);
 	} catch (error) {
 		yield put(setError());
 	}
