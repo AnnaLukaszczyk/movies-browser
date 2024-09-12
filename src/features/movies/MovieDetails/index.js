@@ -84,35 +84,37 @@ export const MovieDetails = () => {
 						</BackgroundImage>
 					</Header>
 					<Main>
-						<MovieDetailsTile
-							poster={movie.poster}
-							ratingValue={movie.rating}
-							voteAmount={movie.voteCount}
-							title={movie.title}
-							year={movie.releaseYear}
-							production={movie.production}
-							date={
-								movie.releaseDate
-									? new Date(movie.releaseDate).toLocaleDateString()
-									: "Unknown"
-							}
-							tags={movie.genres}
-							description={movie.description}
-						/>
+						<Section>
+							<MovieDetailsTile
+								poster={movie.poster}
+								ratingValue={movie.rating}
+								voteAmount={movie.voteCount}
+								title={movie.title}
+								year={movie.releaseYear}
+								production={movie.production}
+								date={
+									movie.releaseDate
+										? new Date(movie.releaseDate).toLocaleDateString()
+										: "Unknown"
+								}
+								tags={movie.genres}
+								description={movie.description}
+							/>
+						</Section>
 						<Section>
 							<SectionTitle>Cast</SectionTitle>
 							{cast && (
 								<List>
 									{cast.map(({ id, name, character, profile_path }) => (
+									<ListItem key={id}>
 										<StyledLink to={toPeopleDetails({ id: id })}>
-											<ListItem key={id}>
 												<PeopleTile
 													profilePath={profile_path}
 													name={name}
 													character={character}
 												/>
-											</ListItem>
 										</StyledLink>
+											</ListItem>
 									))}
 								</List>
 							)}
@@ -122,15 +124,15 @@ export const MovieDetails = () => {
 							{crew && (
 								<List>
 									{crew.map(({ id, name, profile_path, job }) => (
-										<StyledLink to={toPeopleDetails({ id: id })}>
 											<ListItem key={id}>
+										<StyledLink to={toPeopleDetails({ id: id })}>
 												<PeopleTile
 													profilePath={profile_path}
 													name={name}
 													role={job}
 												/>
-											</ListItem>
 										</StyledLink>
+											</ListItem>
 									))}
 								</List>
 							)}
