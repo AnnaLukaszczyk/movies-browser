@@ -92,6 +92,7 @@ export const MovieDetails = () => {
 								title={movie.title}
 								year={movie.releaseYear}
 								production={movie.production}
+								productionShort={movie.productionShort}
 								date={
 									movie.releaseDate
 										? new Date(movie.releaseDate).toLocaleDateString()
