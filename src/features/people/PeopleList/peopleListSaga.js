@@ -1,6 +1,6 @@
 import { call, delay, put, select, takeEvery } from "redux-saga/effects";
 import { getPopularPeople } from "../../../API/getPopularPeople";
-import { pageNumberFromURL, selectPeopleListPage, setError, setPeopleList, setStatus } from "./peopleListSlice";
+import { pageNumberFromURL, selectPeopleListPage, setError, setPeopleList } from "./peopleListSlice";
 
 function* fetchPeopleHandler() {
     try {
