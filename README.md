@@ -6,11 +6,22 @@ MoviesBrowser is a huge collection of the most interesting movies and most popul
 
 - large screen
 
+![largeScreen](https://github.com/AnnaLukaszczyk/movies-browser/blob/main/public/LargeScreen.png?raw=true)
+
+
 - medium screen
+
+![mediumScreen](https://github.com/AnnaLukaszczyk/movies-browser/blob/main/public/MediumScreen.png?raw=true)
+
 
 - small screen
 
+![smallScreen](https://github.com/AnnaLukaszczyk/movies-browser/blob/main/public/SmallScreen.png?raw=true)
 
+
+Movie Browser gives you the ability to not only browse information about available movies or actors, but you can also search for the title or actor's name that interests you using the search engine at the top of the screen.
+
+![preview](https://github.com/AnnaLukaszczyk/movies-browser/blob/main/public/MoviesBrowser.gif?raw=true)
 
 ## Demo
 Our app is still in development, but you can follow our progress at this link: https://annalukaszczyk.github.io/movies-browser/
@@ -19,6 +30,23 @@ Our app is still in development, but you can follow our progress at this link: h
 - [Anna Łukaszczyk](https://github.com/AnnaLukaszczyk)
 - [Krzysztof Biolik](https://github.com/KrzysztofBiolik)
 - [Leszek Mikrut](https://github.com/LeszekM12)
+
+## Technologies
+
+Project was created with technologies such as:
+* CSS
+* HTML
+* JavaScript (ES6+) features
+* Flexbox
+* Grid
+* Custom hooks
+* Styled components
+* Create React App
+* React-Redux
+* Redux-toolkit
+* React-Router
+* Axios
+* Saga
 
 # Getting Started with Create React App
 
