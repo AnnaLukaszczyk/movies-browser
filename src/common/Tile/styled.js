@@ -63,7 +63,7 @@ export const ImageContainer = styled.div`
 	align-items: center;
 	border-radius: 5px;
 	overflow: hidden;
-	background: gray;
+	background-color: gray;
 	color: white;
 `;
 
@@ -81,6 +81,7 @@ export const StyledMovieTile = styled(Tile)`
 `;
 
 export const MovieImageContainer = styled(ImageContainer)`
+	aspect-ratio: 2 / 3;
 	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
 		width: 114px;
 		height: 169px;
