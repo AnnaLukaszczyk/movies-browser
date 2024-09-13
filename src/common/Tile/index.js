@@ -131,7 +131,7 @@ export const PeopleDetailsTile = ({
 	picturePersonDetails,
 }) => {
 	const screenWidth = useScreenWidth();
-	const isLargeScreen = screenWidth >= 767; // Ustaw wartość odpowiednio
+	const isLargeScreen = screenWidth >= 767;
 
 	return (
 			<StyledPeopleDetailsTile>
@@ -151,8 +151,8 @@ export const PeopleDetailsTile = ({
 											</DetailPeopleName>
 									</Details>
 							</BoxOnDetails>
-							<DescriptionPeople>{description}</DescriptionPeople>
 					</ContentInPeopleDetailsTile>
+							<DescriptionPeople>{description}</DescriptionPeople>
 			</StyledPeopleDetailsTile>
 	);
 };
