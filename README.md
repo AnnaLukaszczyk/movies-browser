@@ -2,6 +2,16 @@
 
 Welcome to our Movies Browser project! We're glad you stopped by 😉
 
+MoviesBrowser is a huge collection of the most interesting movies and most popular actors. It is an intuitive browser that uses the TMDB database. We have adapted it so that you can use it on any screen:
+
+- large screen
+
+- medium screen
+
+- small screen
+
+
+
 ## Demo
 Our app is still in development, but you can follow our progress at this link: https://annalukaszczyk.github.io/movies-browser/
 
