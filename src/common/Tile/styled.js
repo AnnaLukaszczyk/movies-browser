@@ -1,21 +1,38 @@
 import styled from "styled-components";
 import { ReactComponent as NoPersonPhotoSVG } from "../../common/images/NoProfilePhoto.svg";
-import {ReactComponent as NoPosterPhotoSVG} from "../../common/images/NoMoviePoster.svg";
+import { ReactComponent as NoPosterPhotoSVG } from "../../common/images/NoMoviePoster.svg";
 
 export const Image = styled.img`
 	width: 100%;
 	border-radius: 5px;
+`;
+
+export const MovieImage = styled.img`
+	width: 312px;
+	margin: 0px 40px 20px 0px;
+	border-radius: 5px;
+	float: left;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) {
+		margin: 0px 30px 14px 0px;
+	}
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
 		width: 114px;
-		height: 169px;
-		margin: 0;
+		margin: 0px 16px 16px 0px;
 	}
 `;
 
-export const PeopleImage = styled.img`
-	width: 100%;
-	border-radius: 5px;
+export const PersonImage = styled(MovieImage)`
+	width: 399px;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) {
+		width: 300px;
+	}
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+		width: 116px;
+	}
 `;
 
 const Tile = styled.article`
@@ -35,10 +52,6 @@ const Tile = styled.article`
 	}
 
 	&:hover ${Image} {
-		filter: brightness(90%);
-	}
-
-	&:hover ${PeopleImage} {
 		filter: brightness(90%);
 	}
 `;
@@ -108,6 +121,23 @@ export const Tags = styled.ul`
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
 		margin-bottom: 8px;
+	}
+`;
+
+export const Tag = styled.li`
+	padding: 8px 16px;
+	font-size: 14px;
+	background: #e4e6f0;
+	border-radius: 5px;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
+		padding: 6px 12px;
+		font-size: 12px;
+	}
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
+		padding: 4px 8px;
+		font-size: 10px;
 	}
 `;
 
@@ -193,38 +223,6 @@ export const Subtitle = styled.p`
 // styles for MovieDetailsTile and PeopleDetailsTile
 
 export const StyledDetailsTile = styled(Tile)`
-	grid-template-columns: auto 1fr;
-	grid-gap: 40px;
-	max-width: 1368px;
-	padding: 40px 40px 0 40px;
-	border-radius: 0;
-
-	&:hover {
-		transform: none;
-		box-shadow: 0 0 12px #bac7d580;
-	}
-
-	&:hover ${Image} {
-		filter: none;
-	}
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
-		padding: 30px 30px 0 30px;
-		grid-gap: 30px;
-	}
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
-		padding: 15px;
-		gap: 15px;
-		display: flex;
-		flex-wrap: wrap;
-		flex-direction: row;
-		min-height: unset;
-		margin-top: -40px;
-	}
-`;
-
-export const StyledPeopleDetailsTile = styled(Tile)`
 	display: block;
 	max-width: 1368px;
 	padding: 40px 40px 20px 40px;
@@ -240,10 +238,10 @@ export const StyledPeopleDetailsTile = styled(Tile)`
 	}
 
 	&::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+		content: "";
+		display: table;
+		clear: both;
+	}
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
 		display: grid;
@@ -252,48 +250,13 @@ export const StyledPeopleDetailsTile = styled(Tile)`
 	}
 `;
 
-export const PersonImage = styled.img`
-	max-width: 399px;
-	margin: 0px 40px 20px 0px;
-	border-radius: 5px;
-	float: left;
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) {
-		max-width: 300px;
-		margin: 0px 30px 14px 0px;
-	}
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
-	}
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
-		max-width: 200px;
-	}
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
-		max-width: 116px;
-		margin: 0px 16px 16px 0px;
-	}
-`;
-
 export const ContentInDetailsTile = styled.div`
-	flex-grow: 1;
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
-		width: calc(100% - 152px);
-	}
-`;
-
-export const ContentInPeopleDetailsTile = styled.div`
 	margin-bottom: 24px;
 `;
 
 export const TitleInDetailsTile = styled.header`
 	font-size: 36px;
 	font-weight: 600;
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) {
-	}
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
 		font-size: 28px;
@@ -397,28 +360,6 @@ export const TagsInDetailsTile = styled(Tags)`
 `;
 
 export const Description = styled.p`
-	margin: 24px 0 0;
-	font-size: 20px;
-	line-height: 32px;
-	text-align: justify;
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) {
-		font-size: 17px;
-		line-height: 27px;
-	}
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
-		font-size: 14px;
-		line-height: 22px;
-		margin-left: -130px;
-	}
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
-		margin: 16px 0 0 -130px;
-	}
-`;
-
-export const DescriptionPeople = styled.p`
 	margin: 0 0 20px 0;
 	font-size: 20px;
 	line-height: 32px;
@@ -434,24 +375,5 @@ export const DescriptionPeople = styled.p`
 		margin: 0;
 		font-size: 14px;
 		line-height: 22px;
-	}
-`;
-
-// styles for MovieTile and MovieDetailsTile
-
-export const Tag = styled.li`
-	padding: 8px 16px;
-	font-size: 14px;
-	background: #e4e6f0;
-	border-radius: 5px;
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
-		padding: 6px 12px;
-		font-size: 12px;
-	}
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
-		padding: 4px 8px;
-		font-size: 10px;
 	}
 `;
