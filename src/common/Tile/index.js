@@ -1,7 +1,6 @@
 import {
 	StyledMovieTile,
 	Image,
-	PeopleImage,
 	ContentInDetailsTile,
 	Title,
 	TitleInDetailsTile,
@@ -14,13 +13,11 @@ import {
 	Subtitle,
 	ActorProfile,
 	StyledDetailsTile,
-	StyledPeopleDetailsTile,
 	DetailName,
 	DetailPeopleName,
 	DetailValue,
 	BoxOnDetails,
 	Description,
-	DescriptionPeople,
 	Details,
 	NoProfilePhoto,
 	MovieImageContainer,
@@ -28,14 +25,13 @@ import {
 	RatingContainer,
 	MovieListContent,
 	PersonImage,
-	ContentInPeopleDetailsTile,
 	NoPosterPhoto,
 	ImageContainer,
+	MovieImage,
 } from "./styled";
 import { Rating } from "../Rating";
 import { posterURL, profileURL } from "../../API/APIdata";
 import { useScreenWidth } from "./useScreenWidth";
-import { BackgroundImage } from "../../features/movies/MovieDetails/styled";
 
 export const MovieTile = ({
 	ratingValue,
@@ -71,7 +67,7 @@ export const PeopleTile = ({ name, character, role, profilePath }) => (
 	<StyledPeopleTile>
 		<PeopleImageContainer>
 			{profilePath ? (
-				<PeopleImage src={`${profileURL}${profilePath}`} alt="" />
+				<Image src={`${profileURL}${profilePath}`} alt="" />
 			) : (
 				<NoProfilePhoto />
 			)}
@@ -96,44 +92,47 @@ export const MovieDetailsTile = ({
 	productionShort,
 	date,
 	tags,
-	description,	
+	description,
 }) => {
 	const screenWidth = useScreenWidth();
 	const isLargeScreen = screenWidth >= 767;
 	return (
 		<StyledDetailsTile>
-		{poster ? (
-			<Image src={poster} alt="" />
-		) : (
-			<ImageContainer>
-				<NoPosterPhoto />
-			</ImageContainer>
-		)}
-		<ContentInDetailsTile>
-			<TitleInDetailsTile>{title}</TitleInDetailsTile>
-			<YearInDetailsTile>{year ? year : ""}</YearInDetailsTile>
-			<BoxOnDetails>
-				<Details>
-					<DetailName>Production:</DetailName>
-					<DetailValue> {isLargeScreen ? production : productionShort}</DetailValue>
-				</Details>
-				<Details>
-					<DetailName>Release date:</DetailName>
-					<DetailValue>{date}</DetailValue>
-				</Details>
-			</BoxOnDetails>
-			<TagsInDetailsTile>
-				{tags && tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
-			</TagsInDetailsTile>
-			<Rating
-				isMovieDetails
-				ratingValue={ratingValue}
-				voteAmount={voteAmount}
-			/>
+			{poster ? (
+				<MovieImage src={poster} alt="" />
+			) : (
+				<ImageContainer>
+					<NoPosterPhoto />
+				</ImageContainer>
+			)}
+			<ContentInDetailsTile>
+				<TitleInDetailsTile>{title}</TitleInDetailsTile>
+				<YearInDetailsTile>{year ? year : ""}</YearInDetailsTile>
+				<BoxOnDetails>
+					<Details>
+						<DetailName>Production:</DetailName>
+						<DetailValue>
+							{" "}
+							{isLargeScreen ? production : productionShort}
+						</DetailValue>
+					</Details>
+					<Details>
+						<DetailName>Release date:</DetailName>
+						<DetailValue>{date}</DetailValue>
+					</Details>
+				</BoxOnDetails>
+				<TagsInDetailsTile>
+					{tags && tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
+				</TagsInDetailsTile>
+				<Rating
+					isMovieDetails
+					ratingValue={ratingValue}
+					voteAmount={voteAmount}
+				/>
+			</ContentInDetailsTile>
 			<Description>{description}</Description>
-		</ContentInDetailsTile>
-	</StyledDetailsTile>
-	)
+		</StyledDetailsTile>
+	);
 };
 
 export const PeopleDetailsTile = ({
@@ -147,25 +146,25 @@ export const PeopleDetailsTile = ({
 	const isLargeScreen = screenWidth >= 767;
 
 	return (
-			<StyledPeopleDetailsTile>
-					<PersonImage src={picturePersonDetails} alt="" />
-					<ContentInPeopleDetailsTile>
-							<TitleInDetailsTile>{name}</TitleInDetailsTile>
-							<BoxOnDetails>
-									<Details>
-											<DetailPeopleName>
-													{isLargeScreen ? "Date of birth: " : "Birth: "}
-													<DetailValue>{date}</DetailValue>
-											</DetailPeopleName>
-									</Details>
-									<Details>
-											<DetailPeopleName>
-													Place of birth: <DetailValue>{place}</DetailValue>
-											</DetailPeopleName>
-									</Details>
-							</BoxOnDetails>
-					</ContentInPeopleDetailsTile>
-							<DescriptionPeople>{description}</DescriptionPeople>
-			</StyledPeopleDetailsTile>
+		<StyledDetailsTile>
+			<PersonImage src={picturePersonDetails} alt="" />
+			<ContentInDetailsTile>
+				<TitleInDetailsTile>{name}</TitleInDetailsTile>
+				<BoxOnDetails>
+					<Details>
+						<DetailPeopleName>
+							{isLargeScreen ? "Date of birth: " : "Birth: "}
+							<DetailValue>{date}</DetailValue>
+						</DetailPeopleName>
+					</Details>
+					<Details>
+						<DetailPeopleName>
+							Place of birth: <DetailValue>{place}</DetailValue>
+						</DetailPeopleName>
+					</Details>
+				</BoxOnDetails>
+			</ContentInDetailsTile>
+			<Description>{description}</Description>
+		</StyledDetailsTile>
 	);
 };
