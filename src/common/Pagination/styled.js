@@ -3,14 +3,12 @@ import { ReactComponent as VectorSVG } from "../../icons/icon-vector.svg";
 
 export const Wrapper = styled.div`
 	margin-top: 40px;
-	padding-bottom: 103px;
 	display: flex;
 	justify-content: center;
 	gap: 12px;
 	font-size: 14px;
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
-		padding-bottom: 59px;
 		gap: 8px;
 	}
 `;
