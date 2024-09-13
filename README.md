@@ -23,13 +23,18 @@ Movie Browser gives you the ability to not only browse information about availab
 
 ![preview](https://github.com/AnnaLukaszczyk/movies-browser/blob/main/public/MoviesBrowser.gif?raw=true)
 
+
 ## Demo
+
 Our app is still in development, but you can follow our progress at this link: https://annalukaszczyk.github.io/movies-browser/
 
+
 ## Authors
+
 - [Anna Łukaszczyk](https://github.com/AnnaLukaszczyk)
 - [Krzysztof Biolik](https://github.com/KrzysztofBiolik)
 - [Leszek Mikrut](https://github.com/LeszekM12)
+
 
 ## Technologies
 
@@ -47,6 +52,7 @@ Project was created with technologies such as:
 * React-Router
 * Axios
 * Saga
+
 
 # Getting Started with Create React App
 
