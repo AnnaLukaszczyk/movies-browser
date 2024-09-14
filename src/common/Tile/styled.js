@@ -4,46 +4,17 @@ import { ReactComponent as NoPosterPhotoSVG } from "../../common/images/NoMovieP
 
 export const Image = styled.img`
 	width: 100%;
-	height: 100%;
+	height:100%;
 	border-radius: 5px;
 `;
 
-export const MovieImage = styled.img`
-	width: 312px;
-	margin: 0px 40px 20px 0px;
-	border-radius: 5px;
-	float: left;
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) {
-		margin: 0px 30px 14px 0px;
-	}
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
-		width: 114px;
-		margin: 0px 16px 16px 0px;
-	}
-`;
-
-export const PersonImage = styled(MovieImage)`
-	width: 399px;
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) {
-		width: 300px;
-	}
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
-		width: 116px;
-	}
-`;
 
 const Tile = styled.article`
 	min-height: 100%;
-	display: grid;
-	grid-template-rows: auto 1fr;
-	justify-content: center;
 	padding: 16px;
 	background: ${({ theme }) => theme.color.white};
 	border-radius: 5px;
+	
 	box-shadow: 0 0 12px #bac7d580;
 	transition: transform 0.3s, box-shadow 0.3s;
 
@@ -58,9 +29,9 @@ const Tile = styled.article`
 `;
 
 export const ImageContainer = styled.div`
-	width: 100%;
 	display: flex;
 	justify-content: center;
+    aspect-ratio: calc(177 / 231);
 	align-items: center;
 	border-radius: 5px;
 	overflow: hidden;
@@ -72,6 +43,8 @@ export const ImageContainer = styled.div`
 
 export const StyledMovieTile = styled(Tile)`
 	grid-gap: 16px;
+	display: grid;
+	grid-template-rows: auto 1fr;
 	max-width: 324px;
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
@@ -83,6 +56,7 @@ export const StyledMovieTile = styled(Tile)`
 
 export const MovieImageContainer = styled(ImageContainer)`
 	aspect-ratio: 2 / 3;
+	max-width:300px;
 	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
 		width: 114px;
 		height: 169px;
@@ -174,6 +148,7 @@ export const StyledPeopleTile = styled(Tile)`
 
 export const PeopleImageContainer = styled(ImageContainer)`
 	aspect-ratio: calc(177 / 260);
+	
 `;
 
 export const NoProfilePhoto = styled(NoPersonPhotoSVG)`
@@ -225,10 +200,6 @@ export const Subtitle = styled.p`
 // styles for MovieDetailsTile and PeopleDetailsTile
 
 export const StyledDetailsTile = styled(Tile)`
-	display: block;
-	max-width: 1368px;
-	padding: 40px 40px 20px 40px;
-	border-radius: 0;
 
 	&:hover {
 		transform: none;
@@ -245,10 +216,17 @@ export const StyledDetailsTile = styled(Tile)`
 		clear: both;
 	}
 
-	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
-		display: grid;
-		grid-template-columns: auto 1fr;
-		padding: 16px;
+	
+`;
+
+
+export const DetailsImageContainer = styled(ImageContainer)`
+	width:300px;
+	float:left;
+	margin: 0 10px 0 0;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px){
+		width:150px;
 	}
 `;
 
@@ -366,7 +344,6 @@ export const Description = styled.p`
 	font-size: 20px;
 	line-height: 32px;
 	text-align: justify;
-	grid-column: 1 / -1;
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) {
 		font-size: 17px;
