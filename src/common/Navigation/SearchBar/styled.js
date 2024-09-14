@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ReactComponent as SearchIconSVG } from "../../../icons/Search.svg";
 
 export const Wrapper = styled.div`
     width: 432px;
@@ -41,5 +42,20 @@ export const SearchInput = styled.input`
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) { 
         font-size: 13px;
         line-height: 17px;
+    }
+`;
+
+export const SearchIcon = styled(SearchIconSVG)`
+    width: 24px;
+    height: 24px;
+
+    @media(max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) { 
+        width: 23px;
+        height: 23px;
+    }
+
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) { 
+        width: 22px;
+        height: 22px;
     }
 `;
