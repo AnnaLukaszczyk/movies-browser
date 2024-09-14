@@ -33,7 +33,7 @@ import queryParamName from "../../../queryParamName";
 import { SearchPage } from "../../search";
 import { useQueryParameter } from "../../../common/Navigation/SearchBar/useQueryParameters";
 import pageParamName from "../../../paginationParam";
-import { NoPosterPhoto } from "../../../common/Tile/styled";
+
 
 export const MovieDetails = () => {
 	const params = useParams();
