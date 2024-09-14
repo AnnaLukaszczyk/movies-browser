@@ -21,12 +21,13 @@ import { SearchPage } from "../../search";
 import { useQueryParameter } from "../../../common/Navigation/SearchBar/useQueryParameters";
 import pageParamName from "../../../paginationParam";
 import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom";
+import queryParamName from "../../../queryParamName";
 
 export const PeopleDetails = () => {
 	const location = useLocation();
 	const history = useHistory();
 	const searchParams = new URLSearchParams(location.search);
-	const query = useQueryParameter();
+	const query = useQueryParameter(queryParamName);
 	
 	const params = useParams();
 	const dispatch = useDispatch();
