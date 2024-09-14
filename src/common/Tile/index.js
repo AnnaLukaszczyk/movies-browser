@@ -26,8 +26,10 @@ import {
 	MovieListContent,
 	PersonImage,
 	NoPosterPhoto,
-	ImageContainer,
 	MovieImage,
+	NoPhotoBox,
+	NoMoviePhotoBox,
+	NoPersonPhotoBox,
 } from "./styled";
 import { Rating } from "../Rating";
 import { posterURL, profileURL } from "../../API/APIdata";
@@ -47,7 +49,9 @@ export const MovieTile = ({
 				{poster ? (
 					<Image src={`${posterURL}${poster}`} alt="" />
 				) : (
-					<NoPosterPhoto />
+					<NoPhotoBox>
+						<NoPosterPhoto />
+					</NoPhotoBox>
 				)}
 			</MovieImageContainer>
 			<MovieListContent>
@@ -69,7 +73,9 @@ export const PeopleTile = ({ name, character, role, profilePath }) => (
 			{profilePath ? (
 				<Image src={`${profileURL}${profilePath}`} alt="" />
 			) : (
-				<NoProfilePhoto />
+				<NoPhotoBox>
+					<NoProfilePhoto />
+				</NoPhotoBox>
 			)}
 		</PeopleImageContainer>
 		<ActorProfile>
@@ -101,9 +107,9 @@ export const MovieDetailsTile = ({
 			{poster ? (
 				<MovieImage src={poster} alt="" />
 			) : (
-				<ImageContainer>
+				<NoMoviePhotoBox>
 					<NoPosterPhoto />
-				</ImageContainer>
+				</NoMoviePhotoBox>
 			)}
 			<ContentInDetailsTile>
 				<TitleInDetailsTile>{title}</TitleInDetailsTile>
@@ -147,7 +153,13 @@ export const PeopleDetailsTile = ({
 
 	return (
 		<StyledDetailsTile>
-			<PersonImage src={picturePersonDetails} alt="" />
+			{picturePersonDetails ? (
+				<PersonImage src={picturePersonDetails} alt="" />
+			) : (
+				<NoPersonPhotoBox>
+					<NoPosterPhoto />
+				</NoPersonPhotoBox>
+			)}
 			<ContentInDetailsTile>
 				<TitleInDetailsTile>{name}</TitleInDetailsTile>
 				<BoxOnDetails>
