@@ -237,6 +237,7 @@ export const ContentInDetailsTile = styled.div`
 export const TitleInDetailsTile = styled.header`
 	font-size: 36px;
 	font-weight: 600;
+	color: ${({ theme }) => theme.color.black};
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.tabletSmall}px) {
 		font-size: 28px;
@@ -344,6 +345,7 @@ export const Description = styled.p`
 	font-size: 20px;
 	line-height: 32px;
 	text-align: justify;
+	color: ${({ theme }) => theme.color.black};
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) {
 		font-size: 17px;
