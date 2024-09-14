@@ -15,7 +15,7 @@ const changeDateFormat = (releaseDate) => {
 };
 
 const changeVoteFormat = (voteAverage) => {
-	const roundedVote = voteAverage.toFixed(1);
+	const roundedVote = voteAverage.toFixed(1).replace(".",",");
 
 	return roundedVote;
 };
