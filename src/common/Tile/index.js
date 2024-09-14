@@ -26,7 +26,8 @@ import {
 	MovieListContent,
 	PersonImage,
 	NoPosterPhoto,
-	DetailsImageContainer,
+	ImageContainer,
+	MovieImage,
 } from "./styled";
 import { Rating } from "../Rating";
 import { posterURL, profileURL } from "../../API/APIdata";
@@ -97,14 +98,13 @@ export const MovieDetailsTile = ({
 	const isLargeScreen = screenWidth >= 767;
 	return (
 		<StyledDetailsTile>
-			<DetailsImageContainer>
-				{poster ? (
-					<Image src={poster} alt="" />
-				) : (
-
+			{poster ? (
+				<MovieImage src={poster} alt="" />
+			) : (
+				<ImageContainer>
 					<NoPosterPhoto />
-				)}
-			</DetailsImageContainer>
+				</ImageContainer>
+			)}
 			<ContentInDetailsTile>
 				<TitleInDetailsTile>{title}</TitleInDetailsTile>
 				<YearInDetailsTile>{year ? year : ""}</YearInDetailsTile>
@@ -147,13 +147,7 @@ export const PeopleDetailsTile = ({
 
 	return (
 		<StyledDetailsTile>
-			<DetailsImageContainer>
-				{picturePersonDetails ?
-					<Image src={picturePersonDetails} alt="" />
-					:
-					<NoProfilePhoto />
-				}
-			</DetailsImageContainer>
+			<PersonImage src={picturePersonDetails} alt="" />
 			<ContentInDetailsTile>
 				<TitleInDetailsTile>{name}</TitleInDetailsTile>
 				<BoxOnDetails>
