@@ -6,6 +6,10 @@ import { List as OriginalList } from "../../people/PeopleList/styled";
 export const Header = styled.div`
 	margin-bottom: 64px;
 	background-color: black;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
+		margin-bottom: 16px;
+	}
 `;
 
 export const BackgroundImage = styled.div`
@@ -67,8 +71,16 @@ export const Title = styled.h2`
 
 export const Section = styled(OriginalSection)`
 	margin-top: 64px;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
+		margin-top: 24px;
+	}
 `;
 
 export const List = styled(OriginalList)`
 	margin-top: 32px;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
+		margin-top: 16px;
+	}
 `;
