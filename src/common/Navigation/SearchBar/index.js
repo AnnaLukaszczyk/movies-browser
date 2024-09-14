@@ -1,4 +1,4 @@
-import { Wrapper, SearchInput } from "./styled";
+import { Wrapper, SearchInput, SearchIcon } from "./styled";
 import { useLocation } from "react-router-dom";
 import {
 	useQueryParameter,
@@ -52,6 +52,7 @@ export const SearchBar = () => {
 
 	return (
 		<Wrapper>
+			<SearchIcon />
 			<SearchInput
 				value={query || ""}
 				onChange={onInputChange}
