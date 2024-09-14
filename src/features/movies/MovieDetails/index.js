@@ -111,9 +111,9 @@ export const MovieDetails = () => {
 							<SectionTitle>Cast</SectionTitle>
 							{cast && (
 								<List>
-									{cast.map(({ cast_id, name, character, profile_path }) => (
+									{cast.map(({ cast_id, id, name, character, profile_path }) => (
 										<ListItem key={cast_id}>
-											<StyledLink to={toPeopleDetails({ id: cast_id })}>
+											<StyledLink to={toPeopleDetails({ id: id })}>
 												<PeopleTile
 													profilePath={profile_path}
 													name={name}
@@ -129,9 +129,9 @@ export const MovieDetails = () => {
 							<SectionTitle>Crew</SectionTitle>
 							{crew && (
 								<List>
-									{crew.map(({ credit_id, name, profile_path, job }) => (
+									{crew.map(({ credit_id, id, name, profile_path, job }) => (
 										<ListItem key={credit_id}>
-											<StyledLink to={toPeopleDetails({ id: credit_id })}>
+											<StyledLink to={toPeopleDetails({ id: id })}>
 												<PeopleTile
 													profilePath={profile_path}
 													name={name}
