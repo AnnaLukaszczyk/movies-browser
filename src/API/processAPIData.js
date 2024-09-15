@@ -78,6 +78,7 @@ export const processPeopleCastMoviesData = (castMovies, genreList) => {
 
 	return castMovies.map((movie) => ({
 		id: movie.id,
+		creditId:movie.credit_id,
 		title: movie.title,
 		date: changeDateFormat(movie.release_date),
 		rating: changeVoteFormat(movie.vote_average),
@@ -93,6 +94,7 @@ export const processPeopleCrewMoviesData = (crewMovies, genreList) => {
 
 	return crewMovies.map((movie) => ({
 		id: movie.id,
+		creditId:movie.credit_id,
 		title: movie.title,
 		date: changeDateFormat(movie.release_date),
 		rating: changeVoteFormat(movie.vote_average),
