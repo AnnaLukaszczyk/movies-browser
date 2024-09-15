@@ -94,16 +94,16 @@ export const MovieDetails = () => {
 								ratingValue={movie.rating}
 								voteAmount={movie.voteCount}
 								title={movie.title}
-								year={movie.releaseYear}
-								production={movie.production}
-								productionShort={movie.productionShort}
+								year={movie?.releaseYear  || "Unknown"}
+								production={movie?.production  || "Unknown"}
+								productionShort={movie?.productionShort  || "Unknown"}
 								date={
 									movie.releaseDate
 										? new Date(movie.releaseDate).toLocaleDateString()
 										: "Unknown"
 								}
 								tags={movie.genres}
-								description={movie.description}
+								description={movie?.description  || "No description available."}
 							/>
 						</Section>
 						{cast && cast.length > 0 && (
