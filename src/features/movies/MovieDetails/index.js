@@ -106,9 +106,9 @@ export const MovieDetails = () => {
 								description={movie.description}
 							/>
 						</Section>
-						<Section>
-							<SectionTitle>Cast</SectionTitle>
-							{cast && (
+						{cast.length > 0 && (
+							<Section>
+								<SectionTitle>Cast ({cast.length})</SectionTitle>
 								<List>
 									{cast.map(
 										({ cast_id, id, name, character, profile_path }) => (
@@ -124,11 +124,11 @@ export const MovieDetails = () => {
 										)
 									)}
 								</List>
-							)}
-						</Section>
-						<Section>
-							<SectionTitle>Crew</SectionTitle>
-							{crew && (
+							</Section>
+						)}
+						{crew.length > 0 && (
+							<Section>
+								<SectionTitle>Crew ({crew.length})</SectionTitle>
 								<List>
 									{crew.map(({ credit_id, id, name, profile_path, job }) => (
 										<ListItem key={credit_id}>
@@ -142,8 +142,8 @@ export const MovieDetails = () => {
 										</ListItem>
 									))}
 								</List>
-							)}
-						</Section>
+							</Section>
+						)}
 					</Main>
 				</>
 			);
