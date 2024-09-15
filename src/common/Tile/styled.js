@@ -67,7 +67,7 @@ export const ImageContainer = styled.div`
 `;
 
 export const NoPhotoBox = styled.div`
-	width: 100%;
+	width: 292px;
 	height: 100%;
 	display: flex;
 	justify-content: center;
