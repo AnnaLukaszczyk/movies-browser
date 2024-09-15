@@ -34,25 +34,24 @@ import { SearchPage } from "../../search";
 import { useQueryParameter } from "../../../common/Navigation/SearchBar/useQueryParameters";
 import pageParamName from "../../../paginationParam";
 
-
 export const MovieDetails = () => {
 	const params = useParams();
 	const dispatch = useDispatch();
 	const location = useLocation();
 	const history = useHistory();
 
-	const searchParams = new URLSearchParams(location.search);
-
 	const query = useQueryParameter(queryParamName);
 
 	useEffect(() => {
+		const searchParams = new URLSearchParams(location.search);
+
 		dispatch(setMovieId(params.id));
 
 		if (!query) {
 			searchParams.delete(pageParamName);
 			history.replace(`${location.pathname}?${searchParams.toString()}`);
 		}
-	}, [params.id, query]);
+	}, [params.id, query, dispatch, history, location.pathname, location.search]);
 
 	const movie = useSelector(selectMovie);
 	const cast = useSelector(selectMovieCast);
@@ -71,7 +70,7 @@ export const MovieDetails = () => {
 		default:
 			return (
 				<>
-					{movie.backdrop ?
+					{movie.backdrop ? (
 						<Header>
 							<BackgroundImage poster={movie.backdrop}>
 								<Vignette />
@@ -85,9 +84,9 @@ export const MovieDetails = () => {
 								</TitleContainer>
 							</BackgroundImage>
 						</Header>
-						:
-						("")
-					}
+					) : (
+						""
+					)}
 					<Main>
 						<Section>
 							<MovieDetailsTile
@@ -111,17 +110,19 @@ export const MovieDetails = () => {
 							<SectionTitle>Cast</SectionTitle>
 							{cast && (
 								<List>
-									{cast.map(({ cast_id, id, name, character, profile_path }) => (
-										<ListItem key={cast_id}>
-											<StyledLink to={toPeopleDetails({ id: id })}>
-												<PeopleTile
-													profilePath={profile_path}
-													name={name}
-													character={character}
-												/>
-											</StyledLink>
-										</ListItem>
-									))}
+									{cast.map(
+										({ cast_id, id, name, character, profile_path }) => (
+											<ListItem key={cast_id}>
+												<StyledLink to={toPeopleDetails({ id: id })}>
+													<PeopleTile
+														profilePath={profile_path}
+														name={name}
+														character={character}
+													/>
+												</StyledLink>
+											</ListItem>
+										)
+									)}
 								</List>
 							)}
 						</Section>
