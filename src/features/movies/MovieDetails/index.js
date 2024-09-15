@@ -106,7 +106,7 @@ export const MovieDetails = () => {
 								description={movie.description}
 							/>
 						</Section>
-						{cast.length > 0 && (
+						{cast && cast.length > 0 && (
 							<Section>
 								<SectionTitle>Cast ({cast.length})</SectionTitle>
 								<List>
@@ -126,7 +126,7 @@ export const MovieDetails = () => {
 								</List>
 							</Section>
 						)}
-						{crew.length > 0 && (
+						{crew && crew.length > 0 && (
 							<Section>
 								<SectionTitle>Crew ({crew.length})</SectionTitle>
 								<List>
