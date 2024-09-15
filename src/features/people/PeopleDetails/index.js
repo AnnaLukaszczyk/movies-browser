@@ -82,6 +82,7 @@ export const PeopleDetails = () => {
 								{castMovies.map(
 									({
 										id,
+										creditId,
 										title,
 										rating,
 										vote_count,
@@ -89,7 +90,7 @@ export const PeopleDetails = () => {
 										namedGenres,
 										poster,
 									}) => (
-										<li key={id}>
+										<li key={creditId}>
 											<StyledLink to={toMovieDetails({ id: id })}>
 												<MovieTile
 													poster={poster}
@@ -113,6 +114,7 @@ export const PeopleDetails = () => {
 								{crewMovies.map(
 									({
 										id,
+										creditId,
 										title,
 										rating,
 										vote_count,
@@ -120,7 +122,7 @@ export const PeopleDetails = () => {
 										namedGenres,
 										poster,
 									}) => (
-										<li key={id}>
+										<li key={creditId}>
 											<StyledLink to={toMovieDetails({ id: id })}>
 												<MovieTile
 													poster={poster}
