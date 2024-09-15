@@ -64,8 +64,15 @@ export const ImageContainer = styled.div`
 	align-items: center;
 	border-radius: 5px;
 	overflow: hidden;
+`;
+
+export const NoPhotoBox = styled.div`
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	background-color: gray;
-	color: white;
 `;
 
 // styles for MovieTile
@@ -155,7 +162,7 @@ export const NoPosterPhoto = styled(NoPosterPhotoSVG)`
 	width: 72px;
 	height: 72px;
 
-	@media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}px) {
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
 		width: 48px;
 		height: 48px;
 	}
@@ -249,6 +256,40 @@ export const StyledDetailsTile = styled(Tile)`
 		display: grid;
 		grid-template-columns: auto 1fr;
 		padding: 16px;
+	}
+`;
+
+export const NoMoviePhotoBox = styled(NoPhotoBox)`
+	width: 312px;
+	height: 468px;
+	margin: 0px 40px 20px 0px;
+	border-radius: 5px;
+	float: left;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+		width: 114px;
+		height: 169px;
+		margin: 0px 16px 16px 0px;
+	}
+`;
+
+export const NoPersonPhotoBox = styled(NoPhotoBox)`
+	width: 399px;
+	height: 598px;
+	margin: 0px 40px 20px 0px;
+	border-radius: 5px;
+	float: left;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}px) {
+		width: 300px;
+		height: 450px;
+		margin: 0px 30px 14px 0px;
+	}
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.mobileLarge}px) {
+		width: 116px;
+		height: 174px;
+		margin: 0px 16px 16px 0px;
 	}
 `;
 
